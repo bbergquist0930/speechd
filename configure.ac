@@ -13,7 +13,7 @@
 # Copyright (C) 2017 Colomban Wendling <cwendling@hypra.fr>
 # Copyright (C) 2017 Jan Tojnar <jtojnar@gmail.com>
 # Copyright (C) 2018 Raphaël POITEVIN <rpoitevin@hypra.fr>
-# Copyright (C) 2018-2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
+# Copyright (C) 2018-2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
 # Copyright (C) 2018 Alan Coopersmith <alan.coopersmith@oracle.com>
 #
 # This program is free software; you can redistribute it and/or modify it under
@@ -33,8 +33,9 @@ AC_PREREQ([2.63])
 m4_define([MAJOR_VERSION], [0])
 m4_define([MINOR_VERSION], [12])
 m4_define([MICRO_VERSION], [0])
-m4_define([AC_PACKAGE_VERSION],[MAJOR_VERSION.MINOR_VERSION.MICRO_VERSION-rc4])
+m4_define([AC_PACKAGE_VERSION],[MAJOR_VERSION.MINOR_VERSION.MICRO_VERSION])
 AC_INIT([speech-dispatcher], [AC_PACKAGE_VERSION], [speechd-discuss@nongnu.org])
+AC_USE_SYSTEM_EXTENSIONS
 AC_CONFIG_MACRO_DIRS([m4])
 AM_INIT_AUTOMAKE([foreign info-in-builddir])
 m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES(yes)])
@@ -42,12 +43,40 @@ LT_PREREQ([2.2])
 LT_INIT([dlopen])
 AC_CONFIG_SRCDIR([src/server/speechd.c])
 AC_CONFIG_HEADERS([config.h])
+AC_ARG_ENABLE([libs-only], [AS_HELP_STRING([--enable-libs-only], [build only the client library])], [], [enable_libs_only=no])
+AM_CONDITIONAL([LIBS_ONLY], [test "$enable_libs_only" = "yes"])
+if test "$enable_libs_only" = "yes"; then
+	with_espeak=no
+	with_espeak_ng=no
+	with_flite=no
+	with_ibmtts=no
+	with_voxin=no
+	with_ivona=no
+	with_pico=no
+	with_baratinoo=no
+	with_kali=no
+	with_piper=no
+
+	with_pulse=no
+	with_alsa=no
+	with_oss=no
+	with_nas=no
+	with_libao=no
+	with_pipewire=no
+
+	enable_python=no
+	enable_doc=no
+	with_systemdsystemunitdir=no
+	with_systemduserunitdir=no
+else
 AM_GNU_GETTEXT_VERSION([0.19.8])
 AM_GNU_GETTEXT([external])
 if test "$ac_cv_path_MSGFMT" = ":"
 then
 	AC_MSG_FAILURE([msgfmt missing from the gettext package])
 fi
+fi
+
 
 # Split version number
 [MAJOR_VERSION]=MAJOR_VERSION
@@ -68,17 +97,19 @@ AC_PROG_LN_S
 AC_CHECK_PROGS([HELP2MAN], [help2man])
 AM_CONDITIONAL([HAVE_HELP2MAN], [test "x$HELP2MAN" != "x"])
 
-AC_USE_SYSTEM_EXTENSIONS
 
 # Checks for libraries.
 AC_SEARCH_LIBS([sqrt], [m], [],
 	[AC_MSG_FAILURE([Math library missing])])
 AC_SEARCH_LIBS([pthread_create], [pthread], [],
 	[AC_MSG_FAILURE([Threads library missing])])
+AC_CHECK_DECL([pthread_setname_np], AC_CHECK_FUNCS([pthread_setname_np]), , [#include <pthread.h>])
+if test "$enable_libs_only" != "yes"; then
 AC_ARG_ENABLE([ltdl],
 	[AS_HELP_STRING([--disable-ltdl], [do not use ltdl for modules])],
 	[],
 	[enable_ltdl=check])
+fi
 
 if test x$enable_ltdl != xno;
 then
@@ -120,6 +151,7 @@ PKG_CHECK_MODULES([GLIB], [glib-2.0 >= 2.36])
 AC_SUBST([GLIB_CFLAGS])
 AC_SUBST([GLIB_LIBS])
 
+if test "$enable_libs_only" != "yes"; then
 PKG_CHECK_MODULES([GTHREAD], [gthread-2.0])
 AC_SUBST([GTHREAD_CFLAGS])
 AC_SUBST([GTHREAD_LIBS])
@@ -135,6 +167,7 @@ AC_SUBST([DOTCONF_LIBS])
 PKG_CHECK_MODULES([SNDFILE], [sndfile >= 1.0.2])
 AC_SUBST([SNDFILE_CFLAGS])
 AC_SUBST([SNDFILE_LIBS])
+fi
 
 PKG_CHECK_MODULES([LIBSYSTEMD], [libsystemd], [have_libsystemd=yes], [:])
 
@@ -185,7 +218,7 @@ AC_SUBST([ERROR_CFLAGS])
 AC_SUBST([RDYNAMIC])
 
 AC_ARG_ENABLE([doc],
-              [AC_HELP_STRING([--disable-doc], [turn off documentation])])
+              [AS_HELP_STRING([--disable-doc], [turn off documentation])])
 AM_CONDITIONAL(ENABLE_DOC, test "$enable_doc" != "no")
 
 # Check for python support.
@@ -242,10 +275,9 @@ AC_ARG_WITH([flite],
 	[with_flite=check])
 AS_IF([test $with_flite != "no"],
 	[AC_CHECK_LIB([flite], [flite_init],
-		[flite_basic="-lflite"],
+		[flite_basic="-lflite -lm"],
 		[AS_IF([test $with_flite = "yes"],
-			[AC_MSG_FAILURE([libflite is not available])])],
-		[-lm])
+			[AC_MSG_FAILURE([libflite is not available])])])
 	AC_CHECK_LIB([flite_usenglish], [usenglish_init],
 		[flite_basic="-lflite_usenglish ${flite_basic}"],
 		[AS_IF([test $with_flite = "yes"],
@@ -256,25 +288,36 @@ AS_IF([test $with_flite != "no"],
 		[AS_IF([test $with_flite = "yes"],
 			[AC_MSG_FAILURE([libflite_cmulex is not available])])],
 		[-lflite -lm])
+
 	AC_CHECK_LIB([flite_cmu_us_kal16], [register_cmu_us_kal16],
-		[with_flite=yes;
-		flite_kal="-lflite_cmu_us_kal16";
-		AC_DEFINE([HAVE_REGISTER_CMU_US_KAL16], [1],
-			[Use cmu_register_us_kal16 to register the 16-bit voice.])],
-		[AC_CHECK_LIB([flite_cmu_us_kal16], [register_cmu_us_kal],
-			[with_flite=yes;
-			flite_kal="-lflite_cmu_us_kal16"],
-			[AC_CHECK_LIB([flite_cmu_us_kal], [register_cmu_us_kal],
-				[with_flite=yes;
-				flite_kal="-lflite_cmu_us_kal"],
-				[AS_IF([test $with_flite = "yes"],
-					[AC_MSG_FAILURE([no flite voices found])])],
-				[$flite_basic -lm])],
-			[$flite_basic -lm])],
-		[$flite_basic -lm])])
+		[with_flite=yes; flite_voices="$flite_voices -lflite_cmu_us_kal16"
+		 AC_DEFINE([HAVE_REGISTER_CMU_US_KAL16], [1],
+                       [Use cmu_register_us_kal16 to register the kal 16-bit voice.])],
+		[], [$flite_basic])
+	AC_CHECK_LIB([flite_cmu_us_kal], [register_cmu_us_kal],
+		[with_flite=yes; flite_voices="$flite_voices -lflite_cmu_us_kal"
+		 AC_DEFINE([HAVE_REGISTER_CMU_US_KAL], [1],
+                       [Use cmu_register_us_kal to register the kal 8-bit voice.])],
+		[], [$flite_basic])
+	AC_CHECK_LIB([flite_cmu_us_awb], [register_cmu_us_awb],
+		[with_flite=yes; flite_voices="$flite_voices -lflite_cmu_us_awb"
+		 AC_DEFINE([HAVE_REGISTER_CMU_US_AWB], [1],
+                       [Use cmu_register_us_kal to register the awb voice.])],
+		[], [$flite_basic])
+	AC_CHECK_LIB([flite_cmu_us_rms], [register_cmu_us_rms],
+		[with_flite=yes; flite_voices="$flite_voices -lflite_cmu_us_rms"
+		 AC_DEFINE([HAVE_REGISTER_CMU_US_RMS], [1],
+                       [Use cmu_register_us_kal to register the rms voice.])],
+		[], [$flite_basic])
+	AC_CHECK_LIB([flite_cmu_us_slt], [register_cmu_us_slt],
+		[with_flite=yes; flite_voices="$flite_voices -lflite_cmu_us_slt"
+		 AC_DEFINE([HAVE_REGISTER_CMU_US_SLT], [1],
+                       [Use cmu_register_us_kal to register the slt voice.])],
+		[], [$flite_basic])
+])
 AM_CONDITIONAL([flite_support], [test $with_flite = "yes"])
 AC_SUBST([flite_basic])
-AC_SUBST([flite_kal])
+AC_SUBST([flite_voices])
 AS_IF([test $with_flite = "yes"], [output_modules="${output_modules} flite"])
 
 AC_CHECK_PROGS([FLITE], [flite])
@@ -376,6 +419,75 @@ AS_IF([test $with_kali = yes -o $with_kali = check],
 AM_CONDITIONAL([kali_support], [test $with_kali != no])
 AM_CONDITIONAL([kali_shim], [test $with_kali = shim])
 AS_IF([test $with_kali != no], [output_modules="${output_modules} kali"])
+
+# check for piper support
+AC_ARG_WITH([piper],
+	[AS_HELP_STRING([--with-piper=/path], [include Piper support])],
+	[],
+	[with_piper=no])
+AS_IF([test $with_espeak = yes -a $with_piper != no], [
+	# We currently need various headers of piper
+	PIPER_SRC_DIR="$with_piper/src/cpp"
+	OLDCXXFLAGS="$CXXFLAGS"
+	OLDLDFLAGS="$LDFLAGS"
+	CXXFLAGS="$CXXFLAGS -I$PIPER_SRC_DIR"
+
+	AS_IF([test $with_piper != no],
+		[PKG_CHECK_MODULES([ONNXRUNTIME], [libonnxruntime], [
+				CXXFLAGS="$CXXFLAGS $ONNXRUNTIME_CFLAGS"
+				LDFLAGS="$LDFLAGS $ONNXRUNTIME_LIBS"
+			], [AC_CHECK_LIB([onnxruntime], [OrtGetApiBase],
+				[ONNXRUNTIME_LIBS="-lonnxruntime"],
+				[with_piper=no])
+			])])
+
+	AS_IF([test $with_piper != no],
+		[PKG_CHECK_MODULES([RUBBERBAND], [rubberband], [
+				CXXFLAGS="$CXXFLAGS $RUBBERBAND_CFLAGS"
+				LDFLAGS="$LDFLAGS $RUBBERBAND_LIBS"
+			], [with_piper=no])])
+
+	AC_LANG_PUSH(C++)
+	AS_IF([test $with_piper != no],
+		[AC_CHECK_LIB([piper_phonemize], [_ZN5piper19DEFAULT_PHONEME_MAPB5cxx11E],
+			[:],
+			[with_piper=no])])
+
+	AS_IF([test $with_piper != no],
+		[AC_CHECK_HEADER([json.hpp],
+			[],
+			[with_piper=no])])
+	AS_IF([test $with_piper != no],
+		[AC_CHECK_HEADER([piper.hpp],
+			[],
+			[with_piper=no])])
+	AS_IF([test $with_piper != no],
+		[AC_CHECK_HEADER([utf8.h],
+			[],
+			[with_piper=no])])
+	AS_IF([test $with_piper != no],
+		[AC_CHECK_HEADER([wavfile.hpp],
+			[],
+			[with_piper=no])])
+
+	AS_IF([test $with_piper != no],
+		# We need espeak with https://github.com/espeak-ng/espeak-ng/pull/2127 applied
+		[AC_CHECK_LIB([espeak-ng], [espeak_TextToPhonemesWithTerminator],
+			[:],
+			[with_piper=no],
+			[$ESPEAK_NG_LIBS])])
+
+	AC_LANG_POP(C++)
+	CXXFLAGS="$OLDCXXFLAGS"
+	LDFLAGS="$OLDLDFLAGS"
+])
+AM_CONDITIONAL([piper_support], [test $with_piper != no])
+AS_IF([test $with_piper != no], [output_modules="${output_modules} cxxpiper"])
+AC_SUBST([PIPER_SRC_DIR])
+AC_SUBST([ONNXRUNTIME_CFLAGS])
+AC_SUBST([ONNXRUNTIME_LIBS])
+AC_SUBST([RUBBERBAND_CFLAGS])
+AC_SUBST([RUBBERBAND_LIBS])
 
 audio_dlopen='-dlopen force'
 audio_dlopen_modules=
@@ -520,6 +632,8 @@ clientconfdir='${spdconfdir}/clients'
 AC_SUBST([clientconfdir])
 moduleconfdir='${spdconfdir}/modules'
 AC_SUBST([moduleconfdir])
+pwpuconfdir='${sysconfdir}/pipewire/pipewire-pulse.conf.d'
+AC_SUBST([pwpuconfdir])
 
 # Paths for read-only copy of configuration files:
 spdconforigdir='${datadir}/speech-dispatcher/conf'

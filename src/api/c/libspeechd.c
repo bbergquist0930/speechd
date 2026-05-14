@@ -51,6 +51,7 @@
 #include <speechd_types.h>
 #include <speechd_defines.h>
 #include "libspeechd.h"
+#include "../../common/common.h"
 
 /* Comment/uncomment to switch debugging on/off */
 // #define LIBSPEECHD_DEBUG 1
@@ -862,6 +863,8 @@ spd_key(SPDConnection * connection, SPDPriority priority, const char *key_name)
 
 	if (key_name == NULL)
 		return -1;
+	if (!strcmp(key_name, " "))
+		key_name = "space";
 
 	pthread_mutex_lock(&connection->ssip_mutex);
 
@@ -1891,6 +1894,8 @@ static void *spd_events_handler(void *conn)
 	char *reply;
 	int reply_code;
 	SPDConnection *connection = conn;
+
+	spd_pthread_setname("events handler");
 
 	while (1) {
 

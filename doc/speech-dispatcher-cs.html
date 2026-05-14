@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
-<!-- Created by GNU Texinfo 7.1.1, https://www.gnu.org/software/texinfo/ -->
+<!-- Created by GNU Texinfo 7.3, https://www.gnu.org/software/texinfo/ -->
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Speech Dispatcher</title>
 
 <meta name="description" content="Speech Dispatcher">
@@ -16,31 +16,30 @@
 <link href="#Index-of-Concepts" rel="index" title="Index of Concepts">
 <link href="#SEC_Contents" rel="contents" title="Table of Contents">
 <link href="dir.html#Top" rel="up" title="(dir)">
-<link href="#g_t_010f_017c_02ddvod" rel="next" title="�vod">
+<link href="#g_t_00davod" rel="next" title="Úvod">
 <link href="dir.html#Top" rel="prev" title="(dir)">
 <style type="text/css">
-<!--
 a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
 a.summary-letter-printindex {text-decoration: none}
 div.center {text-align:center}
 div.display {margin-left: 3.2em}
 div.example {margin-left: 3.2em}
+dt.def-line {font-size: 1rem}
 pre.display-preformatted {font-family: inherit}
 span:hover a.copiable-link {visibility: visible}
-strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
-td.printindex-index-entry {vertical-align: top}
+strong.def-name {font-family: monospace; font-weight: bold}
+td.printindex-index-entry {vertical-align: top; padding-left: 1.5em}
 td.printindex-index-section {vertical-align: top; padding-left: 1em}
-th.entries-header-printindex {text-align:left}
-th.sections-header-printindex {text-align:left; padding-left: 1em}
+th.index-letter-header-printindex {text-align: left}
 ul.mark-bullet {list-style-type: disc}
 ul.toc-numbered-mark {list-style: none}
--->
 </style>
 
 
 </head>
 
-<body lang="en">
+<body>
+
 
 
 
@@ -49,629 +48,595 @@ ul.toc-numbered-mark {list-style: none}
 
 
 <div class="top-level-extent" id="Top">
-<div class="nav-panel">
-<p>
-Next: <a href="#g_t_010f_017c_02ddvod" accesskey="n" rel="next">�vod</a>, Previous: <a href="dir.html#Top" accesskey="p" rel="prev">(dir)</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00davod" rel="next">Úvod</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="dir.html#Top" rel="prev">(dir)</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="dir.html#Top" rel="up">(dir)</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h1 class="top" id="Speech-Dispatcher"><span>Speech Dispatcher<a class="copiable-link" href="#Speech-Dispatcher"> &para;</a></span></h1>
 
-<p>Tento manu�l se vzathuje ke Speech Dispatcher, verze 0.12.0-rc4.  Jedn� se
-v�ak pouze o u�ivatelskou ��st dokumentace a upozor�ujeme, �e tento p�eklad ji�
-nen� aktu�ln�!  Poskytujeme jej s t�m, �e mo�n� bude u�ite�n� a to zejm�na v
-sekc�ch, kter� popisuj� obecn� koncepty a my�lenky projektu, a to t�m, kte�� si
-nemohou p�e��st anglickou dokumentaci.  Nikdo by nicm�n� nem�l spol�hat na
-technick� detaily zde uveden�, proto�e mnoho v�c� je ji� dnes jinak.
+<p>Tento manuál se vztahuje ke Speech Dispatcher, verze 0.12.0.  Jedná se
+však pouze o uživatelskou část dokumentace a upozorňujeme, že tento překlad již
+není aktuální!  Poskytujeme jej s tím, že možná bude užitečný a to zejména v
+sekcích, které popisují obecné koncepty a myšlenky projektu, a to těm, kteří si
+nemohou přečíst anglickou dokumentaci.  Nikdo by nicméně neměl spoléhat na
+technické detaily zde uvedené, protože mnoho věcí je již dnes jinak.
 </p>
 <p>Copyright &copy; 2001, 2002, 2003 Brailcom, o.p.s.
 </p>
 <blockquote class="quotation">
-<p>D�v�me povolen� kop�rovat, distribuovat a/nebo modifikovate tento dokument pod
-podm�nkami GNU Free Documentation License, Verze 1.2 nebo jak�koliv nov�j��
-verze vydan� Free Software Foundation; bez jak�chkoliv Invariant Sections
-(nem�nn�ch sekc�), bez Front-Cover Texts (texty na p�edn� stran� ob�lky) a bez
-Back-Cover Texts (texty na zadn� stran� ob�lky).  Kopie t�to licence je
-p�ilo�ena v sekci nazvan� ,,GNU Free Documentation License&rdquo;.
+<p>Dáváme povolení kopírovat, distribuovat a/nebo modifikovat tento dokument pod
+podmínkami GNU Free Documentation License, Verze 1.2 nebo jakékoliv novější
+verze vydané Free Software Foundation; bez jakýchkoliv Invariant Sections
+(neměnných sekcí), bez Front-Cover Texts (texty na přední straně obálky) a bez
+Back-Cover Texts (texty na zadní straně obálky).  Kopie této licence je
+přiložena v sekci nazvané ,,GNU Free Documentation License&rdquo;.
 </p></blockquote>
 
 <h3 class="heading" id="Menu"><span>Menu<a class="copiable-link" href="#Menu"> &para;</a></span></h3>
 
 
-<div class="element-shortcontents" id="SEC_Shortcontents">
+<div class="region-shortcontents" id="SEC_Shortcontents">
 <h2 class="shortcontents-heading">Short Table of Contents</h2>
 
 <div class="shortcontents">
 <ul class="toc-numbered-mark">
-<li><a id="stoc-dz_0022vod" href="#toc-dz_0022vod">1 �vod</a></li>
-<li><a id="stoc-Udz_0022ivatelskdz_0022-dokumentace" href="#toc-Udz_0022ivatelskdz_0022-dokumentace">2 U�ivatelsk� dokumentace</a></li>
-<li><a id="stoc-Standardndz_0022-hlasy" href="#toc-Standardndz_0022-hlasy">Appendix A Standardn� hlasy</a></li>
-<li><a id="stoc-GNU-General-Public-License-1" href="#toc-GNU-General-Public-License-1">Appendix B GNU General Public License</a></li>
-<li><a id="stoc-GNU-Free-Documentation-License-1" href="#toc-GNU-Free-Documentation-License-1">Appendix C GNU Free Documentation License</a></li>
-<li><a id="stoc-Index-of-Concepts-1" href="#toc-Index-of-Concepts-1" rel="index">Index of Concepts</a></li>
+<li><a id="stoc-_00davod" href="#toc-_00davod">1 Úvod</a></li>
+<li><a id="stoc-U_017eivatelsk_00e1-dokumentace" href="#toc-U_017eivatelsk_00e1-dokumentace">2 Uživatelská dokumentace</a></li>
+<li><a id="stoc-Standardn_00ed-hlasy" href="#toc-Standardn_00ed-hlasy">Appendix A Standardní hlasy</a></li>
+<li><a id="stoc-GNU-General-Public-License" href="#toc-GNU-General-Public-License">Appendix B GNU General Public License</a></li>
+<li><a id="stoc-GNU-Free-Documentation-License" href="#toc-GNU-Free-Documentation-License">Appendix C GNU Free Documentation License</a></li>
+<li><a id="stoc-Index-of-Concepts" href="#toc-Index-of-Concepts" rel="index">Index of Concepts</a></li>
 </ul>
 </div>
 </div>
-<div class="element-contents" id="SEC_Contents">
+<div class="region-contents" id="SEC_Contents">
 <h2 class="contents-heading">Table of Contents</h2>
 
 <div class="contents">
 
 <ul class="toc-numbered-mark">
-  <li><a id="toc-dz_0022vod" href="#g_t_010f_017c_02ddvod">1 �vod</a>
+  <li><a id="toc-_00davod" href="#g_t_00davod">1 Úvod</a>
   <ul class="toc-numbered-mark">
-    <li><a id="toc-Motivace-1" href="#Motivace">1.1 Motivace</a></li>
-    <li><a id="toc-Zdz_0022kladndz_0022-design" href="#Z_010f_017c_02ddkladn_010f_017c_02dd-design">1.2 Z�kladn� design</a></li>
-    <li><a id="toc-Pdz_0022ehled-zdz_0022kladndz_0022ch-rysdz_0022" href="#P_010f_017c_02ddehled-z_010f_017c_02ddkladn_010f_017c_02ddch-rys_010f_017c_02dd">1.3 P�ehled z�kladn�ch rys�</a></li>
-    <li><a id="toc-Soudz_0022asndz_0022-stav" href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav">1.4 Sou�asn� stav</a></li>
+    <li><a id="toc-Motivace" href="#Motivace">1.1 Motivace</a></li>
+    <li><a id="toc-Z_00e1kladn_00ed-design" href="#Z_00e1kladn_00ed-design">1.2 Základní design</a></li>
+    <li><a id="toc-P_0159ehled-z_00e1kladn_00edch-rys_016f" href="#P_0159ehled-z_00e1kladn_00edch-rys_016f">1.3 Přehled základních rysů</a></li>
+    <li><a id="toc-Sou_010dasn_00fd-stav" href="#Sou_010dasn_00fd-stav">1.4 Současný stav</a></li>
   </ul></li>
-  <li><a id="toc-Udz_0022ivatelskdz_0022-dokumentace" href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace">2 U�ivatelsk� dokumentace</a>
+  <li><a id="toc-U_017eivatelsk_00e1-dokumentace" href="#U_017eivatelsk_00e1-dokumentace">2 Uživatelská dokumentace</a>
   <ul class="toc-numbered-mark">
-    <li><a id="toc-Zdz_0022kladndz_0022-funkce" href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce">2.1 Z�kladn� funkce</a>
+    <li><a id="toc-Z_00e1kladn_00ed-funkce" href="#Z_00e1kladn_00ed-funkce">2.1 Základní funkce</a>
     <ul class="toc-numbered-mark">
-      <li><a id="toc-Model-priorit-zprdz_0022v" href="#Model-priorit-zpr_010f_017c_02ddv">2.1.1 Model priorit zpr�v</a>
+      <li><a id="toc-Model-priorit-zpr_00e1v" href="#Model-priorit-zpr_00e1v">2.1.1 Model priorit zpráv</a>
       <ul class="toc-numbered-mark">
         <li><a id="toc-Priority-Categories" href="#Typy-priorit">2.1.1.1 Priority Categories</a></li>
-        <li><a id="toc-Diagram-priorit-1" href="#Diagram-priorit">2.1.1.2 Diagram priorit</a></li>
-        <li><a id="toc-Pdz_0022dz_0022klady-vyudz_0022itdz_0022-priorit" href="#P_010f_017c_02dd_010f_017c_02ddklady-vyu_010f_017c_02ddit_010f_017c_02dd-priorit">2.1.1.3 P��klady vyu�it� priorit</a></li>
+        <li><a id="toc-Diagram-priorit" href="#Diagram-priorit">2.1.1.2 Diagram priorit</a></li>
+        <li><a id="toc-P_0159_00edklady-vyu_017eit_00ed-priorit" href="#P_0159_00edklady-vyu_017eit_00ed-priorit">2.1.1.3 Příklady využití priorit</a></li>
       </ul></li>
-      <li><a id="toc-Historie-zprdz_0022v" href="#Historie-zpr_010f_017c_02ddv">2.1.2 Historie zpr�v</a>
+      <li><a id="toc-Historie-zpr_00e1v" href="#Historie-zpr_00e1v">2.1.2 Historie zpráv</a>
       <ul class="toc-numbered-mark">
-        <li><a id="toc-Access-Rights" href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">2.1.2.1 Access Rights</a></li>
+        <li><a id="toc-Access-Rights" href="#P_0159_00edstupov_00e1-pr_00e1va">2.1.2.1 Access Rights</a></li>
       </ul></li>
-      <li><a id="toc-Vdz_0022ce-vdz_0022stupndz_0022ch-moduldz_0022" href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">2.1.3 V�ce v�stupn�ch modul�</a></li>
-      <li><a id="toc-Autentifikace-udz_0022ivateldz_0022" href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">2.1.4 Autentifikace u�ivatel�</a></li>
+      <li><a id="toc-V_00edce-v_00fdstupn_00edch-modul_016f" href="#V_00edce-v_00fdstupn_00edch-modul_016f">2.1.3 Více výstupních modulů</a></li>
+      <li><a id="toc-Autentizace-u_017eivatel_016f" href="#Autentizace-u_017eivatel_016f">2.1.4 Autentizace uživatelů</a></li>
     </ul></li>
-    <li><a id="toc-Invoking" href="#Spou_010f_017c_02ddt_010f_017c_02ddn_010f_017c_02dd">2.2 Invoking</a>
+    <li><a id="toc-Invoking" href="#Spou_0161t_011bn_00ed">2.2 Invoking</a>
     <ul class="toc-numbered-mark">
-      <li><a id="toc-Potdz_0022ebndz_0022-privilegia" href="#Potdz_0022ebndz_0022-privilegia">2.2.1 Pot�ebn� privilegia</a></li>
-      <li><a id="toc-Volby-pdz_0022dz_0022kazovdz_0022-dz_0022dz_0022dky" href="#Volby-pdz_0022dz_0022kazovdz_0022-dz_0022dz_0022dky">2.2.2 Volby p��kazov� ��dky</a></li>
+      <li><a id="toc-Pot_0159ebn_00e1-privilegia" href="#Pot_0159ebn_00e1-privilegia">2.2.1 Potřebná privilegia</a></li>
+      <li><a id="toc-Volby-p_0159_00edkazov_00e9-_0159_00e1dky" href="#Volby-p_0159_00edkazov_00e9-_0159_00e1dky">2.2.2 Volby příkazové řádky</a></li>
     </ul></li>
     <li><a id="toc-konfigurace" href="#Konfigurace">2.3 konfigurace</a>
     <ul class="toc-numbered-mark">
-      <li><a id="toc-Syntaxe-konfiguradz_0022ndz_0022ho-souboru" href="#Syntaxe-konfigura_010f_017c_02ddn_010f_017c_02ddho-souboru">2.3.1 Syntaxe konfigura�n�ho souboru</a></li>
+      <li><a id="toc-Syntaxe-konfigura_010dn_00edho-souboru" href="#Syntaxe-konfigura_010dn_00edho-souboru">2.3.1 Syntaxe konfiguračního souboru</a></li>
       <li><a id="toc-Configuration-options" href="#Volby-v-konfiguraci">2.3.2 Configuration options</a></li>
-      <li><a id="toc-Output-Modules-Configuration" href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">2.3.3 Output Modules Configuration</a>
+      <li><a id="toc-Output-Modules-Configuration" href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f">2.3.3 Output Modules Configuration</a>
       <ul class="toc-numbered-mark">
-        <li><a id="toc-Natahovdz_0022ndz_0022-moduldz_0022-ve-speechd_002econf" href="#Natahov_010f_017c_02ddn_010f_017c_02dd-modul_010f_017c_02dd-ve-speechd_002econf">2.3.3.1 Natahov�n� modul� ve speechd.conf</a></li>
-        <li><a id="toc-Konfiguradz_0022ndz_0022-soubory-vdz_0022stupndz_0022ch-moduldz_0022" href="#Konfigura_010f_017c_02ddn_010f_017c_02dd-soubory-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">2.3.3.2 Konfigura�n� soubory v�stupn�ch modul�</a></li>
-        <li><a id="toc-Konfigurace-generickdz_0022ho-vdz_0022stupndz_0022ho-modulu" href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">2.3.3.3 Konfigurace generick�ho v�stupn�ho modulu</a></li>
+        <li><a id="toc-Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf" href="#Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf">2.3.3.1 Natahování modulů ve speechd.conf</a></li>
+        <li><a id="toc-Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f">2.3.3.2 Konfigurační soubory výstupních modulů</a></li>
+        <li><a id="toc-Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu" href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">2.3.3.3 Konfigurace generického výstupního modulu</a></li>
       </ul></li>
-      <li><a id="toc-dz_0022rovndz_0022-logovdz_0022ndz_0022" href="#g_t_010f_017c_02ddrovn_010f_017c_02dd-logov_010f_017c_02ddn_010f_017c_02dd">2.3.4 �rovn� logov�n�</a></li>
+      <li><a id="toc-_00darovn_011b-logov_00e1n_00ed" href="#g_t_00darovn_011b-logov_00e1n_00ed">2.3.4 Úrovně logování</a></li>
     </ul></li>
   </ul></li>
-  <li><a id="toc-Standardndz_0022-hlasy" href="#Standardndz_0022-hlasy">Appendix A Standardn� hlasy</a></li>
-  <li><a id="toc-GNU-General-Public-License-1" href="#GNU-General-Public-License">Appendix B GNU General Public License</a></li>
-  <li><a id="toc-GNU-Free-Documentation-License-1" href="#GNU-Free-Documentation-License">Appendix C GNU Free Documentation License</a>
+  <li><a id="toc-Standardn_00ed-hlasy" href="#Standardn_00ed-hlasy">Appendix A Standardní hlasy</a></li>
+  <li><a id="toc-GNU-General-Public-License" href="#GNU-General-Public-License">Appendix B GNU General Public License</a></li>
+  <li><a id="toc-GNU-Free-Documentation-License" href="#GNU-Free-Documentation-License">Appendix C GNU Free Documentation License</a>
   <ul class="toc-numbered-mark">
     <li><a id="toc-ADDENDUM_003a-How-to-use-this-License-for-your-documents" href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents">C.1 ADDENDUM: How to use this License for your documents</a></li>
   </ul></li>
-  <li><a id="toc-Index-of-Concepts-1" href="#Index-of-Concepts" rel="index">Index of Concepts</a></li>
+  <li><a id="toc-Index-of-Concepts" href="#Index-of-Concepts" rel="index">Index of Concepts</a></li>
 </ul>
 </div>
 </div>
 <hr>
-<div class="chapter-level-extent" id="g_t_010f_017c_02ddvod">
-<div class="nav-panel">
-<p>
-Next: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="n" rel="next">U�ivatelsk� dokumentace</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Speech Dispatcher</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h2 class="chapter" id="dz_0022vod"><span>1 �vod<a class="copiable-link" href="#dz_0022vod"> &para;</a></span></h2>
+<div class="chapter-level-extent" id="g_t_00davod">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#U_017eivatelsk_00e1-dokumentace" rel="next">Uživatelská dokumentace</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Top" rel="prev">Speech Dispatcher</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" rel="up">Speech Dispatcher</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h2 class="chapter" id="g_t_00davod-1"><span>1 Úvod<a class="copiable-link" href="#g_t_00davod-1"> &para;</a></span></h2>
 
 
 <ul class="mini-toc">
-<li><a href="#Motivace" accesskey="1">Motivace</a></li>
-<li><a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-design" accesskey="2">Z�kladn� design</a></li>
-<li><a href="#P_010f_017c_02ddehled-z_010f_017c_02ddkladn_010f_017c_02ddch-rys_010f_017c_02dd" accesskey="3">P�ehled z�kladn�ch rys�</a></li>
-<li><a href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav" accesskey="4">Sou�asn� stav</a></li>
+<li><a href="#Motivace">Motivace</a></li>
+<li><a href="#Z_00e1kladn_00ed-design">Základní design</a></li>
+<li><a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f">Přehled základních rysů</a></li>
+<li><a href="#Sou_010dasn_00fd-stav">Současný stav</a></li>
 </ul>
 <hr>
 <div class="section-level-extent" id="Motivace">
-<div class="nav-panel">
-<p>
-Next: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-design" accesskey="n" rel="next">Z�kladn� design</a>, Previous: <a href="#g_t_010f_017c_02ddvod" accesskey="p" rel="prev">�vod</a>, Up: <a href="#g_t_010f_017c_02ddvod" accesskey="u" rel="up">�vod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Z_00e1kladn_00ed-design" rel="next">Základní design</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_00davod" rel="prev">Úvod</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#g_t_00davod" rel="up">Úvod</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h3 class="section" id="Motivace-1"><span>1.1 Motivace<a class="copiable-link" href="#Motivace-1"> &para;</a></span></h3>
-<a class="index-entry-id" id="index-Hlavndz_0022-mydz_0022lenky_002c-Motivace"></a>
+<a class="index-entry-id" id="index-Hlavni-myslenky_002c-Motivace"></a>
 <a class="index-entry-id" id="index-Filosofie"></a>
 
-<p>Projekt Speech Dispatcher se sna�� poskytnout na za��zen� nez�vislou vrstvu pro
-�e�ovou synt�zu.  M�l by poskytovat jednoduch� rozhran� pro klientsk� aplikace
-(aplikace, kter� cht�j� mluvit), stejn� jako pro ovlada�e konkr�tn�ch za��zen�
-(r�zn� �e�ov� syntetiz�ry).
+<p>Projekt Speech Dispatcher se snaží poskytnout na zařízení nezávislou vrstvu pro
+řečovou syntézu.  Měl by poskytovat jednoduché rozhraní pro klientské aplikace
+(aplikace, které chtějí mluvit), stejně jako pro ovladače konkrétních zařízení
+(různé řečové syntetizéry).
 </p>
-<p>Vysoce kvalitn� �e�ov� synt�za je tu ji� dlouho a nyn� je pou�iteln� i pro
-b�n� u�ivatele na jejich dom�c�ch po��ta��ch.  Ob�as to p�ich�z� jako nutnost,
-ob�as je to jen dobr� vlastnost, aby n�kter� programy poskytovaly �e�ov�
-v�stup.  Pro synt�zu hlasu je tu �irok� pole vyu�it� od v�ukov�ho software a�
-po specializovan� syst�my, jako jsou nap��klad nemocnice �i laborato�e.  Pro
-zrakov� posti�en� u�ivatele je to jedna ze dvou z�kladn�ch cest, jak z�skat
-v�stup z po��ta�e (tou druhou je Braillsk� ��dek).
+<p>Vysoce kvalitní řečová syntéza je tu již dlouho a nyní je použitelná i pro
+běžné uživatele na jejich domácích počítačích.  Občas to přichází jako nutnost,
+občas je to jen dobrá vlastnost, aby některé programy poskytovaly řečový
+výstup.  Pro syntézu hlasu je tu široké pole využití od výukového software až
+po specializované systémy, jako jsou například nemocnice či laboratoře.  Pro
+zrakově postižené uživatele je to jedna ze dvou základních cest, jak získat
+výstup z počítače (tou druhou je Braillský řádek).
 </p>
-<p>Existuj� r�zn� �e�ov� syntetiz�ry s r�zn�mi schopnostmi.  N�kter� z nich jsou
-hardwarov�, n�kter� softwarov�.  N�kter� jsou svobodn�m software a jsou voln�
-dostupn� na internetu.  Program�to�i to maj� opravdu t�k�, kdy� cht�j� sv�
-programy rozmluvit, proto�e pot�ebuj� nejprve naj�t n�jak� vhodn� syntetiz�r
-(dlouh� hodiny experimentov�n� a tak d�le) a potom jej pot�ebuj� n�jak
-zprovoznit s jejich programem.  �asto mus� ps�t pro tyto programy �i hardwarov�
-za��zen� vlastn� ovlada�e a d�laj� to znovu a znovu.  Snadno si lze p�edstavit,
-�e se to cel� zhrout� kdy� nevinn� u�ivatel spust� dva programy najednou. Kdyby
-p�esto nastartovaly oba, budou k�i�et jeden p�es druh�ho.
+<p>Existují různé řečové syntetizéry s různými schopnostmi.  Některé z nich jsou
+hardwarové, některé softwarové.  Některé jsou svobodným software a jsou volně
+dostupné na internetu.  Programátoři to mají opravdu těžké, když chtějí své
+programy rozmluvit, protože potřebují nejprve najít nějaký vhodný syntetizér
+(dlouhé hodiny experimentování a tak dále) a potom jej potřebují nějak
+zprovoznit s jejich programem.  Často musí psát pro tyto programy či hardwarová
+zařízení vlastní ovladače a dělají to znovu a znovu.  Snadno si lze představit,
+že se to celé zhroutí když nevinný uživatel spustí dva programy najednou. Kdyby
+přesto nastartovaly oba, budou křičet jeden přes druhého.
 </p>
-<p>T�m je pro program�tory velmi obt��n� implementovat do sv�ch program� podporu
-�e�ov� synt�zy (pro nevidom� u�ivatele, nebo prost� pro lep�� u�ivatelsk�
-rozhran�) a je to jeden z d�vod�, pro� po��d je�t� pln� nevyu��v�me toho, co
-�e�ov� synt�za nab�z�.
+<p>Tím je pro programátory velmi obtížné implementovat do svých programů podporu
+řečové syntézy (pro nevidomé uživatele, nebo prostě pro lepší uživatelské
+rozhraní) a je to jeden z důvodů, proč pořád ještě plně nevyužíváme toho, co
+řečová syntéza nabízí.
 </p>
-<p>V ide�ln�m sv�t� by program�to�i mohli pro �e�ovou synt�zu pou��vat podobn�
-p��kazy, jako to d�laj� pro textov� v�stup na obrazovku (printf, puts, ...).  V
-ide�ln�m sv�t� by existovalo n�jak� speech_printf(), kter� by se staralo o to,
-aby byla zpr�va p�emluvena ve spr�vn� �as bez p�eru�ov�n� ostatn�ch.
-Program�tor by se tak nemusel starat o to, jak je p�esn� komunikace s �e�ov�m
-syntetiz�rem implementov�na.  V ide�ln�m sv�t� by byl v ka�d� GNU/Linuxov�
-distribuci n�jak� �e�ov� syntetiz�r a n�jak� rozhran� staraj�c� se o aplikace,
-kter� cht�j� mluvit, dovoluj�c� u�ivatel�m nastavit si parametry �e�i a
-poskytuj�c� n�jak� jednoduch� rozhran� (jako speech_printf()) pomoc� n�jak�
-sd�len� knihovny pro program�tory.  Bude to j�t� dlouh� cesta ne� se n�m
-poda�� dos�hnout tohoto stavu v�c�, ale se Speech Dispatcherem d�l�me prvn�
-kr��ky...
+<p>V ideálním světě by programátoři mohli pro řečovou syntézu používat podobné
+příkazy, jako to dělají pro textový výstup na obrazovku (printf, puts, ...).  V
+ideálním světě by existovalo nějaké speech_printf(), které by se staralo o to,
+aby byla zpráva přemluvena ve správný čas bez přerušování ostatních.
+Programátor by se tak nemusel starat o to, jak je přesně komunikace s řečovým
+syntetizérem implementována.  V ideálním světě by byl v každé GNU/Linuxové
+distribuci nějaký řečový syntetizér a nějaké rozhraní starající se o aplikace,
+které chtějí mluvit, dovolující uživatelům nastavit si parametry řeči a
+poskytující nějaké jednoduché rozhraní (jako speech_printf()) pomocí nějaké
+sdílené knihovny pro programátory.  Bude to ještě dlouhá cesta než se nám
+podaří dosáhnout tohoto stavu věcí, ale se Speech Dispatcherem děláme první
+krůčky...
 </p>
 <hr>
 </div>
-<div class="section-level-extent" id="Z_010f_017c_02ddkladn_010f_017c_02dd-design">
-<div class="nav-panel">
-<p>
-Next: <a href="#P_010f_017c_02ddehled-z_010f_017c_02ddkladn_010f_017c_02ddch-rys_010f_017c_02dd" accesskey="n" rel="next">P�ehled z�kladn�ch rys�</a>, Previous: <a href="#Motivace" accesskey="p" rel="prev">Motivace</a>, Up: <a href="#g_t_010f_017c_02ddvod" accesskey="u" rel="up">�vod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h3 class="section" id="Zdz_0022kladndz_0022-design"><span>1.2 Z�kladn� design<a class="copiable-link" href="#Zdz_0022kladndz_0022-design"> &para;</a></span></h3>
+<div class="section-level-extent" id="Z_00e1kladn_00ed-design">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" rel="next">Přehled základních rysů</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Motivace" rel="prev">Motivace</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#g_t_00davod" rel="up">Úvod</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h3 class="section" id="Z_00e1kladn_00ed-design-1"><span>1.2 Základní design<a class="copiable-link" href="#Z_00e1kladn_00ed-design-1"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-Design"></a>
 
-<p>V komunikaci mezi v�emi r�zn�mi aplikacemi a syntetiz�ry je obrovsk� nepo��dek.
-Proto jsme cht�li, aby byl Speech Dispatcher vrstva odd�luj�c� aplikace a
-syntetiz�ry tak, aby se aplikace nemusely starat o syntetiz�ry a syntetiz�ry se
+<p>V komunikaci mezi všemi různými aplikacemi a syntetizéry je obrovský nepořádek.
+Proto jsme chtěli, aby byl Speech Dispatcher vrstva oddělující aplikace a
+syntetizéry tak, aby se aplikace nemusely starat o syntetizéry a syntetizéry se
 nemusely starat o interakci s aplikacemi.
 </p>
-<p>Rozhodli jsme se implementovat Speech Dispatcher jako server, kter� p�ij�m� od
-aplikac� p��kazy p�es protokol nazvan� <code class="code">SSIP</code>, zpracov�v� je a, pokud je
-to nutn�, zavol� p��slu�nou funkci dan�ho v�stupn�ho modulu, kter� pak
-komunikuje s n�kter�m z r�zn�ch syntetiz�tor�.
+<p>Rozhodli jsme se implementovat Speech Dispatcher jako server, který přijímá od
+aplikací příkazy přes protokol nazvaný <code class="code">SSIP</code>, zpracovává je a, pokud je
+to nutné, zavolá příslušnou funkci daného výstupního modulu, který pak
+komunikuje s některým z různých syntetizátorů.
 </p>
-<p>Ka�d� klient (aplikace, kter� chce mluvit) otev�e socketov� spojen� na Speech
-Dispatcher a vol� funkce jako say(), stop(), pause() poskytovan� knihovnou
-implementuj�c� tento protokol.  Tato sd�len� knihovna je st�le na stran�
-klienta a pos�l� Speech Dispatcheru SSIP p��kazy p�es otev�en� socket.  Kdy�
-p��kazy doraz� do Dispatchera, ten je zpracuje, p�e�te text, kter� by m�l b�t
-p�e��k�n a vlo�� jej do fronty podle jeho priority.  Potom se rozhodne kdy, s
-jak�mi parametry (nastavovan�mi klientsk�m programem i u�ivatelem) a na jak�m
-syntetiz�ru zpr�vu nech� p�emluvit.  Tyto po�adavky na mluven� jsou pak
-zpracov�v�ny v�stupn�mi moduly (pluginy) pro r�zn� hardwarov� a softwarov�
-syntetiz�ry a p�e��k�ny nahlas.
+<p>Každý klient (aplikace, která chce mluvit) otevře socketové spojení na Speech
+Dispatcher a volá funkce jako say(), stop(), pause() poskytované knihovnou
+implementující tento protokol.  Tato sdílená knihovna je stále na straně
+klienta a posílá Speech Dispatcheru SSIP příkazy přes otevřený socket.  Když
+příkazy dorazí do Dispatchera, ten je zpracuje, přečte text, který by měl být
+přeříkán a vloží jej do fronty podle jeho priority.  Potom se rozhodne kdy, s
+jakými parametry (nastavovanými klientským programem i uživatelem) a na jakém
+syntetizéru zprávu nechá přemluvit.  Tyto požadavky na mluvení jsou pak
+zpracovávány výstupními moduly (pluginy) pro různé hardwarové a softwarové
+syntetizéry a přeříkány nahlas.
 </p>
 <img class="image" src="figures/architecture.png" alt="Architektura Speech Dispatchera">
 
-<p>Detailn� popis programov�n� klient� i serveru je k dispozici v anglick�m
-manu�lu.
+<p>Detailní popis programování klientů i serveru je k dispozici v anglickém
+manuálu.
 </p>
 <hr>
 </div>
-<div class="section-level-extent" id="P_010f_017c_02ddehled-z_010f_017c_02ddkladn_010f_017c_02ddch-rys_010f_017c_02dd">
-<div class="nav-panel">
-<p>
-Next: <a href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav" accesskey="n" rel="next">Sou�asn� stav</a>, Previous: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-design" accesskey="p" rel="prev">Z�kladn� design</a>, Up: <a href="#g_t_010f_017c_02ddvod" accesskey="u" rel="up">�vod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h3 class="section" id="Pdz_0022ehled-zdz_0022kladndz_0022ch-rysdz_0022"><span>1.3 P�ehled z�kladn�ch rys�<a class="copiable-link" href="#Pdz_0022ehled-zdz_0022kladndz_0022ch-rysdz_0022"> &para;</a></span></h3>
+<div class="section-level-extent" id="P_0159ehled-z_00e1kladn_00edch-rys_016f">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Sou_010dasn_00fd-stav" rel="next">Současný stav</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Z_00e1kladn_00ed-design" rel="prev">Základní design</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#g_t_00davod" rel="up">Úvod</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h3 class="section" id="P_0159ehled-z_00e1kladn_00edch-rys_016f-1"><span>1.3 Přehled základních rysů<a class="copiable-link" href="#P_0159ehled-z_00e1kladn_00edch-rys_016f-1"> &para;</a></span></h3>
 
-<p>Speech Dispatcher z pohledu u�ivatele:
+<p>Speech Dispatcher z pohledu uživatele:
 </p>
 <ul class="itemize mark-bullet">
-<li>snadn� konfigurace r�zn�ch mluv�c�ch aplikac�, centr�ln� spr�va
-</li><li>mo�nost voln� rozhodovat, jak� aplikace bude mluvit s jak�m syntetiz�rem
-</li><li>m�n� �asu v�novan�ho konfiguraci a lad�n� r�zn�ch aplikac� vyu��vaj�c�ch synt�zu
-</li><li>historie zpr�v pro zrakov� posti�en� u�ivatele
+<li>snadná konfigurace různých mluvících aplikací, centrální správa
+</li><li>možnost volně rozhodovat, jaká aplikace bude mluvit s jakým syntetizérem
+</li><li>méně času věnovaného konfiguraci a ladění různých aplikací využívajících syntézu
+</li><li>historie zpráv pro zrakově postižené uživatele
 </li></ul>
 
-<p>Speech Dispatcher z pohledu program�tora aplikace:
+<p>Speech Dispatcher z pohledu programátora aplikace:
 </p>
 <ul class="itemize mark-bullet">
-<li>snadn� cesta, jak aplikaci rozmluvit
-</li><li>jednotn� rozhran� k r�zn�m syntetiz�r�m
-</li><li>synchronizace zpr�v na vy��� �rovni (kategorizace pomoc� priorit)
-</li><li>mo�nost nemuset se starat o konfiguraci parametr� hlasu
+<li>snadná cesta, jak aplikaci rozmluvit
+</li><li>jednotné rozhraní k různým syntetizérům
+</li><li>synchronizace zpráv na vyšší úrovni (kategorizace pomocí priorit)
+</li><li>možnost nemuset se starat o konfiguraci parametrů hlasu
 </li></ul>
 
 <hr>
 </div>
-<div class="section-level-extent" id="Sou_010f_017c_02ddasn_010f_017c_02dd-stav">
-<div class="nav-panel">
-<p>
-Previous: <a href="#P_010f_017c_02ddehled-z_010f_017c_02ddkladn_010f_017c_02ddch-rys_010f_017c_02dd" accesskey="p" rel="prev">P�ehled z�kladn�ch rys�</a>, Up: <a href="#g_t_010f_017c_02ddvod" accesskey="u" rel="up">�vod</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h3 class="section" id="Soudz_0022asndz_0022-stav"><span>1.4 Sou�asn� stav<a class="copiable-link" href="#Soudz_0022asndz_0022-stav"> &para;</a></span></h3>
-<a class="index-entry-id" id="index-Syntetizdz_0022ry"></a>
-<a class="index-entry-id" id="index-Ostatndz_0022-programy"></a>
+<div class="section-level-extent" id="Sou_010dasn_00fd-stav">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#P_0159ehled-z_00e1kladn_00edch-rys_016f" rel="prev">Přehled základních rysů</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#g_t_00davod" rel="up">Úvod</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h3 class="section" id="Sou_010dasn_00fd-stav-1"><span>1.4 Současný stav<a class="copiable-link" href="#Sou_010dasn_00fd-stav-1"> &para;</a></span></h3>
+<a class="index-entry-id" id="index-Syntetizery"></a>
+<a class="index-entry-id" id="index-Ostatni-programy"></a>
 
 <p>TODO:
 </p>
 <hr>
 </div>
 </div>
-<div class="chapter-level-extent" id="U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace">
-<div class="nav-panel">
-<p>
-Next: <a href="#GNU-General-Public-License" accesskey="n" rel="next">GNU General Public License</a>, Previous: <a href="#g_t_010f_017c_02ddvod" accesskey="p" rel="prev">�vod</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h2 class="chapter" id="Udz_0022ivatelskdz_0022-dokumentace"><span>2 U�ivatelsk� dokumentace<a class="copiable-link" href="#Udz_0022ivatelskdz_0022-dokumentace"> &para;</a></span></h2>
+<div class="chapter-level-extent" id="U_017eivatelsk_00e1-dokumentace">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#GNU-General-Public-License" rel="next">GNU General Public License</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_00davod" rel="prev">Úvod</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" rel="up">Speech Dispatcher</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h2 class="chapter" id="U_017eivatelsk_00e1-dokumentace-1"><span>2 Uživatelská dokumentace<a class="copiable-link" href="#U_017eivatelsk_00e1-dokumentace-1"> &para;</a></span></h2>
 
 
 <ul class="mini-toc">
-<li><a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="1">Z�kladn� funkce</a></li>
-<li><a href="#Spou_010f_017c_02ddt_010f_017c_02ddn_010f_017c_02dd" accesskey="2">Invoking</a></li>
-<li><a href="#Konfigurace" accesskey="3">konfigurace</a></li>
+<li><a href="#Z_00e1kladn_00ed-funkce">Základní funkce</a></li>
+<li><a href="#Spou_0161t_011bn_00ed">Invoking</a></li>
+<li><a href="#Konfigurace">konfigurace</a></li>
 </ul>
 <hr>
-<div class="section-level-extent" id="Z_010f_017c_02ddkladn_010f_017c_02dd-funkce">
-<div class="nav-panel">
-<p>
-Next: <a href="#Spou_010f_017c_02ddt_010f_017c_02ddn_010f_017c_02dd" accesskey="n" rel="next">Invoking</a>, Previous: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="p" rel="prev">U�ivatelsk� dokumentace</a>, Up: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="u" rel="up">U�ivatelsk� dokumentace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h3 class="section" id="Zdz_0022kladndz_0022-funkce"><span>2.1 Z�kladn� funkce<a class="copiable-link" href="#Zdz_0022kladndz_0022-funkce"> &para;</a></span></h3>
+<div class="section-level-extent" id="Z_00e1kladn_00ed-funkce">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Spou_0161t_011bn_00ed" rel="next">Invoking</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#U_017eivatelsk_00e1-dokumentace" rel="prev">Uživatelská dokumentace</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#U_017eivatelsk_00e1-dokumentace" rel="up">Uživatelská dokumentace</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h3 class="section" id="Z_00e1kladn_00ed-funkce-1"><span>2.1 Základní funkce<a class="copiable-link" href="#Z_00e1kladn_00ed-funkce-1"> &para;</a></span></h3>
 
-<p>V t�to sekci je detailn�j�� popis z�kladn�ch funkc� Speech Dispatcheru.
+<p>V této sekci je detailnější popis základních funkcí Speech Dispatcheru.
 </p>
 
 <ul class="mini-toc">
-<li><a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="1">Model priorit zpr�v</a></li>
-<li><a href="#Historie-zpr_010f_017c_02ddv" accesskey="2">Historie zpr�v</a></li>
-<li><a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="3">V�ce v�stupn�ch modul�</a></li>
-<li><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd" accesskey="4">Autentifikace u�ivatel�</a></li>
+<li><a href="#Model-priorit-zpr_00e1v">Model priorit zpráv</a></li>
+<li><a href="#Historie-zpr_00e1v">Historie zpráv</a></li>
+<li><a href="#V_00edce-v_00fdstupn_00edch-modul_016f">Více výstupních modulů</a></li>
+<li><a href="#Autentizace-u_017eivatel_016f">Autentizace uživatelů</a></li>
 </ul>
 <hr>
-<div class="subsection-level-extent" id="Model-priorit-zpr_010f_017c_02ddv">
-<div class="nav-panel">
-<p>
-Next: <a href="#Historie-zpr_010f_017c_02ddv" accesskey="n" rel="next">Historie zpr�v</a>, Previous: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="p" rel="prev">Z�kladn� funkce</a>, Up: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="u" rel="up">Z�kladn� funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h4 class="subsection" id="Model-priorit-zprdz_0022v"><span>2.1.1 Model priorit zpr�v<a class="copiable-link" href="#Model-priorit-zprdz_0022v"> &para;</a></span></h4>
+<div class="subsection-level-extent" id="Model-priorit-zpr_00e1v">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Historie-zpr_00e1v" rel="next">Historie zpráv</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Z_00e1kladn_00ed-funkce" rel="prev">Základní funkce</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Z_00e1kladn_00ed-funkce" rel="up">Základní funkce</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h4 class="subsection" id="Model-priorit-zpr_00e1v-1"><span>2.1.1 Model priorit zpráv<a class="copiable-link" href="#Model-priorit-zpr_00e1v-1"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-priority"></a>
 
-<p>Speech Dispatcher nem��e syntetizovat v�echny zpr�vy, kter� do n�j p�ich�z� z
-prost�ho d�vodu, �e zpr�vy p�ich�zej� oby�ejn� rychleji, ne� je syntetick� hlas
-dok�e ��st.  Na obrazovce monitoru je v porovn�n� s jednokan�lov�m �e�ov�m
-v�stupem relativn� hodn� m�sta.  Z toho d�vodu pou��v�me syst�m n�kolika
-priorit zam��en�ch na r�zn� typy zpr�v.
+<p>Speech Dispatcher nemůže syntetizovat všechny zprávy, které do něj přichází z
+prostého důvodu, že zprávy přicházejí obyčejně rychleji, než je syntetický hlas
+dokáže číst.  Na obrazovce monitoru je v porovnání s jednokanálovým řečovým
+výstupem relativně hodně místa.  Z toho důvodu používáme systém několika
+priorit zaměřených na různé typy zpráv.
 </p>
-<p>My�lenka je takov�, �e �lohou program�tora klientsk� aplikace bude pouze ur�it
-pro ka�dou zpr�vu ur�itou prioritu odpov�daj�c� typu dan� zpr�vy.  Ve�ker�
-synchronizace a p�ep�n�n� mezi t�mito zpr�vami (kter� mohou poch�zet od r�zn�ch
-klient�) potom bude zaji�t�no aplikov�n�m ur�it�ch pravidel ve Speech
+<p>Myšlenka je taková, že úlohou programátora klientské aplikace bude pouze určit
+pro každou zprávu určitou prioritu odpovídající typu dané zprávy.  Veškerá
+synchronizace a přepínání mezi těmito zprávami (které mohou pocházet od různých
+klientů) potom bude zajištěno aplikováním určitých pravidel ve Speech
 Dispatcheru.
 </p>
 
 <ul class="mini-toc">
-<li><a href="#Typy-priorit" accesskey="1">Priority Categories</a></li>
-<li><a href="#Diagram-priorit" accesskey="2">Diagram priorit</a></li>
-<li><a href="#P_010f_017c_02dd_010f_017c_02ddklady-vyu_010f_017c_02ddit_010f_017c_02dd-priorit" accesskey="3">P��klady vyu�it� priorit</a></li>
+<li><a href="#Typy-priorit">Priority Categories</a></li>
+<li><a href="#Diagram-priorit">Diagram priorit</a></li>
+<li><a href="#P_0159_00edklady-vyu_017eit_00ed-priorit">Příklady využití priorit</a></li>
 </ul>
 <hr>
 <div class="subsubsection-level-extent" id="Typy-priorit">
-<div class="nav-panel">
-<p>
-Next: <a href="#Diagram-priorit" accesskey="n" rel="next">Diagram priorit</a>, Previous: <a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="p" rel="prev">Model priorit zpr�v</a>, Up: <a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="u" rel="up">Model priorit zpr�v</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Diagram-priorit" rel="next">Diagram priorit</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Model-priorit-zpr_00e1v" rel="prev">Model priorit zpráv</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Model-priorit-zpr_00e1v" rel="up">Model priorit zpráv</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h4 class="subsubsection" id="Priority-Categories"><span>2.1.1.1 Priority Categories<a class="copiable-link" href="#Priority-Categories"> &para;</a></span></h4>
                   
-<p>Speech Dispatcher poskytuje syst�m p�ti priorit.  Ka�d� zpr�va obsahuje bu�
-explicitn� informaci o priorit�, nebo j� je p�i�azena v�choz� priorita.
+<p>Speech Dispatcher poskytuje systém pěti priorit.  Každá zpráva obsahuje buď
+explicitní informaci o prioritě, nebo jí je přiřazena výchozí priorita.
 </p>
-<p>Pros�m pod�vejte se tak� na p�ilo�en� diagram (dole).
+<p>Prosím podívejte se také na přiložený diagram (dole).
 </p>
 <h4 class="subsubheading" id="Priorita-important"><span>Priorita <code class="code">important</code><a class="copiable-link" href="#Priorita-important"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-Priorita-important"></a>
 
-<p>Tato zpr�va bude p�e��k�na okam�it�, jak doraz� do serveru.  Nen� nikdy
-p�eru�ena.  Kdy� server obdr�� sou�asn� n�kolik r�zn�ch zpr�v t�to priority, ty
-jsou ulo�eny a p�e��k�ny v po�ad�, ve kter�m p�i�ly.
+<p>Tato zpráva bude přeříkána okamžitě, jak dorazí do serveru.  Není nikdy
+přerušena.  Když server obdrží současně několik různých zpráv této priority, ty
+jsou uloženy a přeříkány v pořadí, ve kterém přišly.
 </p>
-<p>Kdy� p�ijde nov� zpr�va priority <code class="code">important</code> a zrovna se ��k� n�jak� jin�
-zpr�va, tato jin� zpr�va je zahozena.  Dal�� zpr�vy ni���ch priorit jsou bu�
-pozdr�eny (priorita <code class="code">message</code> a <code class="code">text</code>) ne� ji� ne�ekaj� na p�e��k�n�
-��dn� zpr�vy priority <code class="code">important</code>, nebo jsou zahozeny (priority
+<p>Když přijde nová zpráva priority <code class="code">important</code> a zrovna se říká nějaká jiná
+zpráva, tato jiná zpráva je zahozena.  Další zprávy nižších priorit jsou buď
+pozdrženy (priorita <code class="code">message</code> a <code class="code">text</code>) než již nečekají na přeříkání
+žádné zprávy priority <code class="code">important</code>, nebo jsou zahozeny (priority
 <code class="code">notification</code> a <code class="code">progress</code>).
 </p>
-<p>Tyto zpr�vy by m�ly b�t tak kr�tk�, jak je to jen mo�n�, a m�ly by b�t
-pou��v�ny pouze z��dka, proto�e blokuj� v�stup v�ech ostatn�ch zpr�v.
+<p>Tyto zprávy by měly být tak krátké, jak je to jen možné, a měly by být
+používány pouze zřídka, protože blokují výstup všech ostatních zpráv.
 </p>
 <h4 class="subsubheading" id="Priorita-message"><span>Priorita <code class="code">message</code><a class="copiable-link" href="#Priorita-message"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-Priorita-message"></a>
 
-<p>Tato zpr�va bude p�e��k�na, pokud ji� ve front� ne�ek� ��dn� jin� zpr�va
-priority <code class="code">important</code> nebo <code class="code">message</code>.  V opa�n�m p��pad� je tato
-zpr�va pozdr�ena dokud nebudou v�echny p�e��k�ny.  To znamen�, �e priorita
-<code class="code">message</code> nezastavuje sama sebe.  Kdy� ve front� �ekaj� zpr�vy priorit
-<code class="code">notification</code> nebo <code class="code">progress</code> nebo <code class="code">text</code> kdy� p�ijde zpr�va
+<p>Tato zpráva bude přeříkána, pokud již ve frontě nečeká žádná jiná zpráva
+priority <code class="code">important</code> nebo <code class="code">message</code>.  V opačném případě je tato
+zpráva pozdržena dokud nebudou všechny přeříkány.  To znamená, že priorita
+<code class="code">message</code> nezastavuje sama sebe.  Když ve frontě čekají zprávy priorit
+<code class="code">notification</code> nebo <code class="code">progress</code> nebo <code class="code">text</code> když přijde zpráva
 priority <code class="code">message</code>, jsou zahozeny.
 </p>
 <h4 class="subsubheading" id="Priorita-text"><span>Priorita <code class="code">text</code><a class="copiable-link" href="#Priorita-text"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-Priorita-text"></a>
 
-<p>Tato zpr�va bude p�e��k�na, kdy� ve front� ne�ek� ��dn� zpr�va priority
-<code class="code">important</code> nebo <code class="code">message</code>.  Pokud �ek�, tato nov� zpr�va je
-pozdr�ena dokud nebudou p�edchoz� zpr�vy p�e��k�ny.
+<p>Tato zpráva bude přeříkána, když ve frontě nečeká žádná zpráva priority
+<code class="code">important</code> nebo <code class="code">message</code>.  Pokud čeká, tato nová zpráva je
+pozdržena dokud nebudou předchozí zprávy přeříkány.
 </p>
-<p>Priorita text p�erqu�uje sama sebe.  To znamen�, �e kdy� p�ijde n�kolik zpr�v
-priority text, ty nejsou p�e��k�ny v po�ad�, ve kter�m p�i�ly, ale bude vy��ena
-pouze posledn� z nich a ostatn� jsou p�eru�eny a zahozeny.
+<p>Priorita text přerušuje sama sebe.  To znamená, že když přijde několik zpráv
+priority text, ty nejsou přeříkány v pořadí, ve kterém přišly, ale bude vyřčena
+pouze poslední z nich a ostatní jsou přerušeny a zahozeny.
 </p>
-<p>Pokud jsou ve front� zpr�vy priorit <code class="code">notification</code> nebo <code class="code">progress</code>
-nebo se pr�v� p�e��k�vaj�, jsou zahozeny.
+<p>Pokud jsou ve frontě zprávy priorit <code class="code">notification</code> nebo <code class="code">progress</code>
+nebo se právě přeříkávají, jsou zahozeny.
 </p>
 <h4 class="subsubheading" id="Priorita-notification"><span>Priorita <code class="code">notification</code><a class="copiable-link" href="#Priorita-notification"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-Priorita-notification"></a>
 
-<p>Toto je zpr�va n�zk� priority.  Pokud ve front� �ekaj� zpr�vy priorit
+<p>Toto je zpráva nízké priority.  Pokud ve frontě čekají zprávy priorit
 <code class="code">important</code>, <code class="code">messages</code>, <code class="code">text</code> nebo <code class="code">progress</code> nebo jsou
-pr�v� p�e��k�v�ny, tato nov� zpr�va priority <code class="code">notification</code> je zru�ena.
+právě přeříkávány, tato nová zpráva priority <code class="code">notification</code> je zrušena.
 </p>
-<p>Tato priorita p�eru�uje sama sebe, tak�e kdy� p�ijde najednou v�ce zpr�v s
-prioritou <code class="code">notification</code>, p�e��k� se pouze posledn� z nich.
+<p>Tato priorita přerušuje sama sebe, takže když přijde najednou více zpráv s
+prioritou <code class="code">notification</code>, přeříká se pouze poslední z nich.
 </p>
 <h4 class="subsubheading" id="Priority-progress"><span>Priority <code class="code">progress</code><a class="copiable-link" href="#Priority-progress"> &para;</a></span></h4>
 
-<p>Toto je speci�ln� priorita pro zpr�vy, kter� p�ich�zej� kr�tce po sob� a nesou
-informaci o n�jak� prob�haj�c� �innosti (nap�.&nbsp;<code class="code">Dokon�eno 45%</code>).
+<p>Toto je speciální priorita pro zprávy, které přicházejí krátce po sobě a nesou
+informaci o nějaké probíhající činnosti (např.&nbsp;<code class="code">Dokončeno 45%</code>).
 </p>
-<p>Kdyby nov� zpr�vy p�eru�ovaly ostatn� (viz. priorita Notification), u�ivatel by
-nemusel sly�et ani jednu zpr�vu do konce.
+<p>Kdyby nové zprávy přerušovaly ostatní (viz. priorita Notification), uživatel by
+nemusel slyšet ani jednu zprávu do konce.
 </p>
-<p>Tato priorita se chov� stejn� jako <code class="code">notification</code> s v�jimkou dvou v�c�.
+<p>Tato priorita se chová stejně jako <code class="code">notification</code> s výjimkou dvou věcí.
 </p>
 <ul class="itemize mark-bullet">
-<li>Zpr�vy t�to priority nep�eru�uj� jedna druhou.  M�sto toho, pokud je zrovna
-p�e��k�v�na jin� zpr�va t�to priority, nov� p��choz� zpr�va je zahozena.
-</li><li>Speech Dispatcher se sna�� detekovat posledn� zpr�vu v s�rii p��choz�ch zpr�v a
-zaru�it jej� p�e��k�n� (pro u�ivatele je d�le�it� sly�et zpr�vu <code class="code">Completed
-100%</code>, aby v�d�l, �e proces ji� skon�il).  V�dy, kdy� ve front� ji� ne�ek�
-��dn� nov� zpr�va t�to priority a posledn� p��choz� zpr�va je�t� nebyla
-p�e��k�na, je jej� p�e��k�n� vynuceno s prioritou <code class="code">message</code>.
+<li>Zprávy této priority nepřerušují jedna druhou.  Místo toho, pokud je zrovna
+přeříkávána jiná zpráva této priority, nově příchozí zpráva je zahozena.
+</li><li>Speech Dispatcher se snaží detekovat poslední zprávu v sérii příchozích zpráv a
+zaručit její přeříkání (pro uživatele je důležité slyšet zprávu <code class="code">Completed
+100%</code>, aby věděl, že proces již skončil).  Vždy, když ve frontě již nečeká
+žádná nová zpráva této priority a poslední příchozí zpráva ještě nebyla
+přeříkána, je její přeříkání vynuceno s prioritou <code class="code">message</code>.
 </li></ul>
 
 <hr>
 </div>
 <div class="subsubsection-level-extent" id="Diagram-priorit">
-<div class="nav-panel">
-<p>
-Next: <a href="#P_010f_017c_02dd_010f_017c_02ddklady-vyu_010f_017c_02ddit_010f_017c_02dd-priorit" accesskey="n" rel="next">P��klady vyu�it� priorit</a>, Previous: <a href="#Typy-priorit" accesskey="p" rel="prev">Priority Categories</a>, Up: <a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="u" rel="up">Model priorit zpr�v</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#P_0159_00edklady-vyu_017eit_00ed-priorit" rel="next">Příklady využití priorit</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Typy-priorit" rel="prev">Priority Categories</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Model-priorit-zpr_00e1v" rel="up">Model priorit zpráv</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h4 class="subsubsection" id="Diagram-priorit-1"><span>2.1.1.2 Diagram priorit<a class="copiable-link" href="#Diagram-priorit-1"> &para;</a></span></h4>
 
 <img class="image" src="figures/priorities.png" alt="Speech Dispatcher architecture">
 
 <hr>
 </div>
-<div class="subsubsection-level-extent" id="P_010f_017c_02dd_010f_017c_02ddklady-vyu_010f_017c_02ddit_010f_017c_02dd-priorit">
-<div class="nav-panel">
-<p>
-Previous: <a href="#Diagram-priorit" accesskey="p" rel="prev">Diagram priorit</a>, Up: <a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="u" rel="up">Model priorit zpr�v</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h4 class="subsubsection" id="Pdz_0022dz_0022klady-vyudz_0022itdz_0022-priorit"><span>2.1.1.3 P��klady vyu�it� priorit<a class="copiable-link" href="#Pdz_0022dz_0022klady-vyudz_0022itdz_0022-priorit"> &para;</a></span></h4>
+<div class="subsubsection-level-extent" id="P_0159_00edklady-vyu_017eit_00ed-priorit">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Diagram-priorit" rel="prev">Diagram priorit</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Model-priorit-zpr_00e1v" rel="up">Model priorit zpráv</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h4 class="subsubsection" id="P_0159_00edklady-vyu_017eit_00ed-priorit-1"><span>2.1.1.3 Příklady využití priorit<a class="copiable-link" href="#P_0159_00edklady-vyu_017eit_00ed-priorit-1"> &para;</a></span></h4>
 
-<p>P��klady pou�it� priority <code class="code">important</code> jsou:
+<p>Příklady použití priority <code class="code">important</code> jsou:
 </p> 
 <ul class="itemize mark-bullet">
-<li>chybov� hl�ky
-</li><li>velmi d�le�it� zpr�vy
+<li>chybové hlášky
+</li><li>velmi důležité zprávy
 </li><li>...
 </li></ul>
 
-<p>P��klady pou�it� priority <code class="code">message</code> jsou:
+<p>Příklady použití priority <code class="code">message</code> jsou:
 </p>
 <ul class="itemize mark-bullet">
-<li>b�n� zpr�vy programu
-</li><li>varov�n�
+<li>běžné zprávy programu
+</li><li>varování
 </li><li>...
 </li></ul>
 
-<p>P��klady pou�it� priority <code class="code">text</code> jsou:
+<p>Příklady použití priority <code class="code">text</code> jsou:
 </p>
 <ul class="itemize mark-bullet">
-<li>text, na kter�m u�ivatel pracuje
-</li><li>p�ed��tan� text
-</li><li>polo�ky menu
+<li>text, na kterém uživatel pracuje
+</li><li>předčítaný text
+</li><li>položky menu
 </li><li>...
 </li></ul>
 
-<p>P��klady pou�it� priority <code class="code">notification</code> jsou:
+<p>Příklady použití priority <code class="code">notification</code> jsou:
 </p>
 <ul class="itemize mark-bullet">
-<li>m�n� d�le�it� informace
-</li><li>p�smenka p�i vkl�d�n�
-</li><li>run-time n�pov�da
+<li>méně důležité informace
+</li><li>písmenka při vkládání
+</li><li>run-time nápověda
 </li><li>...
 </li></ul>
 
-<p>P��klady pou�it� priority <code class="code">progress</code> jsou:
+<p>Příklady použití priority <code class="code">progress</code> jsou:
 </p>
 <ul class="itemize mark-bullet">
-<li>&ldquo;dokon�eno 15%&rdquo;, &ldquo;dokon�eno 16%&rdquo;, &ldquo;dokon�eno 17%&rdquo;
-</li><li>&ldquo;Na��t�m zvuky&rdquo;, &ldquo;Na��t�m grafiku&rdquo;, &ldquo;Na��t�m ai&rdquo;, ...
+<li>&ldquo;dokončeno 15%&rdquo;, &ldquo;dokončeno 16%&rdquo;, &ldquo;dokončeno 17%&rdquo;
+</li><li>&ldquo;Načítám zvuky&rdquo;, &ldquo;Načítám grafiku&rdquo;, &ldquo;Načítám ai&rdquo;, ...
 </li></ul>
 
 <hr>
 </div>
 </div>
-<div class="subsection-level-extent" id="Historie-zpr_010f_017c_02ddv">
-<div class="nav-panel">
-<p>
-Next: <a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="n" rel="next">V�ce v�stupn�ch modul�</a>, Previous: <a href="#Model-priorit-zpr_010f_017c_02ddv" accesskey="p" rel="prev">Model priorit zpr�v</a>, Up: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="u" rel="up">Z�kladn� funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h4 class="subsection" id="Historie-zprdz_0022v"><span>2.1.2 Historie zpr�v<a class="copiable-link" href="#Historie-zprdz_0022v"> &para;</a></span></h4>
+<div class="subsection-level-extent" id="Historie-zpr_00e1v">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#V_00edce-v_00fdstupn_00edch-modul_016f" rel="next">Více výstupních modulů</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Model-priorit-zpr_00e1v" rel="prev">Model priorit zpráv</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Z_00e1kladn_00ed-funkce" rel="up">Základní funkce</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h4 class="subsection" id="Historie-zpr_00e1v-1"><span>2.1.2 Historie zpráv<a class="copiable-link" href="#Historie-zpr_00e1v-1"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-history"></a>
 
-<p>Pro nevidom� a zrakov� posti�en� je dobrou vlastnost�, pokud maj� mo�nost
-n�jak�m jednoduch�m klientem proch�zet historii vysloven�ch zpr�v.
+<p>Pro nevidomé a zrakově postižené je dobrou vlastností, pokud mají možnost
+nějakým jednoduchým klientem procházet historii vyslovených zpráv.
 </p>
-<p>N�kter� m�n� d�le�it� zpr�vy jsou p�ijmuty Speech Dispatcherem bez toho, aby
-byly p�e��k�ny, proto�e jsou potla�eny d�le�it�j��mi informacemi.  To je
-ned�liteln� vlastnost ka�d�ho �e�ov�ho rozhran�, proto�e nen� mo�n� podat v
-�e�ov�m v�stupu tolik informac�, kolik se jich vejde na obrazovku.  To je jeden
-z hlavn�ch d�vod�, pro� je v�hodn� udr�ovat historii p�ijat�ch zpr�v, aby se
-mohl u�ivatel pod�vat, zda mu neu�lo n�co d�le�it�ho.
+<p>Některé méně důležité zprávy jsou přijaty Speech Dispatcherem bez toho, aby
+byly přeříkány, protože jsou potlačeny důležitějšími informacemi.  To je
+nedělitelná vlastnost každého řečového rozhraní, protože není možné podat v
+řečovém výstupu tolik informací, kolik se jich vejde na obrazovku.  To je jeden
+z hlavních důvodů, proč je výhodné udržovat historii přijatých zpráv, aby se
+mohl uživatel podívat, zda mu neušlo něco důležitého.
 </p>
 
 <ul class="mini-toc">
-<li><a href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva" accesskey="1">Access Rights</a></li>
+<li><a href="#P_0159_00edstupov_00e1-pr_00e1va">Access Rights</a></li>
 </ul>
 <hr>
-<div class="subsubsection-level-extent" id="P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">
-<div class="nav-panel">
-<p>
-Previous: <a href="#Historie-zpr_010f_017c_02ddv" accesskey="p" rel="prev">Historie zpr�v</a>, Up: <a href="#Historie-zpr_010f_017c_02ddv" accesskey="u" rel="up">Historie zpr�v</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<div class="subsubsection-level-extent" id="P_0159_00edstupov_00e1-pr_00e1va">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Historie-zpr_00e1v" rel="prev">Historie zpráv</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Historie-zpr_00e1v" rel="up">Historie zpráv</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h4 class="subsubsection" id="Access-Rights"><span>2.1.2.1 Access Rights<a class="copiable-link" href="#Access-Rights"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-access-rights"></a>
 
-<p>Aby bylo ochr�n�no soukrom� u�ivatel�, Speech Dispatcher omezuje p��stup k
-historii na ur�itou podmno�inu p�ijat�ch zpr�v.  Plat� n�sleduj�c� pravidla:
+<p>Aby bylo ochráněno soukromí uživatelů, Speech Dispatcher omezuje přístup k
+historii na určitou podmnožinu přijatých zpráv.  Platí následující pravidla:
 </p>
 <ul class="itemize mark-bullet">
-<li>V�echny zpr�vy p�ijat� od ur�it�ho klientsk�ho spojen� jsou tomuto spojen�
-p��stupny i v historii.
+<li>Všechny zprávy přijaté od určitého klientského spojení jsou tomuto spojení
+přístupny i v historii.
 
-</li><li>V�echny zpr�vy odeslan� ur�it�m u�ivatelem jsou tomuto u�ivateli p��stupny i v
+</li><li>Všechny zprávy odeslané určitým uživatelem jsou tomuto uživateli přístupny i v
 historii.
 
-</li><li><a class="index-entry-id" id="index-speechd-udz_0022ivatel"></a>
+</li><li><a class="index-entry-id" id="index-speechd-uzivatel"></a>
 <a class="index-entry-id" id="index-speechd-skupina"></a>
-V�echny zpr�vy zaslan� u�ivatelem <code class="code">speechd</code> jsou p��stupny v�em u�ivatel�m
-na dan�m syst�mu, pod kter�m b�� Speech Dispatcher ve skupin� <code class="code">speechd</code>.
+Všechny zprávy zaslané uživatelem <code class="code">speechd</code> jsou přístupny všem uživatelům
+na daném systému, pod kterým běží Speech Dispatcher ve skupině <code class="code">speechd</code>.
 
-</li><li>��dn� dal�� zpr�vy nejsou p��stupn�.
+</li><li>Žádné další zprávy nejsou přístupné.
 </li></ul>
 
-<p>Dv� zpr�vy jsou pova�ov�ny za identick� jestli�e jejich spojen� poch�zej� z
-toho sam�ho po��ta�e, u�ivatelsk� jm�na jsou stejn� a jejich identita m��e b�t
-ov��ena, jak je pops�no v <a class="ref" href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace u�ivatel�</a>.  Pokud nem��e b�t
-u�ivatelova identita ov��ena, tento u�ivatel je pova�ov�n za jin�ho ne� v�ichni
-p�ipojen� nebo d��ve p�ipojen� u�ivatel�.
+<p>Dvě zprávy jsou považovány za identické jestliže jejich spojení pocházejí z
+toho samého počítače, uživatelská jména jsou stejná a jejich identita může být
+ověřena, jak je popsáno v <a class="ref" href="#Autentizace-u_017eivatel_016f">Autentizace uživatelů</a>.  Pokud nemůže být
+uživatelova identita ověřena, tento uživatel je považován za jiného než všichni
+připojení nebo dříve připojení uživatelé.
 </p>
 <hr>
 </div>
 </div>
-<div class="subsection-level-extent" id="V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">
-<div class="nav-panel">
-<p>
-Next: <a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd" accesskey="n" rel="next">Autentifikace u�ivatel�</a>, Previous: <a href="#Historie-zpr_010f_017c_02ddv" accesskey="p" rel="prev">Historie zpr�v</a>, Up: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="u" rel="up">Z�kladn� funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h4 class="subsection" id="Vdz_0022ce-vdz_0022stupndz_0022ch-moduldz_0022"><span>2.1.3 V�ce v�stupn�ch modul�<a class="copiable-link" href="#Vdz_0022ce-vdz_0022stupndz_0022ch-moduldz_0022"> &para;</a></span></h4>
-<a class="index-entry-id" id="index-vdz_0022stupndz_0022-modul"></a>
-<a class="index-entry-id" id="index-syntetizdz_0022tory"></a>
+<div class="subsection-level-extent" id="V_00edce-v_00fdstupn_00edch-modul_016f">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Autentizace-u_017eivatel_016f" rel="next">Autentizace uživatelů</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Historie-zpr_00e1v" rel="prev">Historie zpráv</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Z_00e1kladn_00ed-funkce" rel="up">Základní funkce</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h4 class="subsection" id="V_00edce-v_00fdstupn_00edch-modul_016f-1"><span>2.1.3 Více výstupních modulů<a class="copiable-link" href="#V_00edce-v_00fdstupn_00edch-modul_016f-1"> &para;</a></span></h4>
+<a class="index-entry-id" id="index-vystupni-modul"></a>
+<a class="index-entry-id" id="index-syntezatory"></a>
 
-<p>Speech Dispatcher podporuje soub�n� pou��v�n� v�ce v�stupn�ch modul�.  Pokud
-tyto moduly poskytuj� dobrou synchronizaci, lze je p�i �ten� zpr�v kombinovat.
-Pokud nap�. modul1 mluv� anglicky a �esky, zat�mco modul2 mluv� pouze n�mecky,
-tak pokud p�ijde n�jak� zpr�va v n�m�in�, pou�ije se modul2, zat�mco pro
-ostatn� jazyky se pou�ije modul1.  Na druh� stran� jazyk nen� jedin�m krit�riem
-pro takov� rozhodnut�.  P�esn� pravidla pro v�b�r v�stup�ho modulu mohou b�t
-ovlivn�na v konfigura�n�m souboru <samp class="file">speechd.conf</samp>.
+<p>Speech Dispatcher podporuje souběžné používání více výstupních modulů.  Pokud
+tyto moduly poskytují dobrou synchronizaci, lze je při čtení zpráv kombinovat.
+Pokud např. modul1 mluví anglicky a česky, zatímco modul2 mluví pouze německy,
+tak pokud přijde nějaká zpráva v němčině, použije se modul2, zatímco pro
+ostatní jazyky se použije modul1.  Na druhé straně jazyk není jediným kritériem
+pro takové rozhodnutí.  Přesná pravidla pro výběr výstupního modulu mohou být
+ovlivněna v konfiguračním souboru <samp class="file">speechd.conf</samp>.
 </p>
 <hr>
 </div>
-<div class="subsection-level-extent" id="Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">
-<div class="nav-panel">
-<p>
-Previous: <a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="p" rel="prev">V�ce v�stupn�ch modul�</a>, Up: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="u" rel="up">Z�kladn� funkce</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h4 class="subsection" id="Autentifikace-udz_0022ivateldz_0022"><span>2.1.4 Autentifikace u�ivatel�<a class="copiable-link" href="#Autentifikace-udz_0022ivateldz_0022"> &para;</a></span></h4>
+<div class="subsection-level-extent" id="Autentizace-u_017eivatel_016f">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#V_00edce-v_00fdstupn_00edch-modul_016f" rel="prev">Více výstupních modulů</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Z_00e1kladn_00ed-funkce" rel="up">Základní funkce</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h4 class="subsection" id="Autentizace-u_017eivatel_016f-1"><span>2.1.4 Autentizace uživatelů<a class="copiable-link" href="#Autentizace-u_017eivatel_016f-1"> &para;</a></span></h4>
 <a class="index-entry-id" id="index-Identification-Protocol"></a>
 <a class="index-entry-id" id="index-identd"></a>
 <a class="index-entry-id" id="index-RFC-1413"></a>
 
-<p>NOTE: Na implementaci t�to vlastnosti se pracuje, ale sou�asn� verze ji
+<p>NOTE: Na implementaci této vlastnosti se pracuje, ale současná verze ji
 nepodporuje.
 </p>
-<p>Speech Dispatcher neposkytuje ��dn� explicitn� autentifika�n� mechanismus.  K
-ov��en� identity u�ivatl� pou��v�me Identification Protocol definovan� v RFC
+<p>Speech Dispatcher neposkytuje žádný explicitní autentizační mechanismus.  K
+ověření identity uživatelů používáme Identification Protocol definovaný v RFC
 1413.
 </p>
-<a class="index-entry-id" id="index-mapovdz_0022ndz_0022-udz_0022ivatldz_0022"></a>
-<p>V konfiguraci je mo�n� specifikovat mapov�n� u�ivatel�. To umo��uje jednat s
-ur�it�mi u�ivateli jako s jedn�m a p�id�lit jim stejn� pr�va (nap�. proch�zet
-jejich <a class="ref" href="#Historie-zpr_010f_017c_02ddv">Historie zpr�v</a>).
+<a class="index-entry-id" id="index-mapovani-uzivatelu"></a>
+<p>V konfiguraci je možné specifikovat mapování uživatelů. To umožňuje jednat s
+určitými uživateli jako s jedním a přidělit jim stejná práva (např. procházet
+jejich <a class="ref" href="#Historie-zpr_00e1v">Historie zpráv</a>).
 </p>
 <hr>
 </div>
 </div>
-<div class="section-level-extent" id="Spou_010f_017c_02ddt_010f_017c_02ddn_010f_017c_02dd">
-<div class="nav-panel">
-<p>
-Next: <a href="#Konfigurace" accesskey="n" rel="next">konfigurace</a>, Previous: <a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-funkce" accesskey="p" rel="prev">Z�kladn� funkce</a>, Up: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="u" rel="up">U�ivatelsk� dokumentace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<div class="section-level-extent" id="Spou_0161t_011bn_00ed">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Konfigurace" rel="next">konfigurace</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Z_00e1kladn_00ed-funkce" rel="prev">Základní funkce</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#U_017eivatelsk_00e1-dokumentace" rel="up">Uživatelská dokumentace</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h3 class="section" id="Invoking"><span>2.2 Invoking<a class="copiable-link" href="#Invoking"> &para;</a></span></h3>
 
 <ul class="mini-toc">
-<li><a href="#Potdz_0022ebndz_0022-privilegia" accesskey="1">Pot�ebn� privilegia</a></li>
-<li><a href="#Volby-pdz_0022dz_0022kazovdz_0022-dz_0022dz_0022dky" accesskey="2">Volby p��kazov� ��dky</a></li>
+<li><a href="#Pot_0159ebn_00e1-privilegia">Potřebná privilegia</a></li>
+<li><a href="#Volby-p_0159_00edkazov_00e9-_0159_00e1dky">Volby příkazové řádky</a></li>
 </ul>
-<div class="subsection-level-extent" id="Potdz_0022ebndz_0022-privilegia">
-<h4 class="subsection"><span>2.2.1 Pot�ebn� privilegia<a class="copiable-link" href="#Potdz_0022ebndz_0022-privilegia"> &para;</a></span></h4>
+<div class="subsection-level-extent" id="Pot_0159ebn_00e1-privilegia">
+<h4 class="subsection"><span>2.2.1 Potřebná privilegia<a class="copiable-link" href="#Pot_0159ebn_00e1-privilegia"> &para;</a></span></h4>
 
-<p>Speech Dispatcher m��e b�t obecn� spou�t�n pod oby�ejn�m u�ivatelem.  Sna�ili
-jsme se jej zabezpe�it, jak jen to bylo mo�n�, ale nejsme odborn�ky na
-po��ta�ovou bezpe�nost a k�d m��e obsahovat nebezpe�n� chyby.  Nedoporu�ujeme
-jej spou�t�t jako root nebo pod jin�m vysoce privilegovan�m u�ivatelem.
+<p>Speech Dispatcher může být obecně spouštěn pod obyčejným uživatelem.  Snažili
+jsme se jej zabezpečit, jak jen to bylo možné, ale nejsme odborníky na
+počítačovou bezpečnost a kód může obsahovat nebezpečné chyby.  Nedoporučujeme
+jej spouštět jako root nebo pod jiným vysoce privilegovaným uživatelem.
 </p>
-<p>Jedin� omezen� jsou tyto:
+<p>Jediná omezení jsou tyto:
 </p>
 <ul class="itemize mark-bullet">
-<li>Speech Dispatcher vytv��� PID file standardn� ve
-<samp class="file">/var/run/speech-dispatcher.pid</samp>, tak�e <samp class="file">/var/run/</samp> mus� b�t dan�mu
-u�ivateli p��stupn� k z�pisu.  To m��e b�t zm�n�no nastaven�m volby
-<code class="code">pidpath</code> p�i vol�n� skriptu <code class="code">./configure</code> p�i kompilaci.
-</li><li>Kdy� je zapnuto logov�n�, v�choz� cesta, kam Speech Dispatcher zapisuje sv�j
-log, je <samp class="file">/var/log/speech-dispatcher.log</samp>.  To ale m��e b�t kdykoliv
-p�enastaveno v hlavn�m konfigura�n�m souboru.
+<li>Speech Dispatcher vytváří PID file standardně ve
+<samp class="file">/var/run/speech-dispatcher.pid</samp>, takže <samp class="file">/var/run/</samp> musí být danému
+uživateli přístupné k zápisu.  To může být změněno nastavením volby
+<code class="code">pidpath</code> při volání skriptu <code class="code">./configure</code> při kompilaci.
+</li><li>Když je zapnuto logování, výchozí cesta, kam Speech Dispatcher zapisuje svůj
+log, je <samp class="file">/var/log/speech-dispatcher.log</samp>.  To ale může být kdykoliv
+přenastaveno v hlavním konfiguračním souboru.
 </li></ul>
 
 </div>
-<div class="subsection-level-extent" id="Volby-pdz_0022dz_0022kazovdz_0022-dz_0022dz_0022dky">
-<h4 class="subsection"><span>2.2.2 Volby p��kazov� ��dky<a class="copiable-link" href="#Volby-pdz_0022dz_0022kazovdz_0022-dz_0022dz_0022dky"> &para;</a></span></h4>
+<div class="subsection-level-extent" id="Volby-p_0159_00edkazov_00e9-_0159_00e1dky">
+<h4 class="subsection"><span>2.2.2 Volby příkazové řádky<a class="copiable-link" href="#Volby-p_0159_00edkazov_00e9-_0159_00e1dky"> &para;</a></span></h4>
 
-<p>Speech Dispatcher m��e b�t spu�t�n s t�mito volbami:
+<p>Speech Dispatcher může být spuštěn s těmito volbami:
 </p>
 <p><code class="code">speech-dispatcher [-{d|s}] [-l {1|2|3|4|5}] [-p=port] | [-v] | [-h]</code>
 </p>
 <dl class="table">
 <dt><code class="code">-d or --run-daemon</code></dt>
-<dd><p>Spust� program jako d�mona (b�� v pozad�, odpoj� se od termin�lu, atd.)  Toto
-je v�choz� chov�n�.
+<dd><p>Spustí program jako démona (běží v pozadí, odpojí se od terminálu, atd.)  Toto
+je výchozí chování.
 </p>
 </dd>
 <dt><code class="code">-s or --run-single</code></dt>
-<dd><p>Spust� program jako b�nou aplikaci b��c� na pop�ed�.
+<dd><p>Spustí program jako běžnou aplikaci běžící na popředí.
 </p>
 </dd>
 <dt><code class="code">-l level or --log-level=level</code></dt>
-<dd><p>Vybere po�adovan� logovac� �rove�. Logovac� �rove� je ��slo mezi 0 a 5 (0
-znamen� neloguj nic, 5 znamen� zapisuj t�m�� v�e v�etn� zpracov�van�ho textu.)
-Standardn� je 3. See <a class="xref" href="#g_t_010f_017c_02ddrovn_010f_017c_02dd-logov_010f_017c_02ddn_010f_017c_02dd">�rovn� logov�n�</a>.
+<dd><p>Vybere požadovaný logovací úroveň. Logovací úroveň je číslo mezi 0 a 5 (0
+znamená neloguj nic, 5 znamená zapisuj téměř vše včetně zpracovávaného textu.)
+Standardní je 3. See <a class="xref" href="#g_t_00darovn_011b-logov_00e1n_00ed">Úrovně logování</a>.
 </p>
-<p>Logovac� �rove� 5 by nem�la b�t pou��v�na k jin�m ��el�m, ne� pro hled�n� chyb
-a to pouze kr�tkodob�.  Logy, kter� produkuje mohou nar�st do obrovsk�
-velikosti a obsahuj� text �ten� u�ivateli nez�visle na r�zn�ch p��stupov�ch
-pr�vech, jak plat� pro historii.  Spou�t�t server s touto �rovn� logov�n� tedy
-m��e snadno v�st k naru�en� soukrom�.
+<p>Logovací úroveň 5 by neměla být používána k jiným účelům, než pro hledání chyb
+a to pouze krátkodobě.  Logy, které produkuje mohou narůst do obrovské
+velikosti a obsahují text čtený uživateli nezávisle na různých přístupových
+právech, jak platí pro historii.  Spouštět server s touto úrovní logování tedy
+může snadno vést k narušení soukromí.
 </p>
 </dd>
 <dt><code class="code">-p or --port</code></dt>
-<dd><p>Zad� port, na kter�m by m�l server �ekat na klienty.  V�choz� je 6560.
+<dd><p>Zadá port, na kterém by měl server čekat na klienty.  Výchozí je 6560.
 </p>
 </dd>
 <dt><code class="code">-v or --version</code></dt>
-<dd><p>Vyp��e informace o verzi Speech Dispatchera.  Tak� ozn�m� z�kladn� informace o
+<dd><p>Vypíše informace o verzi Speech Dispatchera.  Také oznámí základní informace o
 copyrightu.
 </p>
 </dd>
 <dt><code class="code">-h or --help</code></dt>
-<dd><p>Vyp��e n�pov�du o volb�ch p��kazov� ��dky, upozorn�n� o copyrightu
-a emailovou adresu pro zas�l�n� ozn�men� o chyb�ch.
+<dd><p>Vypíše nápovědu o volbách příkazové řádky, upozornění o copyrightu
+a emailovou adresu pro zasílání oznámení o chybách.
 </p></dd>
 </dl>
 
@@ -680,65 +645,61 @@ a emailovou adresu pro zas�l�n� ozn�men� o chyb�ch.
 </div>
 </div>
 <div class="section-level-extent" id="Konfigurace">
-<div class="nav-panel">
-<p>
-Previous: <a href="#Spou_010f_017c_02ddt_010f_017c_02ddn_010f_017c_02dd" accesskey="p" rel="prev">Invoking</a>, Up: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="u" rel="up">U�ivatelsk� dokumentace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Spou_0161t_011bn_00ed" rel="prev">Invoking</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#U_017eivatelsk_00e1-dokumentace" rel="up">Uživatelská dokumentace</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h3 class="section" id="konfigurace"><span>2.3 konfigurace<a class="copiable-link" href="#konfigurace"> &para;</a></span></h3>
 <a class="index-entry-id" id="index-konfigurace"></a>
 
-<p>Speech Dispatcher m��e b�t konfigurov�n na n�kolika r�zn�ch �rovn�ch.  Jedna z
-nich je nastavov�n� glob�ln�ch parametr� p�es serverov� konfigura�n� soubor.
-Je zde i podpora pro konfiguraci specifickou pro ur�it� klienty.
+<p>Speech Dispatcher může být konfigurován na několika různých úrovních.  Jedna z
+nich je nastavování globálních parametrů přes serverový konfigurační soubor.
+Je zde i podpora pro konfiguraci specifickou pro určité klienty.
 </p>
-<p>N�kter� aplikace maj� vlastn� mechanismus nastavov�n� voleb souvisej�c�ch s
-�e�ovou synt�zou.  Pro detaily o t�chto nastaven�ch se pros�m pod�vejte do
-dokumentace dan�ho programu.
+<p>Některé aplikace mají vlastní mechanismus nastavování voleb souvisejících s
+řečovou syntézou.  Pro detaily o těchto nastaveních se prosím podívejte do
+dokumentace daného programu.
 </p>
-<p>N�sleduj�c� kapitoly se zab�vaj� pouze konfigurac� na stran� serveru p�es
-konfigura�n� soubor.
+<p>Následující kapitoly se zabývají pouze konfigurací na straně serveru přes
+konfigurační soubor.
 </p>
 
 <ul class="mini-toc">
-<li><a href="#Syntaxe-konfigura_010f_017c_02ddn_010f_017c_02ddho-souboru" accesskey="1">Syntaxe konfigura�n�ho souboru</a></li>
-<li><a href="#Volby-v-konfiguraci" accesskey="2">Configuration options</a></li>
-<li><a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="3">Output Modules Configuration</a></li>
-<li><a href="#g_t_010f_017c_02ddrovn_010f_017c_02dd-logov_010f_017c_02ddn_010f_017c_02dd" accesskey="4">�rovn� logov�n�</a></li>
+<li><a href="#Syntaxe-konfigura_010dn_00edho-souboru">Syntaxe konfiguračního souboru</a></li>
+<li><a href="#Volby-v-konfiguraci">Configuration options</a></li>
+<li><a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f">Output Modules Configuration</a></li>
+<li><a href="#g_t_00darovn_011b-logov_00e1n_00ed">Úrovně logování</a></li>
 </ul>
 <hr>
-<div class="subsection-level-extent" id="Syntaxe-konfigura_010f_017c_02ddn_010f_017c_02ddho-souboru">
-<div class="nav-panel">
-<p>
-Next: <a href="#Volby-v-konfiguraci" accesskey="n" rel="next">Configuration options</a>, Previous: <a href="#Konfigurace" accesskey="p" rel="prev">konfigurace</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h4 class="subsection" id="Syntaxe-konfiguradz_0022ndz_0022ho-souboru"><span>2.3.1 Syntaxe konfigura�n�ho souboru<a class="copiable-link" href="#Syntaxe-konfiguradz_0022ndz_0022ho-souboru"> &para;</a></span></h4>
+<div class="subsection-level-extent" id="Syntaxe-konfigura_010dn_00edho-souboru">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Volby-v-konfiguraci" rel="next">Configuration options</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Konfigurace" rel="prev">konfigurace</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Konfigurace" rel="up">konfigurace</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h4 class="subsection" id="Syntaxe-konfigura_010dn_00edho-souboru-1"><span>2.3.1 Syntaxe konfiguračního souboru<a class="copiable-link" href="#Syntaxe-konfigura_010dn_00edho-souboru-1"> &para;</a></span></h4>
 
-<p>Pro na��t�n� configurace zalo�en� na textov�ch souborech pou��v�me knihovnu
-DotConf, tak�e bude syntaxe nejsp�� mnoha u�ivatel�m pov�dom�.
+<p>Pro načítání konfigurace založené na textových souborech používáme knihovnu
+DotConf, takže bude syntaxe nejspíš mnoha uživatelům povědomá.
 </p>
-<p>Ka�d� z �et�zcov�ch konstant, pokud nen� uvedeno jinak, by m�la b�t zak�dov�na
-v UTF-8.  Jm�na voleb nepou��vaj� jin� znaky ne� standardn� ASCII sadu omezenou
-na znaky (<code class="code">a</code>, <code class="code">b</code>, ...), poml�ky (<code class="code">-</code>) a podtr��tka <code class="code">_</code>.
+<p>Každá z řetězcových konstant, pokud není uvedeno jinak, by měla být zakódována
+v UTF-8.  Jména voleb nepoužívají jiné znaky než standardní ASCII sadu omezenou
+na znaky (<code class="code">a</code>, <code class="code">b</code>, ...), pomlčky (<code class="code">-</code>) a podtržítka <code class="code">_</code>.
 </p>
-<p>Koment��e a do�asn� neaktivn� volby za��naj� znakem <code class="code">#</code>.  Pokud chcete
-takovu volbu zapnout, sta�� smazat znak koment��e a nastavit volbu na
-po�adovanou hodnotu.
+<p>Komentáře a dočasně neaktivní volby začínají znakem <code class="code">#</code>.  Pokud chcete
+takovu volbu zapnout, stačí smazat znak komentáře a nastavit volbu na
+požadovanou hodnotu.
 </p><div class="example">
 <pre class="example-preformatted"># toto je komentar
-# InactiveOption &quot;tato volba je zatim vypla komentarem&quot;
+# InactiveOption &quot;tato volba je zatim vypnuta komentarem&quot;
 </pre></div>
 
-<p>�et�zce jsou uzav�eny v uvozovk�ch.
+<p>Řetězce jsou uzavřeny v uvozovkách.
 </p><div class="example">
 <pre class="example-preformatted">LogFile  &quot;/var/log/speech-dispatcher.log&quot;
 </pre></div>
 
-<p>��sla jsou zaps�na bez uvozovek.
+<p>Čísla jsou zapsána bez uvozovek.
 </p><div class="example">
 <pre class="example-preformatted">Port 6560
 </pre></div>
 
-<p>P�ep�na�e pou��vaj� On (zapnuto) a Off (vypnuto).
+<p>Přepínače používají On (zapnuto) a Off (vypnuto).
 </p><div class="example">
 <pre class="example-preformatted">Debug Off
 </pre></div>
@@ -746,106 +707,98 @@ po�adovanou hodnotu.
 <hr>
 </div>
 <div class="subsection-level-extent" id="Volby-v-konfiguraci">
-<div class="nav-panel">
-<p>
-Next: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="n" rel="next">Output Modules Configuration</a>, Previous: <a href="#Syntaxe-konfigura_010f_017c_02ddn_010f_017c_02ddho-souboru" accesskey="p" rel="prev">Syntaxe konfigura�n�ho souboru</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" rel="next">Output Modules Configuration</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Syntaxe-konfigura_010dn_00edho-souboru" rel="prev">Syntaxe konfiguračního souboru</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Konfigurace" rel="up">konfigurace</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h4 class="subsection" id="Configuration-options"><span>2.3.2 Configuration options<a class="copiable-link" href="#Configuration-options"> &para;</a></span></h4>
 
-<p>V�echny dostupn� volby jsou zdokumentov�ny p��mo v konfigura�n�m souboru a jsou
-k nim uvedeny i p��klady. V�t�ina voleb je nastavena na v�choz� hodnotu a
-zakomentov�na.  Pokud je chcete zm�nit, posta�� modifikovat jejich hodnotu a
-smazat symbol koment��e <code class="code">#</code>.
+<p>Všechny dostupné volby jsou zdokumentovány přímo v konfiguračním souboru a jsou
+k nim uvedeny i příklady. Většina voleb je nastavena na výchozí hodnotu a
+zakomentována.  Pokud je chcete změnit, postačí modifikovat jejich hodnotu a
+smazat symbol komentáře <code class="code">#</code>.
 </p>
 <hr>
 </div>
-<div class="subsection-level-extent" id="Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">
-<div class="nav-panel">
-<p>
-Next: <a href="#g_t_010f_017c_02ddrovn_010f_017c_02dd-logov_010f_017c_02ddn_010f_017c_02dd" accesskey="n" rel="next">�rovn� logov�n�</a>, Previous: <a href="#Volby-v-konfiguraci" accesskey="p" rel="prev">Configuration options</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<div class="subsection-level-extent" id="Nastaven_00ed-v_00fdstupn_00edch-modul_016f">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#g_t_00darovn_011b-logov_00e1n_00ed" rel="next">Úrovně logování</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Volby-v-konfiguraci" rel="prev">Configuration options</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Konfigurace" rel="up">konfigurace</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h4 class="subsection" id="Output-Modules-Configuration"><span>2.3.3 Output Modules Configuration<a class="copiable-link" href="#Output-Modules-Configuration"> &para;</a></span></h4>
 
-<p>Ka�d� u�ivatel by si m�l zapnout ve sv� konfiguraci alespo� jeden v�stupn�
-modul, pokud chce, aby Speech Dispatcher produkoval n�jak� zvukov� v�stup.
-Kdy� nen� na�ten ��dn� v�stupn� modul, Speech Dispatcher sice nastartuje, bude
-komunikovat s klienty a logovat zpr�vy do historie, ale nebude produkovat ��dn�
+<p>Každý uživatel by si měl zapnout ve své konfiguraci alespoň jeden výstupní
+modul, pokud chce, aby Speech Dispatcher produkoval nějaký zvukový výstup.
+Když není načten žádný výstupní modul, Speech Dispatcher sice nastartuje, bude
+komunikovat s klienty a logovat zprávy do historie, ale nebude produkovat žádný
 zvuk.
 </p>
-<p>Ka�d� v�stupn� modul je t�eba do Speech Dispatchera nat�hnout jednou ��dkou
-&ldquo;AddModule&rdquo; v <samp class="file">etc/speechd.conf</samp>.  Nav�c, ka�d� v�stupn� modul m�
-p�i�azen vlastn� konfigura�n� soubor.
+<p>Každý výstupní modul je třeba do Speech Dispatchera natáhnout jednou řádkou
+&ldquo;AddModule&rdquo; v <samp class="file">etc/speechd.conf</samp>.  Navíc, každý výstupní modul má
+přiřazen vlastní konfigurační soubor.
 </p>
 
 <ul class="mini-toc">
-<li><a href="#Natahov_010f_017c_02ddn_010f_017c_02dd-modul_010f_017c_02dd-ve-speechd_002econf" accesskey="1">Natahov�n� modul� ve speechd.conf</a></li>
-<li><a href="#Konfigura_010f_017c_02ddn_010f_017c_02dd-soubory-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="2">Konfigura�n� soubory v�stupn�ch modul�</a></li>
-<li><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu" accesskey="3">Konfigurace generick�ho v�stupn�ho modulu</a></li>
+<li><a href="#Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf">Natahování modulů ve speechd.conf</a></li>
+<li><a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f">Konfigurační soubory výstupních modulů</a></li>
+<li><a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">Konfigurace generického výstupního modulu</a></li>
 </ul>
 <hr>
-<div class="subsubsection-level-extent" id="Natahov_010f_017c_02ddn_010f_017c_02dd-modul_010f_017c_02dd-ve-speechd_002econf">
-<div class="nav-panel">
-<p>
-Next: <a href="#Konfigura_010f_017c_02ddn_010f_017c_02dd-soubory-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="n" rel="next">Konfigura�n� soubory v�stupn�ch modul�</a>, Previous: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h4 class="subsubsection" id="Natahovdz_0022ndz_0022-moduldz_0022-ve-speechd_002econf"><span>2.3.3.1 Natahov�n� modul� ve speechd.conf<a class="copiable-link" href="#Natahovdz_0022ndz_0022-moduldz_0022-ve-speechd_002econf"> &para;</a></span></h4>
+<div class="subsubsection-level-extent" id="Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" rel="next">Konfigurační soubory výstupních modulů</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" rel="prev">Output Modules Configuration</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" rel="up">Output Modules Configuration</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h4 class="subsubsection" id="Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf-1"><span>2.3.3.1 Natahování modulů ve speechd.conf<a class="copiable-link" href="#Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf-1"> &para;</a></span></h4>
 
-<a class="anchor" id="AddModule"></a><p>Ka�d� modul, kter� by se m�l spustit p�i startu Speech
-Dispatchera, mus� b�t nata�en p��kazem <code class="code">AddModule</code> v konfiguraci.
-V�imn�te si, �e lze nat�hnout jeden bin�rn� modul v�cekr�t s r�zn�mi
-konfigura�n�mi soubory a pod jin�mi jm�ny.  To je u�ite�n� hlavn� pro
-natahov�n� generick�ch v�stupn�ch modul�.  See <a class="xref" href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generick�ho v�stupn�ho modulu</a>.
+<a class="anchor" id="AddModule"></a><p>Každý modul, který by se měl spustit při startu Speech
+Dispatchera, musí být natažen příkazem <code class="code">AddModule</code> v konfiguraci.
+Všimněte si, že lze natáhnout jeden binární modul vícekrát s různými
+konfiguračními soubory a pod jinými jmény.  To je užitečné hlavně pro
+natahování generických výstupních modulů.  See <a class="xref" href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">Konfigurace generického výstupního modulu</a>.
 </p>
 <div class="example">
 <pre class="example-preformatted">AddModule &quot;<var class="var">module_name</var>&quot; &quot;<var class="var">module_binary</var>&quot; &quot;<var class="var">module_config</var>&quot;
 </pre></div>
 
-<p><var class="var">module_name</var> je jm�no dan�ho v�stupn�ho modulu.
+<p><var class="var">module_name</var> je jméno daného výstupního modulu.
 </p>
-<p><var class="var">module_binary</var> je jm�no bin�rn�ho spustiteln�ho souboru tohoto v�stupn�ho
-modulu.  To m��e b�t bu� cesta absolutn� nebo relativn� k
+<p><var class="var">module_binary</var> je jméno binárního spustitelného souboru tohoto výstupního
+modulu.  To může být buď cesta absolutní nebo relativní k
 <samp class="file">bin/speechd-modules/</samp>.
 </p>
-<p><var class="var">module_config</var> je soubor s konfigurac� pro tento konkr�tn� v�stupn� modul.
-Cesta m��e b�t absolutn� i relativn� k <samp class="file">etc/speech-dispatcher/modules/</samp>.
-Tento parametr je voliteln� (nen� t�eba jej uv�d�t).
+<p><var class="var">module_config</var> je soubor s konfigurací pro tento konkrétní výstupní modul.
+Cesta může být absolutní i relativní k <samp class="file">etc/speech-dispatcher/modules/</samp>.
+Tento parametr je volitelný (není třeba jej uvádět).
 </p>
 <hr>
 </div>
-<div class="subsubsection-level-extent" id="Konfigura_010f_017c_02ddn_010f_017c_02dd-soubory-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">
-<div class="nav-panel">
-<p>
-Next: <a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu" accesskey="n" rel="next">Konfigurace generick�ho v�stupn�ho modulu</a>, Previous: <a href="#Natahov_010f_017c_02ddn_010f_017c_02dd-modul_010f_017c_02dd-ve-speechd_002econf" accesskey="p" rel="prev">Natahov�n� modul� ve speechd.conf</a>, Up: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h4 class="subsubsection" id="Konfiguradz_0022ndz_0022-soubory-vdz_0022stupndz_0022ch-moduldz_0022"><span>2.3.3.2 Konfigura�n� soubory v�stupn�ch modul�<a class="copiable-link" href="#Konfiguradz_0022ndz_0022-soubory-vdz_0022stupndz_0022ch-moduldz_0022"> &para;</a></span></h4>
+<div class="subsubsection-level-extent" id="Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu" rel="next">Konfigurace generického výstupního modulu</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Natahov_00e1n_00ed-modul_016f-ve-speechd_002econf" rel="prev">Natahování modulů ve speechd.conf</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" rel="up">Output Modules Configuration</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h4 class="subsubsection" id="Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f-1"><span>2.3.3.2 Konfigurační soubory výstupních modulů<a class="copiable-link" href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f-1"> &para;</a></span></h4>
 
-<p>Ka�d� v�stupn� modul je odli�n� a proto m� odli�n� volby v konfiguraci.  Pros�m
-prostudujte si koment��e v dan�m konfigura�n�m souboru.  Zde je pops�no pouze
-n�kolik voleb, kter� jsou pro n�kter� v�stupn� moduly spole�n�.
+<p>Každý výstupní modul je odlišný a proto má odlišné volby v konfiguraci.  Prosím
+prostudujte si komentáře v daném konfiguračním souboru.  Zde je popsáno pouze
+několik voleb, které jsou pro některé výstupní moduly společné.
 </p>
 <dl class="table">
 <dt><code class="code">AddVoice &quot;<var class="var">language</var>&quot; &quot;<var class="var">symbolicname</var>&quot; &quot;<var class="var">name</var>&quot;</code></dt>
 <dd><a class="anchor" id="AddVoice"></a>
-<p>Ka�d� v�stupn� modul poskytuje n�jak� hlasy a n�kdy dokonce podporuje r�zn�
-jazyky.  Z toho d�vodu byl zaveden spole�n� mechanismus, kter�m m��ou b�t tyto
-hlasy definov�ny v konfiguraci.  ��dn� modul ov�em nen� povinen tuto volbu
-pou��vat.  N�kter� syntetiz�tory, nap�. Festival, podporuj� symbolick� jm�na
-SSIP p��mo, tak�e konfigurace konkr�tn�ch hlas� se prov�d� v syntetiz�toru
-samotn�m.
+<p>Každý výstupní modul poskytuje nějaké hlasy a někdy dokonce podporuje různé
+jazyky.  Z toho důvodu byl zaveden společný mechanismus, kterým můžou být tyto
+hlasy definovány v konfiguraci.  Žádný modul ovšem není povinen tuto volbu
+používat.  Některé syntezátory, např. Festival, podporují symbolická jména
+SSIP přímo, takže konfigurace konkrétních hlasů se provádí v syntezátoru
+samotném.
 </p>
-<p>Ka�d�mu definovan�mu hlasu odpov�d� p�esn� jedna ��dka <code class="code">AddVoice</code>.
+<p>Každému definovanému hlasu odpovídá přesně jedna řádka <code class="code">AddVoice</code>.
 </p>
-<p><var class="var">language</var> je ISO k�d jazyka tohoto hlasu (en, cs, de, en-US, ...)
+<p><var class="var">language</var> je ISO kód jazyka tohoto hlasu (en, cs, de, en-US, ...)
 </p>
-<p><var class="var">symbolicname</var> je symbolick� jm�no, pod kter�m chcete, aby byl tento hlas
-dostupn�.  See <a class="xref" href="#Standardn_010f_017c_02dd-hlasy">Standardn� hlasy</a>, pro seznam symbolick�ch jmen, kter� m��ete
-pou��t.
+<p><var class="var">symbolicname</var> je symbolické jméno, pod kterým chcete, aby byl tento hlas
+dostupný.  See <a class="xref" href="#Standardn_00ed-hlasy">Standardní hlasy</a>, pro seznam symbolických jmen, která můžete
+použít.
 </p>
-<p><var class="var">name</var> je jm�no specifick� pro dan� v�stupn� modul.  Pros�m pod�vejte se na
-koment��e v p��slu�n�m konfigura�n�m souboru v sekci AddModule pro detailn�j��
+<p><var class="var">name</var> je jméno specifické pro daný výstupní modul.  Prosím podívejte se na
+komentáře v příslušném konfiguračním souboru v sekci AddModule pro detailnější
 informace.
 </p>
-<p>Nap�. definice, kterou v sou�astnosti pou��v�me pro Epos (generic) vypad�
+<p>Např. definice, kterou v současnosti používáme pro Epos (generic) vypadá
 takto:
 </p>
 <div class="example">
@@ -856,110 +809,108 @@ takto:
 </dd>
 <dt><code class="code">GenericDelimiters &quot;<var class="var">delimiters</var>&quot;, GenericMaxChunkLength <var class="var">length</var></code></dt>
 <dd>
-<p>�asto se v�stupn� modul nesna�� vysyntetizovat cel� p��choz� text najednou, ale
-m�sto toho jej nejprve roz�e�e na men�� kousky (v�ty, ��sti v�t) a ty potom
-postupn� odes�l� na synt�zu.  Tento p��stup, vyu��van� n�kter�mi v�stupn�mi
-moduly, je mnohem rychlej��, ale na druh� stran� zase limituje schopnost
-syntetiz�ru poskytnout dobrou intonaci.
+<p>Často se výstupní modul nesnaží vysyntetizovat celý příchozí text najednou, ale
+místo toho jej nejprve rozřeže na menší kousky (věty, části vět) a ty potom
+postupně odesílá na syntézu.  Tento přístup, využívaný některými výstupními
+moduly, je mnohem rychlejší, ale na druhé straně zase limituje schopnost
+syntetizéru poskytnout dobrou intonaci.
 </p>
-<p>Z toho d�vodu m�te oby�ejn� mo�nost zkonfigurovat si na jak�ch znac�ch
-(<var class="var">delimiters</var>) by se m�l text rozd�lit na men�� ��sti (pokud jsou
-n�sledov�ny n�jak�m whitespace znakem).  Druh� volba (<var class="var">length</var>) ud�v�, po
-kolika znac�ch by se m�l text n�siln� rozd�lit, pokud nebyl nalezen ��dn�
+<p>Z toho důvodu máte obyčejně možnost zkonfigurovat si na jakých znacích
+(<var class="var">delimiters</var>) by se měl text rozdělit na menší části (pokud jsou
+následovány nějakým whitespace znakem).  Druhá volba (<var class="var">length</var>) udává, po
+kolika znacích by se měl text násilně rozdělit, pokud nebyl nalezen žádný
 delimiter.
 </p>
-<p>Pokud tato dv� pravidla zp��sn�te, dostanete lep�� rychlost, ale vzd�te se
-ur�it� ��sti kvality intonace.  Tak�e nap��klad pro pomalej�� po��ta�e
-doporu�ujeme do <var class="var">delimiters</var> vlo�it i ��rku (,), aby byl text rozd�len i na
-��stech v�ty, zat�mco na rychlej��ch po��ta��ch je lep�� tam ��rku ned�vat,
-tak�e do syntetiz�ru v�dy doraz� cel� souv�t�.
+<p>Pokud tato dvě pravidla zpřísníte, dostanete lepší rychlost, ale vzdáte se
+určité části kvality intonace.  Takže například pro pomalejší počítače
+doporučujeme do <var class="var">delimiters</var> vložit i čárku (,), aby byl text rozdělen i na
+částech věty, zatímco na rychlejších počítačích je lepší tam čárku nedávat,
+takže do syntetizéru vždy dorazí celá souvětí.
 </p>
-<p>To sam� plat� o <code class="code">MaxChunkLength</code>. Pro rychlej�� po��ta�e
-je lep�� nastavit v�t�� hodnotu.
+<p>To samé platí o <code class="code">MaxChunkLength</code>. Pro rychlejší počítače
+je lepší nastavit větší hodnotu.
 </p>
-<p>Nap��klad v�choz� hodnoty ve v�stupn�m modulu pro Festival jsou:
+<p>Například výchozí hodnoty ve výstupním modulu pro Festival jsou:
 </p>
 <div class="example">
 <pre class="example-preformatted">    FestivalMaxChunkLength  300
     FestivalDelimiters  &quot;.?!;,:&quot;
 </pre></div>
 
-<p>V�stupn� modul se m��e tak� rozhodnout d�lit v�ty na delimiters pouze pokud ty
-jsou n�sledov�ny mezerou.  Tak�e nap��klad &ldquo;file123.tmp&rdquo; by rozd�leno nebylo,
-ale v�ta &ldquo;The horse raced around the fence, that was lately painted green,
-fell.&rdquo;  by rozd�lena byla (to je mimochodem velmi zaj�mav� v�ta).
+<p>Výstupní modul se může také rozhodnout dělit věty na delimiters pouze pokud ty
+jsou následovány mezerou.  Takže například &ldquo;file123.tmp&rdquo; by rozděleno nebylo,
+ale věta &ldquo;The horse raced around the fence, that was lately painted green,
+fell.&rdquo;  by rozdělena byla (to je mimochodem velmi zajímavá věta).
 </p></dd>
 </dl>
 
 <hr>
 </div>
-<div class="subsubsection-level-extent" id="Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">
-<div class="nav-panel">
-<p>
-Previous: <a href="#Konfigura_010f_017c_02ddn_010f_017c_02dd-soubory-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="p" rel="prev">Konfigura�n� soubory v�stupn�ch modul�</a>, Up: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="u" rel="up">Output Modules Configuration</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h4 class="subsubsection" id="Konfigurace-generickdz_0022ho-vdz_0022stupndz_0022ho-modulu"><span>2.3.3.3 Konfigurace generick�ho v�stupn�ho modulu<a class="copiable-link" href="#Konfigurace-generickdz_0022ho-vdz_0022stupndz_0022ho-modulu"> &para;</a></span></h4>
+<div class="subsubsection-level-extent" id="Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Konfigura_010dn_00ed-soubory-v_00fdstupn_00edch-modul_016f" rel="prev">Konfigurační soubory výstupních modulů</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" rel="up">Output Modules Configuration</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h4 class="subsubsection" id="Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu-1"><span>2.3.3.3 Konfigurace generického výstupního modulu<a class="copiable-link" href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu-1"> &para;</a></span></h4>
 
-<p>Generick� v�stupn� modul u�ivatel�m dovoluje jednodu�e si napsat vlastn�
-jednoduch� v�stupn� modul pro syntetiz�ry, kter� maj� rozhran� ve form�
-jednoduch�ho ��dkov�ho klienta, pouze modifikac� konfigura�n�ho souboru.  T�mto
-zp�sobem nemus� ps�t ��dn� specifick� k�d v C a u�ivatel� si mohou p�id�vat
-podporu pro v�stupn� za��zen� i kdy� neum� programovat.  See <a class="xref" href="#AddModule">AddModule</a>.
+<p>Generický výstupní modul uživatelům dovoluje jednoduše si napsat vlastní
+jednoduchý výstupní modul pro syntetizéry, které mají rozhraní ve formě
+jednoduchého řádkového klienta, pouze modifikací konfiguračního souboru.  Tímto
+způsobem nemusí psát žádný specifický kód v C a uživatelé si mohou přidávat
+podporu pro výstupní zařízení i když neumí programovat.  See <a class="xref" href="#AddModule">AddModule</a>.
 </p>
-<p>Kl��ov� ��st ka�d�ho generick�ho v�stupn�ho modulu je definice �et�zce, kter�
-se m� spou�t�t.
+<p>Klíčová část každého generického výstupního modulu je definice řetězce, který
+se má spouštět.
 </p>
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericExecuteSynth"><span class="category-def">Konfigurace generick�ho modulu: </span><span><strong class="def-name">GenericExecuteSynth</strong> <var class="def-var-arguments">&quot;<var class="var">execution_string</var>&quot;</var><a class="copiable-link" href="#index-GenericExecuteSynth"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericExecuteSynth"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericExecuteSynth</strong> <var class="def-var-arguments">&quot;<var class="var">execution_string</var>&quot;</var><a class="copiable-link" href="#index-GenericExecuteSynth"> &para;</a></span></dt>
 <dd>
-<p><code class="code">execution_string</code> je p��kaz, kter� by m�l b�t zavol�n v shellu, kdy� je
-pot�eba n�co ��ct.  Ve skute�nosti to m��e b�t v�ce jak jeden p��kaz, dohromady
-z�et�zen� oper�torem <code class="code">&amp;&amp;</code>.  Kdy� bude v�stupn� modul cht�t p�e��k�v�n�
-zpr�vy zastavit, za�le t�mto proces�m sign�l KILL, tak�e je d�le�it�, aby
-pou�it� p��kazy po obdr�en� KILL okam�it� p�estaly mluvit. (Na v�t�in�
-GNU/Linuxov�ch syst�m� m� tuto vlastnost utilita <code class="code">play</code>)
+<p><code class="code">execution_string</code> je příkaz, který by měl být zavolán v shellu, když je
+potřeba něco říct.  Ve skutečnosti to může být více jak jeden příkaz, dohromady
+zřetězené operátorem <code class="code">&amp;&amp;</code>.  Když bude výstupní modul chtít přeříkávání
+zprávy zastavit, zašle těmto procesům signál KILL, takže je důležité, aby
+použité příkazy po obdržení KILL okamžitě přestaly mluvit. (Na většině
+GNU/Linuxových systémů má tuto vlastnost utilita <code class="code">play</code>)
 </p>
-<p>V <code class="code">execution_string</code> m��ete vyu��t t�chto prom�nn�ch, kter� budou
-nahrazeny po�adovan�mi hodnotami, ne� bude p��kaz vykon�n.
+<p>V <code class="code">execution_string</code> můžete využít těchto proměnných, které budou
+nahrazeny požadovanými hodnotami, než bude příkaz vykonán.
 </p>
 <ul class="itemize mark-bullet">
 <li><code class="code">$DATA</code>
-Text, kter� by m�l b�t p�e��k�n.  Znaky �et�zce, kter� by n�jak interferovali
-se zpracov�n�m v bashi budou automaticky nahrazeny odpov�daj�c�mi escape
-sekvencemi.  Asi bude ale nutn� uv�st kolem t�to prom�nn� uvozovky
-(nap�. takto: <code class="code">\&quot;$DATA\&quot;</code>).
-</li><li><code class="code">$LANG</code>
-Identifika�n� �et�zec jazyka (ten je definov�n pomoc� GenericLanguage).
+Text, který by měl být přeříkán.  Znaky řetězce, které by nějak interferovali
+se zpracováním v bashi budou automaticky nahrazeny odpovídajícími escape
+sekvencemi.  Asi bude ale nutné uvést kolem této proměnné uvozovky
+(např. takto: <code class="code">\&quot;$DATA\&quot;</code>).
+</li><li><code class="code">$LANGUAGE</code>
+Identifikační řetězec jazyka (ten je definován pomocí GenericLanguage).
 </li><li><code class="code">$VOICE</code>
-Identifika�n� �et�zec hlasu (ten je definov�n pomoc� AddVoice).
+Identifikační řetězec hlasu (ten je definován pomocí AddVoice).
 </li><li><code class="code">$PITCH</code>
-Po�adovan� v��ka hlasu (desetinn� ��slo definovan� v GenericPitchAdd a v
+Požadovaná výška hlasu (desetinné číslo definované v GenericPitchAdd a v
 GenericPitchMultiply)
 </li><li><code class="code">$RATE</code>
-Po�adovan� rychlost hlasu (desetinn� ��slo definovan� v GenericRateAdd a v
+Požadovaná rychlost hlasu (desetinné číslo definované v GenericRateAdd a v
 GenericRateMultiply)
 </li></ul>
 
-<p>Tady je p��klad z <samp class="file">etc/speech-dispatcher/modules/epos-generic.conf</samp>
+<p>Tady je příklad z <samp class="file">etc/speech-dispatcher/modules/epos-generic.conf</samp>
 </p><div class="example">
 <pre class="example-preformatted">GenericExecuteSynth \
-&quot;epos-say -o --language $LANG --voice $VOICE --init_f $PITCH --init_t $RATE \
+&quot;epos-say -o --language $LANGUAGE --voice $VOICE --init_f $PITCH --init_t $RATE \
 \&quot;$DATA\&quot; | sed -e s+unknown.*$++ &gt;/tmp/epos-said.wav &amp;&amp; play /tmp/epos-said.wav &gt;/dev/null&quot;
 </pre></div>
 </dd></dl>
 
-<dl class="first-defvr">
-<dt class="defvr" id="index-AddVoice"><span class="category-def">Konfigurace generick�ho modulu: </span><span><strong class="def-name">AddVoice</strong> <var class="def-var-arguments">&quot;<var class="var">language</var>&quot; &quot;<var class="var">symbolicname</var>&quot; &quot;<var class="var">name</var>&quot;</var><a class="copiable-link" href="#index-AddVoice"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-AddVoice"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">AddVoice</strong> <var class="def-var-arguments">&quot;<var class="var">language</var>&quot; &quot;<var class="var">symbolicname</var>&quot; &quot;<var class="var">name</var>&quot;</var><a class="copiable-link" href="#index-AddVoice"> &para;</a></span></dt>
 <dd><p>See <a class="xref" href="#AddVoice">AddVoice</a>.
 </p></dd></dl>
 
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericLanguage"><span class="category-def">Konfigurace generick�ho modulu: </span><span><strong class="def-name">GenericLanguage</strong> <var class="def-var-arguments">&quot;iso-code&quot; &quot;string-subst&quot;</var><a class="copiable-link" href="#index-GenericLanguage"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericLanguage"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericLanguage</strong> <var class="def-var-arguments">&quot;iso-code&quot; &quot;string-subst&quot;</var><a class="copiable-link" href="#index-GenericLanguage"> &para;</a></span></dt>
 <dd>
-<p>Definuje, jak� �et�zec <code class="code">string-subst</code> by m�l b�t nahrazen za <code class="code">$LANG</code>
-pro dan� <code class="code">iso-code</code> ISO k�d jazyka.
+<p>Definuje, jaký řetězec <code class="code">string-subst</code> by měl být nahrazen za <code class="code">$LANGUAGE</code>
+pro daný <code class="code">iso-code</code> ISO kód jazyka.
 </p>
-<p>Op�t p��klad z Epos generic:
+<p>Opět příklad z Epos generic:
 </p><div class="example">
 <pre class="example-preformatted">GenericLanguage &quot;en-US&quot; &quot;english-US&quot;
 GenericLanguage &quot;cs&quot; &quot;czech&quot;
@@ -967,92 +918,93 @@ GenericLanguage &quot;sk&quot; &quot;slovak&quot;
 </pre></div>
 </dd></dl>
 
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericRateAdd"><span class="category-def">Konfigurace generick�ho modulu: </span><span><strong class="def-name">GenericRateAdd</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericRateAdd"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericRateAdd"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericRateAdd</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericRateAdd"> &para;</a></span></dt>
 </dl>
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericRateMultiply"><span class="category-def">Konfigurace generick�ho modulu: </span><span><strong class="def-name">GenericRateMultiply</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericRateMultiply"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericRateMultiply"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericRateMultiply</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericRateMultiply"> &para;</a></span></dt>
 </dl>
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericPitchAdd"><span class="category-def">Konfigurace generick�ho modulu: </span><span><strong class="def-name">GenericPitchAdd</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericPitchAdd"> &para;</a></span></dt>
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericPitchAdd"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericPitchAdd</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericPitchAdd"> &para;</a></span></dt>
 </dl>
-<dl class="first-defvr">
-<dt class="defvr" id="index-GenericPitchMultiply"><span class="category-def">Konfigurace generick�ho modulu: </span><span><strong class="def-name">GenericPitchMultiply</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericPitchMultiply"> &para;</a></span></dt>
-<dd><p>Tyto parametry nastavuj� konverzi pro v�po�et rychlosti a v��ky.
+<dl class="first-defvr def-block">
+<dt class="defvr def-line" id="index-GenericPitchMultiply"><span class="category-def">Konfigurace generického modulu: </span><span><strong class="def-name">GenericPitchMultiply</strong> <var class="def-var-arguments"><var class="var">num</var></var><a class="copiable-link" href="#index-GenericPitchMultiply"> &para;</a></span></dt>
+<dd><p>Tyto parametry nastavují konverzi pro výpočet rychlosti a výšky.
 (<code class="code">$RATE</code> a <code class="code">$PITCH</code>). 
 </p>
-<p>V�sledn� rychlost (nebo v��ka) je d�na n�sleduj�c�m vzorcem:
+<p>Výsledná rychlost (nebo výška) je dána následujícím vzorcem:
 </p><div class="example">
 <pre class="example-preformatted">   (speechd_rate * GenericRateMultiply) + GenericRateAdd
 </pre></div>
-<p>kde speechd_rate je hodnota mezi -100 (nejni���) a +100 (nejvy���).  Je t�eba
-definovat n�jakou rozumnou konverzi pro dan� syntetiz�r.
+<p>kde speechd_rate je hodnota mezi -100 (nejnižší) a +100 (nejvyšší).  Je třeba
+definovat nějakou rozumnou konverzi pro daný syntetizér.
 </p>
-<p>(Hodnoty v GenericN�coMultiply jsou vyn�sobeny stem, proto�e st�vaj�c� verze
-DotConfu nepodporuje desetinn� ��sla.  M��ete tedy ps�t 0.85 jako 85 atd.)
+<p>(Hodnoty v GenericNěcoMultiply jsou vynásobeny stem, protože stávající verze
+DotConfu nepodporuje desetinná čísla.  Můžete tedy psát 0.85 jako 85 atd.)
 </p></dd></dl>
 
 <hr>
 </div>
 </div>
-<div class="subsection-level-extent" id="g_t_010f_017c_02ddrovn_010f_017c_02dd-logov_010f_017c_02ddn_010f_017c_02dd">
-<div class="nav-panel">
-<p>
-Previous: <a href="#Nastaven_010f_017c_02dd-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd" accesskey="p" rel="prev">Output Modules Configuration</a>, Up: <a href="#Konfigurace" accesskey="u" rel="up">konfigurace</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
-<h4 class="subsection" id="dz_0022rovndz_0022-logovdz_0022ndz_0022"><span>2.3.4 �rovn� logov�n�<a class="copiable-link" href="#dz_0022rovndz_0022-logovdz_0022ndz_0022"> &para;</a></span></h4>
+<div class="subsection-level-extent" id="g_t_00darovn_011b-logov_00e1n_00ed">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#Nastaven_00ed-v_00fdstupn_00edch-modul_016f" rel="prev">Output Modules Configuration</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Konfigurace" rel="up">konfigurace</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h4 class="subsection" id="g_t_00darovn_011b-logov_00e1n_00ed-1"><span>2.3.4 Úrovně logování<a class="copiable-link" href="#g_t_00darovn_011b-logov_00e1n_00ed-1"> &para;</a></span></h4>
 
-<p>Ve Speech Dispatcheru je 6 r�zn�ch �rovn� logov�n�.  0 znamen� ��dn� logov�n�,
-zat�mco 5 znamen� vypisovat t�m�� v�echny dostupn� informace.
+<p>Ve Speech Dispatcheru je 6 různých úrovní logování.  0 znamená žádné logování,
+zatímco 5 znamená vypisovat téměř všechny dostupné informace.
 </p>
 <ul class="itemize mark-bullet">
-<li>�rove� 0
+<li>Úroveň 0
 <ul class="itemize mark-bullet">
-<li>��dn� informace
+<li>Žádné informace
 </li></ul>
 
-</li><li>�rove� 1
+</li><li>Úroveň 1
 <ul class="itemize mark-bullet">
-<li>Informace o startu a vyp�n�n�.
+<li>Informace o startu a vypínání.
 </li></ul>
 
-</li><li>�rove� 2
+</li><li>Úroveň 2
 <ul class="itemize mark-bullet">
-<li>Informace o chyb�ch, kter� nastaly.
-</li><li>Alokace a uvol�ov�n� zdroj� p�i startu a p�i exitu.
+<li>Informace o chybách, které nastaly.
+</li><li>Alokace a uvolňování zdrojů při startu a při exitu.
 </li></ul>
 
-</li><li>�rove� 3
+</li><li>Úroveň 3
 <ul class="itemize mark-bullet">
-<li>Informace o p�ij�m�n�/odep�r�n�/zav�r�n� klientsk�ch spojen�.
-</li><li>Informace o neplatn�ch SSIP p��kazech od klient�.
+<li>Informace o přijímání/odepírání/zavírání klientských spojení.
+</li><li>Informace o neplatných SSIP příkazech od klientů.
 </li></ul>
 
-</li><li>�rove� 4
+</li><li>Úroveň 4
 <ul class="itemize mark-bullet">
-<li>Je vypisov�n ka�d� p�ijat� p��kaz
-</li><li>Informace o zpracov�v�n� vstupu
-</li><li>Informace o ukl�d�n� zpr�v do front
-</li><li>Informace o fungov�n� historie, zvukov�ch ikon, atd.
+<li>Je vypisován každý přijatý příkaz
+</li><li>Informace o zpracovávání vstupu
+</li><li>Informace o ukládání zpráv do front
+</li><li>Informace o fungování historie, zvukových ikon, atd.
 facilities.
-</li><li>Informace o pr�ci vl�kna speak()
+</li><li>Informace o práci vlákna speak()
 </li></ul>
 
-</li><li>�rove� 5
-(Ta slou�� pouze pro lad�c� ��ely a m��e vypisovat opravdu *mnoho*
-dat. Pou��vejte opatrn�.)
+</li><li>Úroveň 5
+(Ta slouží pouze pro ladící účely a může vypisovat opravdu *mnoho*
+dat. Používejte opatrně.)
 <ul class="itemize mark-bullet">
-<li>V�echna obdr�en� data jsou vypisov�na (zpr�vy od klient�)
-</li><li>Lad�c� informace.
+<li>Všechna obdržená data jsou vypisována (zprávy od klientů)
+</li><li>Ladící informace.
 </li></ul>
 </li></ul>
 
+<hr>
 </div>
 </div>
 </div>
-<div class="appendix-level-extent" id="Standardndz_0022-hlasy">
-<h2 class="appendix"><span>Appendix A Standardn� hlasy<a class="copiable-link" href="#Standardndz_0022-hlasy"> &para;</a></span></h2>
-<a class="anchor" id="Standardn_010f_017c_02dd-hlasy"></a>
+<div class="appendix-level-extent" id="Standardn_00ed-hlasy">
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#GNU-General-Public-License" rel="next">GNU General Public License</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#g_t_00darovn_011b-logov_00e1n_00ed" rel="prev">Úrovně logování</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" rel="up">Speech Dispatcher</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
+<h2 class="appendix" id="Standardn_00ed-hlasy-1"><span>Appendix A Standardní hlasy<a class="copiable-link" href="#Standardn_00ed-hlasy-1"> &para;</a></span></h2>
+
 <dl class="table">
 <dt><code class="code">MALE1</code></dt>
 <dt><code class="code">MALE2</code></dt>
@@ -1064,17 +1016,15 @@ dat. Pou��vejte opatrn�.)
 <dt><code class="code">CHILD_FEMALE</code></dt>
 </dl>
 
-<p>Skute�n� dostupnost t�chto hlas� nen� zaru�ena, ale p��kaz <code class="code">SET SELF
-VOICE</code> mus� akceptovat jak�koliv z nich.  Pokud nen� dan� hlas dostupn�, je
-mapov�n na jin� hlas v�stupn�m modulem.
+<p>Skutečná dostupnost těchto hlasů není zaručena, ale příkaz <code class="code">SET SELF
+VOICE</code> musí akceptovat jakýkoliv z nich.  Pokud není daný hlas dostupný, je
+mapován na jiný hlas výstupním modulem.
 </p>
 <hr>
 </div>
 <div class="appendix-level-extent" id="GNU-General-Public-License">
-<div class="nav-panel">
-<p>
-Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#U_010f_017c_02ddivatelsk_010f_017c_02dd-dokumentace" accesskey="p" rel="prev">U�ivatelsk� dokumentace</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#GNU-Free-Documentation-License" rel="next">GNU Free Documentation License</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#U_017eivatelsk_00e1-dokumentace" rel="prev">Uživatelská dokumentace</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" rel="up">Speech Dispatcher</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h2 class="appendix" id="GNU-General-Public-License-1"><span>Appendix B GNU General Public License<a class="copiable-link" href="#GNU-General-Public-License-1"> &para;</a></span></h2>
 <div class="center">Version 2, June 1991
 </div><a class="index-entry-id" id="index-GPL_002c-GNU-General-Public-License"></a>
@@ -1435,10 +1385,8 @@ Public License instead of this License.
 <hr>
 </div>
 <div class="appendix-level-extent" id="GNU-Free-Documentation-License">
-<div class="nav-panel">
-<p>
-Next: <a href="#Index-of-Concepts" accesskey="n" rel="next">Index of Concepts</a>, Previous: <a href="#GNU-General-Public-License" accesskey="p" rel="prev">GNU General Public License</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Next: </span><span class="nav-link"><a href="#Index-of-Concepts" rel="next">Index of Concepts</a></span></span>, <span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#GNU-General-Public-License" rel="prev">GNU General Public License</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" rel="up">Speech Dispatcher</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h2 class="appendix" id="GNU-Free-Documentation-License-1"><span>Appendix C GNU Free Documentation License<a class="copiable-link" href="#GNU-Free-Documentation-License-1"> &para;</a></span></h2>
 <div class="center">Version 1.2, November 2002
 </div><a class="index-entry-id" id="index-FDL_002c-GNU-Free-Documentation-License"></a>
@@ -1820,7 +1768,7 @@ as a draft) by the Free Software Foundation.
 </p></li></ol>
 
 <ul class="mini-toc">
-<li><a href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents" accesskey="1">ADDENDUM: How to use this License for your documents</a></li>
+<li><a href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents">ADDENDUM: How to use this License for your documents</a></li>
 </ul>
 <div class="appendixsec-level-extent" id="ADDENDUM_003a-How-to-use-this-License-for-your-documents">
 <h3 class="appendixsec"><span>C.1 ADDENDUM: How to use this License for your documents<a class="copiable-link" href="#ADDENDUM_003a-How-to-use-this-License-for-your-documents"> &para;</a></span></h3>
@@ -1863,15 +1811,13 @@ to permit their use in free software.
 </div>
 </div>
 <div class="unnumbered-level-extent" id="Index-of-Concepts">
-<div class="nav-panel">
-<p>
-Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Speech Dispatcher</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</p>
-</div>
+<p class="nav-panel">
+<span class="nav-button"><span class="nav-label">Previous: </span><span class="nav-link"><a href="#GNU-Free-Documentation-License" rel="prev">GNU Free Documentation License</a></span></span>, <span class="nav-button"><span class="nav-label">Up: </span><span class="nav-link"><a href="#Top" rel="up">Speech Dispatcher</a></span></span><span class="nav-button"> &nbsp; </span><span class="nav-button">[<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>]</span><span class="nav-button">[<a href="#Index-of-Concepts" title="Index" rel="index">Index</a>]</span></p>
 <h2 class="unnumbered" id="Index-of-Concepts-1"><span>Index of Concepts<a class="copiable-link" href="#Index-of-Concepts-1"> &para;</a></span></h2>
 
 <a class="index-entry-id" id="index-tail-recursion"></a>
 <div class="printindex cp-printindex">
-<table class="cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-A"><b>A</b></a>
+<table class="index-letters-header-printindex cp-letters-header-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-D"><b>D</b></a>
  &nbsp; 
@@ -1900,70 +1846,69 @@ Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU
 <a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-V"><b>V</b></a>
  &nbsp; 
 </td></tr></table>
-<table class="cp-entries-printindex" border="0">
-<tr><td></td><th class="entries-header-printindex">Index Entry</th><th class="sections-header-printindex">Section</th></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-A">A</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-access-rights">access rights</a></td><td class="printindex-index-section"><a href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">P��stupov� pr�va</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-AddVoice"><code>AddVoice</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generick�ho v�stupn�ho modulu</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-D">D</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Design">Design</a></td><td class="printindex-index-section"><a href="#Z_010f_017c_02ddkladn_010f_017c_02dd-design">Z�kladn� design</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-F">F</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-FDL_002c-GNU-Free-Documentation-License">FDL, GNU Free Documentation License</a></td><td class="printindex-index-section"><a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Filosofie">Filosofie</a></td><td class="printindex-index-section"><a href="#Motivace">Motivace</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-G">G</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericExecuteSynth"><code>GenericExecuteSynth</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generick�ho v�stupn�ho modulu</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericLanguage"><code>GenericLanguage</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generick�ho v�stupn�ho modulu</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericPitchAdd"><code>GenericPitchAdd</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generick�ho v�stupn�ho modulu</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericPitchMultiply"><code>GenericPitchMultiply</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generick�ho v�stupn�ho modulu</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericRateAdd"><code>GenericRateAdd</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generick�ho v�stupn�ho modulu</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-GenericRateMultiply"><code>GenericRateMultiply</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_010f_017c_02ddho-v_010f_017c_02ddstupn_010f_017c_02ddho-modulu">Konfigurace generick�ho v�stupn�ho modulu</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-GPL_002c-GNU-General-Public-License">GPL, GNU General Public License</a></td><td class="printindex-index-section"><a href="#GNU-General-Public-License">GNU General Public License</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-H">H</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-history">history</a></td><td class="printindex-index-section"><a href="#Historie-zpr_010f_017c_02ddv">Historie zpr�v</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Hlavndz_0022-mydz_0022lenky_002c-Motivace">Hlavn� my�lenky, Motivace</a></td><td class="printindex-index-section"><a href="#Motivace">Motivace</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-I">I</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-identd">identd</a></td><td class="printindex-index-section"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace u�ivatel�</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Identification-Protocol">Identification Protocol</a></td><td class="printindex-index-section"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace u�ivatel�</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-K">K</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-konfigurace">konfigurace</a></td><td class="printindex-index-section"><a href="#Konfigurace">Konfigurace</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-M">M</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-mapovdz_0022ndz_0022-udz_0022ivatldz_0022">mapov�n� u�ivatl�</a></td><td class="printindex-index-section"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace u�ivatel�</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-O">O</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Ostatndz_0022-programy">Ostatn� programy</a></td><td class="printindex-index-section"><a href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav">Sou�asn� stav</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-P">P</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Priorita-important">Priorita important</a></td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Priorita-message">Priorita message</a></td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Priorita-notification">Priorita notification</a></td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Priorita-text">Priorita text</a></td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-priority">priority</a></td><td class="printindex-index-section"><a href="#Model-priorit-zpr_010f_017c_02ddv">Model priorit zpr�v</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-R">R</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-RFC-1413">RFC 1413</a></td><td class="printindex-index-section"><a href="#Autentifikace-u_010f_017c_02ddivatel_010f_017c_02dd">Autentifikace u�ivatel�</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-S">S</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-speechd-skupina"><code class="code">speechd</code> skupina</a></td><td class="printindex-index-section"><a href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">P��stupov� pr�va</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-speechd-udz_0022ivatel"><code class="code">speechd</code> u�ivatel</a></td><td class="printindex-index-section"><a href="#P_010f_017c_02dd_010f_017c_02ddstupov_010f_017c_02dd-pr_010f_017c_02ddva">P��stupov� pr�va</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-Syntetizdz_0022ry">Syntetiz�ry</a></td><td class="printindex-index-section"><a href="#Sou_010f_017c_02ddasn_010f_017c_02dd-stav">Sou�asn� stav</a></td></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-syntetizdz_0022tory">syntetiz�tory</a></td><td class="printindex-index-section"><a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">V�ce v�stupn�ch modul�</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-T">T</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-tail-recursion">tail recursion</a></td><td class="printindex-index-section"><a href="#Index-of-Concepts">Index of Concepts</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
-<tr><th id="Index-of-Concepts_cp_letter-V">V</th></tr>
-<tr><td></td><td class="printindex-index-entry"><a href="#index-vdz_0022stupndz_0022-modul">v�stupn� modul</a></td><td class="printindex-index-section"><a href="#V_010f_017c_02ddce-v_010f_017c_02ddstupn_010f_017c_02ddch-modul_010f_017c_02dd">V�ce v�stupn�ch modul�</a></td></tr>
-<tr><td colspan="3"><hr></td></tr>
+<table class="index-entries-printindex cp-entries-printindex">
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-A">A</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-access-rights">access rights</a></td><td class="printindex-index-section"><a href="#P_0159_00edstupov_00e1-pr_00e1va">Přístupová práva</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-AddVoice"><code>AddVoice</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">Konfigurace generického výstupního modulu</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-D">D</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Design">Design</a></td><td class="printindex-index-section"><a href="#Z_00e1kladn_00ed-design">Základní design</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-F">F</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-FDL_002c-GNU-Free-Documentation-License">FDL, GNU Free Documentation License</a></td><td class="printindex-index-section"><a href="#GNU-Free-Documentation-License">GNU Free Documentation License</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Filosofie">Filosofie</a></td><td class="printindex-index-section"><a href="#Motivace">Motivace</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-G">G</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-GenericExecuteSynth"><code>GenericExecuteSynth</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">Konfigurace generického výstupního modulu</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-GenericLanguage"><code>GenericLanguage</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">Konfigurace generického výstupního modulu</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-GenericPitchAdd"><code>GenericPitchAdd</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">Konfigurace generického výstupního modulu</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-GenericPitchMultiply"><code>GenericPitchMultiply</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">Konfigurace generického výstupního modulu</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-GenericRateAdd"><code>GenericRateAdd</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">Konfigurace generického výstupního modulu</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-GenericRateMultiply"><code>GenericRateMultiply</code></a></td><td class="printindex-index-section"><a href="#Konfigurace-generick_00e9ho-v_00fdstupn_00edho-modulu">Konfigurace generického výstupního modulu</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-GPL_002c-GNU-General-Public-License">GPL, GNU General Public License</a></td><td class="printindex-index-section"><a href="#GNU-General-Public-License">GNU General Public License</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-H">H</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-history">history</a></td><td class="printindex-index-section"><a href="#Historie-zpr_00e1v">Historie zpráv</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Hlavni-myslenky_002c-Motivace">Hlavní myšlenky, Motivace</a></td><td class="printindex-index-section"><a href="#Motivace">Motivace</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-I">I</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-identd">identd</a></td><td class="printindex-index-section"><a href="#Autentizace-u_017eivatel_016f">Autentizace uživatelů</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Identification-Protocol">Identification Protocol</a></td><td class="printindex-index-section"><a href="#Autentizace-u_017eivatel_016f">Autentizace uživatelů</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-K">K</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-konfigurace">konfigurace</a></td><td class="printindex-index-section"><a href="#Konfigurace">Konfigurace</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-M">M</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-mapovani-uzivatelu">mapování uživatelů</a></td><td class="printindex-index-section"><a href="#Autentizace-u_017eivatel_016f">Autentizace uživatelů</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-O">O</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Ostatni-programy">Ostatní programy</a></td><td class="printindex-index-section"><a href="#Sou_010dasn_00fd-stav">Současný stav</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-P">P</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Priorita-important">Priorita important</a></td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Priorita-message">Priorita message</a></td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Priorita-notification">Priorita notification</a></td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Priorita-text">Priorita text</a></td><td class="printindex-index-section"><a href="#Typy-priorit">Typy priorit</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-priority">priority</a></td><td class="printindex-index-section"><a href="#Model-priorit-zpr_00e1v">Model priorit zpráv</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-R">R</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-RFC-1413">RFC 1413</a></td><td class="printindex-index-section"><a href="#Autentizace-u_017eivatel_016f">Autentizace uživatelů</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-S">S</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-speechd-skupina"><code class="code">speechd</code> skupina</a></td><td class="printindex-index-section"><a href="#P_0159_00edstupov_00e1-pr_00e1va">Přístupová práva</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-speechd-uzivatel"><code class="code">speechd</code> uživatel</a></td><td class="printindex-index-section"><a href="#P_0159_00edstupov_00e1-pr_00e1va">Přístupová práva</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-Syntetizery">Syntetizéry</a></td><td class="printindex-index-section"><a href="#Sou_010dasn_00fd-stav">Současný stav</a></td></tr>
+<tr><td class="printindex-index-entry"><a href="#index-syntezatory">syntezátory</a></td><td class="printindex-index-section"><a href="#V_00edce-v_00fdstupn_00edch-modul_016f">Více výstupních modulů</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-T">T</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-tail-recursion">tail recursion</a></td><td class="printindex-index-section"><a href="#Index-of-Concepts">Index of Concepts</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
+<tr><th class="index-letter-header-printindex cp-letter-header-printindex" colspan="2" id="Index-of-Concepts_cp_letter-V">V</th></tr>
+<tr><td class="printindex-index-entry"><a href="#index-vystupni-modul">výstupní modul</a></td><td class="printindex-index-section"><a href="#V_00edce-v_00fdstupn_00edch-modul_016f">Více výstupních modulů</a></td></tr>
+<tr><td colspan="2"><hr></td></tr>
 </table>
-<table class="cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-A"><b>A</b></a>
+<table class="index-letters-footer-printindex cp-letters-footer-printindex"><tr><th>Jump to: &nbsp; </th><td><a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-A"><b>A</b></a>
  &nbsp; 
 <a class="summary-letter-printindex" href="#Index-of-Concepts_cp_letter-D"><b>D</b></a>
  &nbsp; 

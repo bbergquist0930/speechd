@@ -1,4 +1,3 @@
-
 /*
  * pulse.c -- The simple pulseaudio backend for the spd_audio library.
  *
@@ -11,7 +10,7 @@
  * Copyright 2010 Christopher Brannon <cmbrannon79@gmail.com>
  * Copyright 2010-2011 William Hubbs <w.d.hubbs@gmail.com>
  * Copyright 2015 Jeremy Whiting <jpwhiting@kde.org>
- * Copyright 2018-2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright 2018-2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * Copyright 2004-2006 Lennart Poettering
  *
  * Copied from Luke Yelavich's libao.c driver, and merged with code from
@@ -88,7 +87,7 @@ static int pulse_log_level;
 static char const *pulse_play_cmd = "paplay -n speech-dispatcher-generic";
 
 /* Put a message into the logfile (stderr) */
-#define MSG(level, arg, ...) if (level <= pulse_log_level) { MSG(0, "Pulse: " arg, ##__VA_ARGS__); }
+#define MSG(level, arg, ...) if (level <= pulse_log_level) { MSG(level, "Pulse: " arg, ##__VA_ARGS__); }
 #define ERR(arg, ...) MSG(0, "Pulse ERROR: " arg, ##__VA_ARGS__)
 
 /* The following is a copy of pulseaudio's src/pulse/simple.c
@@ -359,10 +358,10 @@ static int spd_pa_simple_write(spd_pa_simple *p, const void*data, size_t length,
 			CHECK_DEAD_GOTO(p, rerror, unlock_and_fail);
 		}
 
-		CHECK_SUCCESS_GOTO(p, rerror, l != (size_t) -1, unlock_and_fail);
-
 		if (!p->playing)
 			break;
+
+		CHECK_SUCCESS_GOTO(p, rerror, l != (size_t) -1, unlock_and_fail);
 
 		if (l > length)
 			l = length;

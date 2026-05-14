@@ -269,7 +269,10 @@ GString *output_read_message(OutputModule * output)
 		}
 		/* terminate if we reached the last line (without '-' after numcode) */
 	} while (!errors && !((strlen(line) < 4) || (line[3] == ' ')));
-	MSG(5, "Finished reading message, with errors %d", errors);
+	if (errors)
+		MSG(5, "Finished reading message, with errors");
+	else
+		MSG(5, "Finished reading message");
 
 	if (line != NULL)
 		free(line);
@@ -315,18 +318,32 @@ GString *output_read_reply(OutputModule * output)
 			message = output_read_message(output);
 			pthread_mutex_lock(&output->read_mutex);
 			output->reading_message = FALSE;
+			pthread_cond_signal(&output->reply_cond);
 			if (!message)
 				/* Module broke */
 				break;
 			if (message->str[0] == '7') {
+				if (!output->reading_events) {
+					MSG(2, "unexpected event |%s|", message->str);
+					g_string_free(message, TRUE);
+					message = NULL;
+					continue;
+				}
 				/* An event, leave it up to the event thread */
 				output->event = message;
 				message = NULL;
 				/* Tell it to consume it */
 				pthread_cond_signal(&output->event_cond);
 				/* Wait for it to consume it */
-				while (output->event)
+				while (output->event && output->reading_events)
 					pthread_cond_wait(&output->reply_cond, &output->read_mutex);
+				if (output->event && !output->reading_events)
+				{
+					MSG(2, "eventually unexpected event |%s|", message->str);
+					g_string_free(output->event, TRUE);
+					output->event = NULL;
+					continue;
+				}
 			}
 		}
 	}
@@ -334,8 +351,15 @@ GString *output_read_reply(OutputModule * output)
 	return message;
 }
 
+static void output_start_reading_events(OutputModule * output)
+{
+	pthread_mutex_lock(&output->read_mutex);
+	output->reading_events = TRUE;
+	pthread_mutex_unlock(&output->read_mutex);
+}
+
 /* This is run by the module output thread during speech, to process events. */
-GString *output_read_event(OutputModule * output)
+static GString *output_read_event(OutputModule * output)
 {
 	GString *message = NULL;
 	pthread_mutex_lock(&output->read_mutex);
@@ -361,6 +385,7 @@ GString *output_read_event(OutputModule * output)
 			message = output_read_message(output);
 			pthread_mutex_lock(&output->read_mutex);
 			output->reading_message = FALSE;
+			pthread_cond_signal(&output->reply_cond);
 			if (!message)
 				/* Module broke */
 				break;
@@ -386,6 +411,20 @@ GString *output_read_event(OutputModule * output)
 	pthread_mutex_unlock(&output->read_mutex);
 	return message;
 }
+
+static void output_stop_reading_events(OutputModule * output)
+{
+	pthread_mutex_lock(&output->read_mutex);
+	if (output->event)
+	{
+		g_string_free(output->event, TRUE);
+		output->event = NULL;
+	}
+	output->reading_events = FALSE;
+	pthread_cond_signal(&output->reply_cond);
+	pthread_mutex_unlock(&output->read_mutex);
+}
+
 
 int output_send_data(const char *cmd, OutputModule * output, int wfr)
 {
@@ -880,6 +919,7 @@ int output_speak(TSpeechDMessage * msg, OutputModule *output)
 	output_stop_requested = 0;
 	output_pause_requested = 0;
 	output_pause_queued = 0;
+	output_start_reading_events(output);
 	spd_pthread_create(&output_thread, NULL, output_thread_func, output);
 
 	output_unlock();
@@ -1217,10 +1257,6 @@ static int output_module_is_speaking(OutputModule * output)
 		if (retcode < 0)
 			goto out;
 
-		size = track.num_channels * track.num_samples * track.bits / 8;
-		track.samples = malloc(size);
-		filled = 0;
-
 		end = memchr(p, '\n', end - p);
 		if (!end) {
 			MSG2(2, "output_module",
@@ -1228,6 +1264,10 @@ static int output_module_is_speaking(OutputModule * output)
 			retcode = -5;
 			goto out;
 		}
+
+		size = track.num_channels * track.num_samples * track.bits / 8;
+		track.samples = malloc(size);
+		filled = 0;
 
 		char *data = (char*) track.samples;
 
@@ -1316,6 +1356,8 @@ static void *output_thread_func(void *data)
 	OutputModule *output = data;
 	int ret;
 
+	spd_pthread_setname("output_thread_func");
+
 	while (1) {
 		ret = output_module_is_speaking(output);
 		if (ret < 0) {
@@ -1388,6 +1430,7 @@ int output_is_speaking(char **index_mark)
 		/* Wait for all audio processing to terminate before cleaning
 		 * everything */
 		pthread_join(output_thread, NULL);
+		output_stop_reading_events(output);
 	}
 
 	return 0;

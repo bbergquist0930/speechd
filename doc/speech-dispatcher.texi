@@ -624,6 +624,7 @@ application for details about application specific configuration.
 @menu
 * Configuration file syntax::   Basic rules.
 * Configuration options::       What to configure.
+* Symbols processing configuration:: How text is processed with symbols.
 * Audio Output Configuration::  How to switch to ALSA, Pulse...
 * Client Specific Configuration::  Specific default values for applications.
 * Output Modules Configuration::  Adding and customizing output modules.
@@ -664,7 +665,7 @@ Boolean values use On (for true) and Off (for false).
 Debug Off
 @end example
 
-@node Configuration options, Audio Output Configuration, Configuration file syntax, Configuration
+@node Configuration options, Symbols processing configuration, Configuration file syntax, Configuration
 @subsection Configuration options
 
 All available options are documented directly in the file and examples
@@ -672,7 +673,34 @@ are provided.  Most of the options are set to their default value and
 commented out.  If you want to change them, just change the value and
 remove the comment symbol @code{#}.
 
-@node Audio Output Configuration, Client Specific Configuration, Configuration options, Configuration
+@node Symbols processing configuration, Audio Output Configuration, Configuration options, Configuration
+@subsection Symbols processing configuration
+
+Speech Dispatcher preprocesses text before giving it to output modules, to
+support ample sets of characters (including emojis) and provide a homogeneous
+behavior.
+
+This is configured through the use of the @code{SymbolsPreprocFile} lines in
+the main configuration file, which load a series of dictionaries. When text is
+preprocessed, each dictionary is applied, in the order of appearance in the
+configuration file. The principle is to first apply quite generic
+transformations (e.g. various unicode fonts forms) before applying more specific
+transformations (e.g. abbreviations).
+
+The dictionaries are localized, to provide translation adapted to each
+language. They can be found in locale-named directories in
+@file{/usr/share/speech-dispatcher/locale/}
+Speech-dispatcher tries to open them from most specific locales to least
+specific: for instance for brazilian speech, it will first try to load from
+@file{pt_BR}, then from @file{pt}, before falling back to @file{base}.
+
+Users can override the dictionaries by copying a dictionary into their
+@file{~/.config/speech-dispatcher/locale/} directory, or even locale-named
+subdirectories of it, and modifying them at will. They can also add
+@code{SymbolsPreprocFile} in the configuration file to add their own dictionary
+files along the series, before, after or among the existing dictionaries.
+
+@node Audio Output Configuration, Client Specific Configuration, Symbols processing configuration, Configuration
 @subsection Audio Output Configuration
 
 Audio output method (ALSA, Pulse etc.) can be configured centrally
@@ -912,7 +940,7 @@ the command.
 The text data that should be said. The string's characters that would interfere
 with bash processing are already escaped. However, it may be necessary to put
 double quotes around it (like this: @code{\"$DATA\"}).
-@item @code{$LANG}
+@item @code{$LANGUAGE}
 The language identification string (it's defined by GenericLanguage).
 @item @code{$VOICE}
 The voice identification string (it's defined by AddVoice).
@@ -927,7 +955,7 @@ The desired rate or speed (a float number defined in GenericRateAdd and GenericR
 Here is an example from @file{etc/speech-dispatcher/modules/epos-generic.conf}
 @example
 GenericExecuteSynth \
-"epos-say -o --language $LANG --voice $VOICE --init_f $PITCH --init_t $RATE \
+"epos-say -o --language $LANGUAGE --voice $VOICE --init_f $PITCH --init_t $RATE \
 \"$DATA\" | sed -e s+unknown.*$++ >/tmp/epos-said.wav && play /tmp/epos-said.wav >/dev/null"
 @end example
 @end defvr
@@ -936,12 +964,22 @@ GenericExecuteSynth \
 @xref{AddVoice}.
 @end defvr
 
+@defvr {GenericModuleConfiguration} GenericDefaultCharset "character-set"
+
+Defines the default character set in which the text will be passed to the
+module. If unset, it defaults to @code{iso-8859-1}.
+
+@example
+GenericDefaultCharset "iso-8859-2"
+@end example
+@end defvr
+
 @defvr {GenericModuleConfiguration} GenericLanguage "iso-code" "string-subst" "character-set"
 
-Defines which string @code{string-subst} should be substituted for @code{$LANG}
+Defines which string @code{string-subst} should be substituted for @code{$LANGUAGE}
 given an @code{iso-code} language code. Optionally, the character set in which
 the text will be passed to the module can be specified. If unset, it will
-default to iso-8859-1.
+default to the @code{GenericDefaultCharset} parameter.
 
 Another example from Epos generic:
 @example
@@ -1095,9 +1133,18 @@ output modules provide good synchronization, you can combine them when
 reading messages.  For example if module1 can speak English and Czech while
 module2 speaks only German, the idea is that if there is some message in
 German, module2 is used, while module1 is used for the other languages.
-However the language is not the only criteria for the decision.  The rules for
-selection of an output module can be influenced through the configuration file
-@file{speech-dispatcher/speechd.conf}.
+However the language is not the only criteria for the decision.
+
+The set of modules can be set in @file{speech-dispatcher/speechd.conf}, or left
+to be determined automatically. It can be refreshed by making Speech Dispatcher
+reload the configuration, with e.g.
+
+@example
+killall -HUP speech-dispatcher
+@end example
+
+The rules for selection of an output module can be influenced through the
+configuration file @file{speech-dispatcher/speechd.conf}.
 
 @menu
 * Provided Functionality::      Some synthesizers don't support the full set of SSIP features.
@@ -2564,10 +2611,6 @@ The client library should redirect its stdout and stderr outputs
 either to nowhere or to its logging system. It should subsequently
 completely detach from the newly spawned process.
 
-Due to a bug in Speech Dispatcher, it is currently necessary to
-include a wait statement after the autospawn for about 0.5 seconds
-before attempting a connection.
-
 Please see how autospawn is implemented in the C API and in the Python
 API for an example.
 
@@ -3158,14 +3201,14 @@ for messages from the server. Or the synthesis can run asynchronously in a
 separate thread, in which case you need to use
 @code{module_speak} instead of @code{module_speak_sync}: it should return
 immediately after starting the production of synthesis. Then
-@code{module_speak_begin()} should be called when it actually
-starts emitting audio, and @code{module_speak_end()} should be called when it is
+@code{module_report_event_begin()} should be called when it actually
+starts emitting audio, and @code{module_report_event_end()} should be called when it is
 finished emitting audio. In either cases, if @code{module_stop}
 is getting called, the synthesis should stop as soon as possible and
-@code{module_speak_stop()} be called instead of @code{module_speak_end()}.
+@code{module_report_event_stop()} be called instead of @code{module_report_event_end()}.
 Similarly, if @code{module_pause} is getting called, the synthesis should stop
 on next mark whose name starts with @code{__spd_}, and
-@code{module_speak_pause()} be called instead of @code{module_speak_end()}.
+@code{module_report_event_paused()} be called instead of @code{module_report_event_end()}.
 As a first step, @code{module_pause} can be made to behave just like
 @code{module_stop}.
 
@@ -3361,6 +3404,11 @@ should clean up everything, cancel threads, deallocate memory etc.; no
 more functions of this output module will be touched (except for other
 tries to load and initialize the module).
 
+It is very important that @code{module_init} tries to check that the synthesis
+works as much as possible. Otherwise, if users switch to this module and it does
+not emit sound at all without reporting errors, blind users will have no audio
+feedback to be able to switch back to a working module.
+
 Example from Flite:
 
 @example
@@ -3463,9 +3511,9 @@ accepted. From then on, the server may send stop requests, so resetting the stop
 state must be done before calling this.
 On errors, @code{module_speak_error()} has to be called instead.
 
-When actual synthesis starts, @code{module_speak_begin()} must be called to let
-the server know of this. On synthesis termination, @code{module_speak_end()}
-should be called (or @code{module_speak_pause()}, @code{module_speak_stopped()}
+When actual synthesis starts, @code{module_report_event_begin()} must be called to let
+the server know of this. On synthesis termination, @code{module_report_event_end()}
+should be called (or @code{module_report_event_paused()}, @code{module_report_event_stop()}
 if the synthesis was interrupted through @code{module_pause()} or @code{module_stop()}).
 
 This function should return only when it is finished with synthesizing.  It
@@ -3493,7 +3541,8 @@ server, but in that case @code{module_speak_sync} could as well be used.
 Note: if the synthesis creates separate threads, you have to set
 them to ignore all signals. The simplest way to do this is to use
 @code{spd_pthread_create()} (which is defined in
-module_utils.c) instead of @code{pthread_create()}.
+module_utils.c) instead of @code{pthread_create()}. It is also interesting to
+call @code{spd_thread_setname} to set the thread name for debugging.
 @end deffn
 
 @deffn {Output module function}  {int module_stop} (void)

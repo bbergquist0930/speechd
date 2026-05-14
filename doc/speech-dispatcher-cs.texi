@@ -1,6 +1,5 @@
 \input texinfo   @c -*-texinfo-*-
 @c %**start of header
-@documentencoding ISO-8859-2
 @documentlanguage cs
 @setfilename speech-dispatcher-cs.info
 @settitle Speech Dispatcher
@@ -11,6 +10,10 @@
 @syncodeindex pg cp
 @syncodeindex fn cp
 @syncodeindex vr cp
+
+@tex
+\gdef\putwordAppendix{Pøílohy}
+@end tex
 
 @include version-2.texi
 
@@ -23,7 +26,7 @@
 
 @titlepage
 @title Speech Dispatcher
-@subtitle Zvl�dnut� Babylonu TTS'
+@subtitle Zvládnutí Babylonu TTS'
 @subtitle pro Speech Dispatcher @value{VERSION}
 @author Tom@'a@v{s} Cerha <@email{cerha@@brailcom.org}>
 @author Hynek Hanke <@email{hanke@@volny.cz}>
@@ -32,22 +35,22 @@
 @page
 @vskip 0pt plus 1filll
 
-Tento manu�l se vzathuje ke Speech Dispatcher, verze @value{VERSION}.  Jedn� se
-v�ak pouze o u�ivatelskou ��st dokumentace a upozor�ujeme, �e tento p�eklad ji�
-nen� aktu�ln�! Poskytujeme jej s t�m, �e mo�n� bude u�ite�n� a to zejm�na v
-sekc�ch, kter� popisuj� obecn� koncepty a my�lenky projektu, a to t�m, kte�� si
-nemohou p�e��st anglickou dokumentaci.  Nikdo by nicm�n� nem�l spol�hat na
-technick� detaily zde uveden�, proto�e mnoho v�c� je ji� dnes jinak.
+Tento manuál se vztahuje ke Speech Dispatcher, verze @value{VERSION}.  Jedná se
+však pouze o uživatelskou část dokumentace a upozorňujeme, že tento překlad již
+není aktuální! Poskytujeme jej s tím, že možná bude užitečný a to zejména v
+sekcích, které popisují obecné koncepty a myšlenky projektu, a to těm, kteří si
+nemohou přečíst anglickou dokumentaci.  Nikdo by nicméně neměl spoléhat na
+technické detaily zde uvedené, protože mnoho věcí je již dnes jinak.
 
 Copyright @copyright{} 2001, 2002, 2003, 2006 Brailcom, o.p.s.
 
 @quotation
-D�v�me povolen� kop�rovat, distribuovat a/nebo modifikovate tento dokument pod
-podm�nkami GNU Free Documentation License, Verze 1.2 nebo jak�koliv nov�j��
-verze vydan� Free Software Foundation, bez jak�chkoliv Invariant Sections
-(nem�nn�ch sekc�), bez Front-Cover Texts (texty na p�edn� stran� ob�lky) a bez
-Back-Cover Texts (texty na zadn� stran� ob�lky).  Kopie t�to licence je
-p�ilo�ena v sekci nazvan� ,,GNU Free Documentation License''.
+Dáváme povolení kopírovat, distribuovat a/nebo modifikovat tento dokument pod
+podmínkami GNU Free Documentation License, Verze 1.2 nebo jakékoliv novější
+verze vydané Free Software Foundation, bez jakýchkoliv Invariant Sections
+(neměnných sekcí), bez Front-Cover Texts (texty na přední straně obálky) a bez
+Back-Cover Texts (texty na zadní straně obálky).  Kopie této licence je
+přiložena v sekci nazvané ,,GNU Free Documentation License''.
 @end quotation
 
 @end titlepage
@@ -56,25 +59,25 @@ p�ilo�ena v sekci nazvan� ,,GNU Free Documentation License''.
 @contents
 
 @ifnottex
-@node Top, �vod, (dir), (dir)
+@node Top, Úvod, (dir), (dir)
 @top Speech Dispatcher
 
-Tento manu�l se vzathuje ke Speech Dispatcher, verze @value{VERSION}.  Jedn� se
-v�ak pouze o u�ivatelskou ��st dokumentace a upozor�ujeme, �e tento p�eklad ji�
-nen� aktu�ln�!  Poskytujeme jej s t�m, �e mo�n� bude u�ite�n� a to zejm�na v
-sekc�ch, kter� popisuj� obecn� koncepty a my�lenky projektu, a to t�m, kte�� si
-nemohou p�e��st anglickou dokumentaci.  Nikdo by nicm�n� nem�l spol�hat na
-technick� detaily zde uveden�, proto�e mnoho v�c� je ji� dnes jinak.
+Tento manuál se vztahuje ke Speech Dispatcher, verze @value{VERSION}.  Jedná se
+však pouze o uživatelskou část dokumentace a upozorňujeme, že tento překlad již
+není aktuální!  Poskytujeme jej s tím, že možná bude užitečný a to zejména v
+sekcích, které popisují obecné koncepty a myšlenky projektu, a to těm, kteří si
+nemohou přečíst anglickou dokumentaci.  Nikdo by nicméně neměl spoléhat na
+technické detaily zde uvedené, protože mnoho věcí je již dnes jinak.
 
 Copyright @copyright{} 2001, 2002, 2003 Brailcom, o.p.s.
 
 @quotation
-D�v�me povolen� kop�rovat, distribuovat a/nebo modifikovate tento dokument pod
-podm�nkami GNU Free Documentation License, Verze 1.2 nebo jak�koliv nov�j��
-verze vydan� Free Software Foundation; bez jak�chkoliv Invariant Sections
-(nem�nn�ch sekc�), bez Front-Cover Texts (texty na p�edn� stran� ob�lky) a bez
-Back-Cover Texts (texty na zadn� stran� ob�lky).  Kopie t�to licence je
-p�ilo�ena v sekci nazvan� ,,GNU Free Documentation License''.
+Dáváme povolení kopírovat, distribuovat a/nebo modifikovat tento dokument pod
+podmínkami GNU Free Documentation License, Verze 1.2 nebo jakékoliv novější
+verze vydané Free Software Foundation; bez jakýchkoliv Invariant Sections
+(neměnných sekcí), bez Front-Cover Texts (texty na přední straně obálky) a bez
+Back-Cover Texts (texty na zadní straně obálky).  Kopie této licence je
+přiložena v sekci nazvané ,,GNU Free Documentation License''.
 @end quotation
 @end ifnottex
 
@@ -83,582 +86,583 @@ p�ilo�ena v sekci nazvan� ,,GNU Free Documentation License''.
 @end ifhtml
 
 @menu
-* �vod::                        Co to je Speech Dispatcher
-* U�ivatelsk� dokumentace::     Pou��v�n�, konfigurace
+* Úvod::                        Co to je Speech Dispatcher
+* Uživatelská dokumentace::     Používání, konfigurace
 
-* GNU General Public License::  Podm�nky kop�rov�n� Speech Dispatcher
-* GNU Free Documentation License::  Podm�nky kop�rov�n� tohoto manu�lu
+* Standardní hlasy::            Standardní hlasy
+* GNU General Public License::  Podmínky kopírování Speech Dispatcher
+* GNU Free Documentation License::  Podmínky kopírování tohoto manuálu
 
 * Index of Concepts::           
 @end menu
 
-@node �vod, U�ivatelsk� dokumentace, Top, Top
-@chapter �vod
+@node Úvod, Uživatelská dokumentace, Top, Top
+@chapter Úvod
 
 @menu
-* Motivace::                    Pro� Speech Dispatcher?
-* Z�kladn� design::             Jak to pracuje?
-* P�ehled z�kladn�ch rys�::     Co v�echno um�?
-* Sou�asn� stav::               Jak� je sou�asn� stav?
+* Motivace::                    Proč Speech Dispatcher?
+* Základní design::             Jak to pracuje?
+* Přehled základních rysů::     Co všechno umí?
+* Současný stav::               Jaký je současný stav?
 @end menu
 
-@node Motivace, Z�kladn� design, �vod, �vod
+@node Motivace, Základní design, Úvod, Úvod
 @section Motivace
-@cindex Hlavn� my�lenky, Motivace
+@cindex Hlavní myšlenky, Motivace
 @cindex Filosofie
 
-Projekt Speech Dispatcher se sna�� poskytnout na za��zen� nez�vislou vrstvu pro
-�e�ovou synt�zu.  M�l by poskytovat jednoduch� rozhran� pro klientsk� aplikace
-(aplikace, kter� cht�j� mluvit), stejn� jako pro ovlada�e konkr�tn�ch za��zen�
-(r�zn� �e�ov� syntetiz�ry).
+Projekt Speech Dispatcher se snaží poskytnout na zařízení nezávislou vrstvu pro
+řečovou syntézu.  Měl by poskytovat jednoduché rozhraní pro klientské aplikace
+(aplikace, které chtějí mluvit), stejně jako pro ovladače konkrétních zařízení
+(různé řečové syntetizéry).
 
-Vysoce kvalitn� �e�ov� synt�za je tu ji� dlouho a nyn� je pou�iteln� i pro
-b�n� u�ivatele na jejich dom�c�ch po��ta��ch.  Ob�as to p�ich�z� jako nutnost,
-ob�as je to jen dobr� vlastnost, aby n�kter� programy poskytovaly �e�ov�
-v�stup.  Pro synt�zu hlasu je tu �irok� pole vyu�it� od v�ukov�ho software a�
-po specializovan� syst�my, jako jsou nap��klad nemocnice �i laborato�e.  Pro
-zrakov� posti�en� u�ivatele je to jedna ze dvou z�kladn�ch cest, jak z�skat
-v�stup z po��ta�e (tou druhou je Braillsk� ��dek).
+Vysoce kvalitní řečová syntéza je tu již dlouho a nyní je použitelná i pro
+běžné uživatele na jejich domácích počítačích.  Občas to přichází jako nutnost,
+občas je to jen dobrá vlastnost, aby některé programy poskytovaly řečový
+výstup.  Pro syntézu hlasu je tu široké pole využití od výukového software až
+po specializované systémy, jako jsou například nemocnice či laboratoře.  Pro
+zrakově postižené uživatele je to jedna ze dvou základních cest, jak získat
+výstup z počítače (tou druhou je Braillský řádek).
 
-Existuj� r�zn� �e�ov� syntetiz�ry s r�zn�mi schopnostmi.  N�kter� z nich jsou
-hardwarov�, n�kter� softwarov�.  N�kter� jsou svobodn�m software a jsou voln�
-dostupn� na internetu.  Program�to�i to maj� opravdu t�k�, kdy� cht�j� sv�
-programy rozmluvit, proto�e pot�ebuj� nejprve naj�t n�jak� vhodn� syntetiz�r
-(dlouh� hodiny experimentov�n� a tak d�le) a potom jej pot�ebuj� n�jak
-zprovoznit s jejich programem.  �asto mus� ps�t pro tyto programy �i hardwarov�
-za��zen� vlastn� ovlada�e a d�laj� to znovu a znovu.  Snadno si lze p�edstavit,
-�e se to cel� zhrout� kdy� nevinn� u�ivatel spust� dva programy najednou. Kdyby
-p�esto nastartovaly oba, budou k�i�et jeden p�es druh�ho.
+Existují různé řečové syntetizéry s různými schopnostmi.  Některé z nich jsou
+hardwarové, některé softwarové.  Některé jsou svobodným software a jsou volně
+dostupné na internetu.  Programátoři to mají opravdu těžké, když chtějí své
+programy rozmluvit, protože potřebují nejprve najít nějaký vhodný syntetizér
+(dlouhé hodiny experimentování a tak dále) a potom jej potřebují nějak
+zprovoznit s jejich programem.  Často musí psát pro tyto programy či hardwarová
+zařízení vlastní ovladače a dělají to znovu a znovu.  Snadno si lze představit,
+že se to celé zhroutí když nevinný uživatel spustí dva programy najednou. Kdyby
+přesto nastartovaly oba, budou křičet jeden přes druhého.
 
-T�m je pro program�tory velmi obt��n� implementovat do sv�ch program� podporu
-�e�ov� synt�zy (pro nevidom� u�ivatele, nebo prost� pro lep�� u�ivatelsk�
-rozhran�) a je to jeden z d�vod�, pro� po��d je�t� pln� nevyu��v�me toho, co
-�e�ov� synt�za nab�z�.
+Tím je pro programátory velmi obtížné implementovat do svých programů podporu
+řečové syntézy (pro nevidomé uživatele, nebo prostě pro lepší uživatelské
+rozhraní) a je to jeden z důvodů, proč pořád ještě plně nevyužíváme toho, co
+řečová syntéza nabízí.
 
-V ide�ln�m sv�t� by program�to�i mohli pro �e�ovou synt�zu pou��vat podobn�
-p��kazy, jako to d�laj� pro textov� v�stup na obrazovku (printf, puts, ...).  V
-ide�ln�m sv�t� by existovalo n�jak� speech_printf(), kter� by se staralo o to,
-aby byla zpr�va p�emluvena ve spr�vn� �as bez p�eru�ov�n� ostatn�ch.
-Program�tor by se tak nemusel starat o to, jak je p�esn� komunikace s �e�ov�m
-syntetiz�rem implementov�na.  V ide�ln�m sv�t� by byl v ka�d� GNU/Linuxov�
-distribuci n�jak� �e�ov� syntetiz�r a n�jak� rozhran� staraj�c� se o aplikace,
-kter� cht�j� mluvit, dovoluj�c� u�ivatel�m nastavit si parametry �e�i a
-poskytuj�c� n�jak� jednoduch� rozhran� (jako speech_printf()) pomoc� n�jak�
-sd�len� knihovny pro program�tory.  Bude to j�t� dlouh� cesta ne� se n�m
-poda�� dos�hnout tohoto stavu v�c�, ale se Speech Dispatcherem d�l�me prvn�
-kr��ky...
+V ideálním světě by programátoři mohli pro řečovou syntézu používat podobné
+příkazy, jako to dělají pro textový výstup na obrazovku (printf, puts, ...).  V
+ideálním světě by existovalo nějaké speech_printf(), které by se staralo o to,
+aby byla zpráva přemluvena ve správný čas bez přerušování ostatních.
+Programátor by se tak nemusel starat o to, jak je přesně komunikace s řečovým
+syntetizérem implementována.  V ideálním světě by byl v každé GNU/Linuxové
+distribuci nějaký řečový syntetizér a nějaké rozhraní starající se o aplikace,
+které chtějí mluvit, dovolující uživatelům nastavit si parametry řeči a
+poskytující nějaké jednoduché rozhraní (jako speech_printf()) pomocí nějaké
+sdílené knihovny pro programátory.  Bude to ještě dlouhá cesta než se nám
+podaří dosáhnout tohoto stavu věcí, ale se Speech Dispatcherem děláme první
+krůčky...
 
-@node Z�kladn� design, P�ehled z�kladn�ch rys�, Motivace, �vod
-@section Z�kladn� design
+@node Základní design, Přehled základních rysů, Motivace, Úvod
+@section Základní design
 @cindex Design
 
-V komunikaci mezi v�emi r�zn�mi aplikacemi a syntetiz�ry je obrovsk� nepo��dek.
-Proto jsme cht�li, aby byl Speech Dispatcher vrstva odd�luj�c� aplikace a
-syntetiz�ry tak, aby se aplikace nemusely starat o syntetiz�ry a syntetiz�ry se
+V komunikaci mezi všemi různými aplikacemi a syntetizéry je obrovský nepořádek.
+Proto jsme chtěli, aby byl Speech Dispatcher vrstva oddělující aplikace a
+syntetizéry tak, aby se aplikace nemusely starat o syntetizéry a syntetizéry se
 nemusely starat o interakci s aplikacemi.
 
-Rozhodli jsme se implementovat Speech Dispatcher jako server, kter� p�ij�m� od
-aplikac� p��kazy p�es protokol nazvan� @code{SSIP}, zpracov�v� je a, pokud je
-to nutn�, zavol� p��slu�nou funkci dan�ho v�stupn�ho modulu, kter� pak
-komunikuje s n�kter�m z r�zn�ch syntetiz�tor�.
+Rozhodli jsme se implementovat Speech Dispatcher jako server, který přijímá od
+aplikací příkazy přes protokol nazvaný @code{SSIP}, zpracovává je a, pokud je
+to nutné, zavolá příslušnou funkci daného výstupního modulu, který pak
+komunikuje s některým z různých syntetizátorů.
 
-Ka�d� klient (aplikace, kter� chce mluvit) otev�e socketov� spojen� na Speech
-Dispatcher a vol� funkce jako say(), stop(), pause() poskytovan� knihovnou
-implementuj�c� tento protokol.  Tato sd�len� knihovna je st�le na stran�
-klienta a pos�l� Speech Dispatcheru SSIP p��kazy p�es otev�en� socket.  Kdy�
-p��kazy doraz� do Dispatchera, ten je zpracuje, p�e�te text, kter� by m�l b�t
-p�e��k�n a vlo�� jej do fronty podle jeho priority.  Potom se rozhodne kdy, s
-jak�mi parametry (nastavovan�mi klientsk�m programem i u�ivatelem) a na jak�m
-syntetiz�ru zpr�vu nech� p�emluvit.  Tyto po�adavky na mluven� jsou pak
-zpracov�v�ny v�stupn�mi moduly (pluginy) pro r�zn� hardwarov� a softwarov�
-syntetiz�ry a p�e��k�ny nahlas.
+Každý klient (aplikace, která chce mluvit) otevře socketové spojení na Speech
+Dispatcher a volá funkce jako say(), stop(), pause() poskytované knihovnou
+implementující tento protokol.  Tato sdílená knihovna je stále na straně
+klienta a posílá Speech Dispatcheru SSIP příkazy přes otevřený socket.  Když
+příkazy dorazí do Dispatchera, ten je zpracuje, přečte text, který by měl být
+přeříkán a vloží jej do fronty podle jeho priority.  Potom se rozhodne kdy, s
+jakými parametry (nastavovanými klientským programem i uživatelem) a na jakém
+syntetizéru zprávu nechá přemluvit.  Tyto požadavky na mluvení jsou pak
+zpracovávány výstupními moduly (pluginy) pro různé hardwarové a softwarové
+syntetizéry a přeříkány nahlas.
 
 @image{figures/architecture,155mm,,Architektura Speech Dispatchera}
 
-Detailn� popis programov�n� klient� i serveru je k dispozici v anglick�m
-manu�lu.
+Detailní popis programování klientů i serveru je k dispozici v anglickém
+manuálu.
 
-@node P�ehled z�kladn�ch rys�, Sou�asn� stav, Z�kladn� design, �vod
-@section P�ehled z�kladn�ch rys�
+@node Přehled základních rysů, Současný stav, Základní design, Úvod
+@section Přehled základních rysů
 
-Speech Dispatcher z pohledu u�ivatele:
-
-@itemize @bullet
-@item snadn� konfigurace r�zn�ch mluv�c�ch aplikac�, centr�ln� spr�va
-@item mo�nost voln� rozhodovat, jak� aplikace bude mluvit s jak�m syntetiz�rem
-@item m�n� �asu v�novan�ho konfiguraci a lad�n� r�zn�ch aplikac� vyu��vaj�c�ch synt�zu
-@item historie zpr�v pro zrakov� posti�en� u�ivatele
-@end itemize
-
-Speech Dispatcher z pohledu program�tora aplikace:
+Speech Dispatcher z pohledu uživatele:
 
 @itemize @bullet
-@item snadn� cesta, jak aplikaci rozmluvit
-@item jednotn� rozhran� k r�zn�m syntetiz�r�m
-@item synchronizace zpr�v na vy��� �rovni (kategorizace pomoc� priorit)
-@item mo�nost nemuset se starat o konfiguraci parametr� hlasu
+@item snadná konfigurace různých mluvících aplikací, centrální správa
+@item možnost volně rozhodovat, jaká aplikace bude mluvit s jakým syntetizérem
+@item méně času věnovaného konfiguraci a ladění různých aplikací využívajících syntézu
+@item historie zpráv pro zrakově postižené uživatele
 @end itemize
 
-@node Sou�asn� stav,  , P�ehled z�kladn�ch rys�, �vod
-@section Sou�asn� stav
-@cindex Syntetiz�ry
-@cindex Ostatn� programy
+Speech Dispatcher z pohledu programátora aplikace:
+
+@itemize @bullet
+@item snadná cesta, jak aplikaci rozmluvit
+@item jednotné rozhraní k různým syntetizérům
+@item synchronizace zpráv na vyšší úrovni (kategorizace pomocí priorit)
+@item možnost nemuset se starat o konfiguraci parametrů hlasu
+@end itemize
+
+@node Současný stav,  , Přehled základních rysů, Úvod
+@section Současný stav
+@cindex Syntetizéry
+@cindex Ostatní programy
 
 TODO:
 
-@node U�ivatelsk� dokumentace, GNU General Public License, �vod, Top
-@chapter U�ivatelsk� dokumentace
+@node Uživatelská dokumentace, GNU General Public License, Úvod, Top
+@chapter Uživatelská dokumentace
 
 @menu
-* Z�kladn� funkce::             Detailn�j�� popis v�ech z�kladn�ch funkc�
-* Spou�t�n�::                   Volby p��kazov� ��dky
+* Základní funkce::             Detailnější popis všech základních funkcí
+* Spouštění::                   Volby příkazové řádky
 * Konfigurace::                 Jak zkonfigurovat Speech Dispatcher
 @end menu
 
-@node Z�kladn� funkce, Spou�t�n�, U�ivatelsk� dokumentace, U�ivatelsk� dokumentace
-@section Z�kladn� funkce
+@node Základní funkce, Spouštění, Uživatelská dokumentace, Uživatelská dokumentace
+@section Základní funkce
 
-V t�to sekci je detailn�j�� popis z�kladn�ch funkc� Speech Dispatcheru.
+V této sekci je detailnější popis základních funkcí Speech Dispatcheru.
 
 @menu
-* Model priorit zpr�v::         Zpracov�n� sou�asn� p��choz�ch zpr�v  
-* Historie zpr�v::              Ukl�d�n� zpr�v pro pozd�j�� nahl�dnut�
-* V�ce v�stupn�ch modul�::      Interakce s r�zn�mi syntetiz�ry  
-* Autentifikace u�ivatel�::     Autentifikace pro p��stup k historii  
+* Model priorit zpráv::         Zpracování současně příchozích zpráv  
+* Historie zpráv::              Ukládání zpráv pro pozdější nahlédnutí
+* Více výstupních modulů::      Interakce s různými syntetizéry  
+* Autentizace uživatelů::     Autentizace pro přístup k historii  
 @end menu
 
-@node Model priorit zpr�v, Historie zpr�v, Z�kladn� funkce, Z�kladn� funkce
-@subsection Model priorit zpr�v
+@node Model priorit zpráv, Historie zpráv, Základní funkce, Základní funkce
+@subsection Model priorit zpráv
 @cindex priority
 
-Speech Dispatcher nem��e syntetizovat v�echny zpr�vy, kter� do n�j p�ich�z� z
-prost�ho d�vodu, �e zpr�vy p�ich�zej� oby�ejn� rychleji, ne� je syntetick� hlas
-dok�e ��st.  Na obrazovce monitoru je v porovn�n� s jednokan�lov�m �e�ov�m
-v�stupem relativn� hodn� m�sta.  Z toho d�vodu pou��v�me syst�m n�kolika
-priorit zam��en�ch na r�zn� typy zpr�v.
+Speech Dispatcher nemůže syntetizovat všechny zprávy, které do něj přichází z
+prostého důvodu, že zprávy přicházejí obyčejně rychleji, než je syntetický hlas
+dokáže číst.  Na obrazovce monitoru je v porovnání s jednokanálovým řečovým
+výstupem relativně hodně místa.  Z toho důvodu používáme systém několika
+priorit zaměřených na různé typy zpráv.
 
-My�lenka je takov�, �e �lohou program�tora klientsk� aplikace bude pouze ur�it
-pro ka�dou zpr�vu ur�itou prioritu odpov�daj�c� typu dan� zpr�vy.  Ve�ker�
-synchronizace a p�ep�n�n� mezi t�mito zpr�vami (kter� mohou poch�zet od r�zn�ch
-klient�) potom bude zaji�t�no aplikov�n�m ur�it�ch pravidel ve Speech
+Myšlenka je taková, že úlohou programátora klientské aplikace bude pouze určit
+pro každou zprávu určitou prioritu odpovídající typu dané zprávy.  Veškerá
+synchronizace a přepínání mezi těmito zprávami (které mohou pocházet od různých
+klientů) potom bude zajištěno aplikováním určitých pravidel ve Speech
 Dispatcheru.
 
 @menu
 * Typy priorit::                
 * Diagram priorit::             
-* P��klady vyu�it� priorit::    
+* Příklady využití priorit::    
 @end menu
 
-@node Typy priorit, Diagram priorit, Model priorit zpr�v, Model priorit zpr�v
+@node Typy priorit, Diagram priorit, Model priorit zpráv, Model priorit zpráv
 @subsubsection Priority Categories
                   
-Speech Dispatcher poskytuje syst�m p�ti priorit.  Ka�d� zpr�va obsahuje bu�
-explicitn� informaci o priorit�, nebo j� je p�i�azena v�choz� priorita.
+Speech Dispatcher poskytuje systém pěti priorit.  Každá zpráva obsahuje buď
+explicitní informaci o prioritě, nebo jí je přiřazena výchozí priorita.
 
-Pros�m pod�vejte se tak� na p�ilo�en� diagram (dole).
+Prosím podívejte se také na přiložený diagram (dole).
 
 @subsubheading Priorita @code{important}
 @cindex Priorita important
 
-Tato zpr�va bude p�e��k�na okam�it�, jak doraz� do serveru.  Nen� nikdy
-p�eru�ena.  Kdy� server obdr�� sou�asn� n�kolik r�zn�ch zpr�v t�to priority, ty
-jsou ulo�eny a p�e��k�ny v po�ad�, ve kter�m p�i�ly.
+Tato zpráva bude přeříkána okamžitě, jak dorazí do serveru.  Není nikdy
+přerušena.  Když server obdrží současně několik různých zpráv této priority, ty
+jsou uloženy a přeříkány v pořadí, ve kterém přišly.
 
-Kdy� p�ijde nov� zpr�va priority @code{important} a zrovna se ��k� n�jak� jin�
-zpr�va, tato jin� zpr�va je zahozena.  Dal�� zpr�vy ni���ch priorit jsou bu�
-pozdr�eny (priorita @code{message} a @code{text}) ne� ji� ne�ekaj� na p�e��k�n�
-��dn� zpr�vy priority @code{important}, nebo jsou zahozeny (priority
+Když přijde nová zpráva priority @code{important} a zrovna se říká nějaká jiná
+zpráva, tato jiná zpráva je zahozena.  Další zprávy nižších priorit jsou buď
+pozdrženy (priorita @code{message} a @code{text}) než již nečekají na přeříkání
+žádné zprávy priority @code{important}, nebo jsou zahozeny (priority
 @code{notification} a @code{progress}).
 
-Tyto zpr�vy by m�ly b�t tak kr�tk�, jak je to jen mo�n�, a m�ly by b�t
-pou��v�ny pouze z��dka, proto�e blokuj� v�stup v�ech ostatn�ch zpr�v.
+Tyto zprávy by měly být tak krátké, jak je to jen možné, a měly by být
+používány pouze zřídka, protože blokují výstup všech ostatních zpráv.
 
 @subsubheading Priorita @code{message}
 @cindex Priorita message
 
-Tato zpr�va bude p�e��k�na, pokud ji� ve front� ne�ek� ��dn� jin� zpr�va
-priority @code{important} nebo @code{message}.  V opa�n�m p��pad� je tato
-zpr�va pozdr�ena dokud nebudou v�echny p�e��k�ny.  To znamen�, �e priorita
-@code{message} nezastavuje sama sebe.  Kdy� ve front� �ekaj� zpr�vy priorit
-@code{notification} nebo @code{progress} nebo @code{text} kdy� p�ijde zpr�va
+Tato zpráva bude přeříkána, pokud již ve frontě nečeká žádná jiná zpráva
+priority @code{important} nebo @code{message}.  V opačném případě je tato
+zpráva pozdržena dokud nebudou všechny přeříkány.  To znamená, že priorita
+@code{message} nezastavuje sama sebe.  Když ve frontě čekají zprávy priorit
+@code{notification} nebo @code{progress} nebo @code{text} když přijde zpráva
 priority @code{message}, jsou zahozeny.
 
 @subsubheading Priorita @code{text}
 @cindex Priorita text
 
-Tato zpr�va bude p�e��k�na, kdy� ve front� ne�ek� ��dn� zpr�va priority
-@code{important} nebo @code{message}.  Pokud �ek�, tato nov� zpr�va je
-pozdr�ena dokud nebudou p�edchoz� zpr�vy p�e��k�ny.
+Tato zpráva bude přeříkána, když ve frontě nečeká žádná zpráva priority
+@code{important} nebo @code{message}.  Pokud čeká, tato nová zpráva je
+pozdržena dokud nebudou předchozí zprávy přeříkány.
 
-Priorita text p�erqu�uje sama sebe.  To znamen�, �e kdy� p�ijde n�kolik zpr�v
-priority text, ty nejsou p�e��k�ny v po�ad�, ve kter�m p�i�ly, ale bude vy��ena
-pouze posledn� z nich a ostatn� jsou p�eru�eny a zahozeny.
+Priorita text přerušuje sama sebe.  To znamená, že když přijde několik zpráv
+priority text, ty nejsou přeříkány v pořadí, ve kterém přišly, ale bude vyřčena
+pouze poslední z nich a ostatní jsou přerušeny a zahozeny.
 
-Pokud jsou ve front� zpr�vy priorit @code{notification} nebo @code{progress}
-nebo se pr�v� p�e��k�vaj�, jsou zahozeny.
+Pokud jsou ve frontě zprávy priorit @code{notification} nebo @code{progress}
+nebo se právě přeříkávají, jsou zahozeny.
 
 @subsubheading Priorita @code{notification}
 @cindex Priorita notification
 
-Toto je zpr�va n�zk� priority.  Pokud ve front� �ekaj� zpr�vy priorit
+Toto je zpráva nízké priority.  Pokud ve frontě čekají zprávy priorit
 @code{important}, @code{messages}, @code{text} nebo @code{progress} nebo jsou
-pr�v� p�e��k�v�ny, tato nov� zpr�va priority @code{notification} je zru�ena.
+právě přeříkávány, tato nová zpráva priority @code{notification} je zrušena.
 
-Tato priorita p�eru�uje sama sebe, tak�e kdy� p�ijde najednou v�ce zpr�v s
-prioritou @code{notification}, p�e��k� se pouze posledn� z nich.
+Tato priorita přerušuje sama sebe, takže když přijde najednou více zpráv s
+prioritou @code{notification}, přeříká se pouze poslední z nich.
 
 @subsubheading Priority @code{progress}
 
-Toto je speci�ln� priorita pro zpr�vy, kter� p�ich�zej� kr�tce po sob� a nesou
-informaci o n�jak� prob�haj�c� �innosti (nap�.@ @code{Dokon�eno 45%}).
+Toto je speciální priorita pro zprávy, které přicházejí krátce po sobě a nesou
+informaci o nějaké probíhající činnosti (např.@ @code{Dokončeno 45%}).
 
-Kdyby nov� zpr�vy p�eru�ovaly ostatn� (viz. priorita Notification), u�ivatel by
-nemusel sly�et ani jednu zpr�vu do konce.
+Kdyby nové zprávy přerušovaly ostatní (viz. priorita Notification), uživatel by
+nemusel slyšet ani jednu zprávu do konce.
 
-Tato priorita se chov� stejn� jako @code{notification} s v�jimkou dvou v�c�.
+Tato priorita se chová stejně jako @code{notification} s výjimkou dvou věcí.
 
 @itemize
 @item
-Zpr�vy t�to priority nep�eru�uj� jedna druhou.  M�sto toho, pokud je zrovna
-p�e��k�v�na jin� zpr�va t�to priority, nov� p��choz� zpr�va je zahozena.
+Zprávy této priority nepřerušují jedna druhou.  Místo toho, pokud je zrovna
+přeříkávána jiná zpráva této priority, nově příchozí zpráva je zahozena.
 @item
-Speech Dispatcher se sna�� detekovat posledn� zpr�vu v s�rii p��choz�ch zpr�v a
-zaru�it jej� p�e��k�n� (pro u�ivatele je d�le�it� sly�et zpr�vu @code{Completed
-100%}, aby v�d�l, �e proces ji� skon�il).  V�dy, kdy� ve front� ji� ne�ek�
-��dn� nov� zpr�va t�to priority a posledn� p��choz� zpr�va je�t� nebyla
-p�e��k�na, je jej� p�e��k�n� vynuceno s prioritou @code{message}.
+Speech Dispatcher se snaží detekovat poslední zprávu v sérii příchozích zpráv a
+zaručit její přeříkání (pro uživatele je důležité slyšet zprávu @code{Completed
+100%}, aby věděl, že proces již skončil).  Vždy, když ve frontě již nečeká
+žádná nová zpráva této priority a poslední příchozí zpráva ještě nebyla
+přeříkána, je její přeříkání vynuceno s prioritou @code{message}.
 @end itemize
 
-@node Diagram priorit, P��klady vyu�it� priorit, Typy priorit, Model priorit zpr�v
+@node Diagram priorit, Příklady využití priorit, Typy priorit, Model priorit zpráv
 @subsubsection Diagram priorit
 
 @image{figures/priorities,,,Speech Dispatcher architecture}
 @c TODO: Generate a pdf version. (Why? -- Hynek Hanke)
 
-@node P��klady vyu�it� priorit,  , Diagram priorit, Model priorit zpr�v
-@subsubsection P��klady vyu�it� priorit
+@node Příklady využití priorit,  , Diagram priorit, Model priorit zpráv
+@subsubsection Příklady využití priorit
 
-P��klady pou�it� priority @code{important} jsou:
+Příklady použití priority @code{important} jsou:
  
 @itemize
-@item chybov� hl�ky
-@item velmi d�le�it� zpr�vy
+@item chybové hlášky
+@item velmi důležité zprávy
 @item ...
 @end itemize
 
-P��klady pou�it� priority @code{message} jsou:
+Příklady použití priority @code{message} jsou:
 
 @itemize
-@item b�n� zpr�vy programu
-@item varov�n�
+@item běžné zprávy programu
+@item varování
 @item ...
 @end itemize
 
-P��klady pou�it� priority @code{text} jsou:
+Příklady použití priority @code{text} jsou:
 
 @itemize
-@item text, na kter�m u�ivatel pracuje
-@item p�ed��tan� text
-@item polo�ky menu
+@item text, na kterém uživatel pracuje
+@item předčítaný text
+@item položky menu
 @item ...
 @end itemize
 
-P��klady pou�it� priority @code{notification} jsou:
+Příklady použití priority @code{notification} jsou:
 
 @itemize
-@item m�n� d�le�it� informace
-@item p�smenka p�i vkl�d�n�
-@item run-time n�pov�da
+@item méně důležité informace
+@item písmenka při vkládání
+@item run-time nápověda
 @item ...
 @end itemize
 
-P��klady pou�it� priority @code{progress} jsou:
+Příklady použití priority @code{progress} jsou:
 
 @itemize
-@item ``dokon�eno 15%'', ``dokon�eno 16%'', ``dokon�eno 17%''
-@item ``Na��t�m zvuky'', ``Na��t�m grafiku'', ``Na��t�m ai'', ...
+@item ``dokončeno 15%'', ``dokončeno 16%'', ``dokončeno 17%''
+@item ``Načítám zvuky'', ``Načítám grafiku'', ``Načítám ai'', ...
 @end itemize
 
-@node Historie zpr�v, V�ce v�stupn�ch modul�, Model priorit zpr�v, Z�kladn� funkce
-@subsection Historie zpr�v
+@node Historie zpráv, Více výstupních modulů, Model priorit zpráv, Základní funkce
+@subsection Historie zpráv
 @cindex history
 
-Pro nevidom� a zrakov� posti�en� je dobrou vlastnost�, pokud maj� mo�nost
-n�jak�m jednoduch�m klientem proch�zet historii vysloven�ch zpr�v.
+Pro nevidomé a zrakově postižené je dobrou vlastností, pokud mají možnost
+nějakým jednoduchým klientem procházet historii vyslovených zpráv.
 
-N�kter� m�n� d�le�it� zpr�vy jsou p�ijmuty Speech Dispatcherem bez toho, aby
-byly p�e��k�ny, proto�e jsou potla�eny d�le�it�j��mi informacemi.  To je
-ned�liteln� vlastnost ka�d�ho �e�ov�ho rozhran�, proto�e nen� mo�n� podat v
-�e�ov�m v�stupu tolik informac�, kolik se jich vejde na obrazovku.  To je jeden
-z hlavn�ch d�vod�, pro� je v�hodn� udr�ovat historii p�ijat�ch zpr�v, aby se
-mohl u�ivatel pod�vat, zda mu neu�lo n�co d�le�it�ho.
+Některé méně důležité zprávy jsou přijaty Speech Dispatcherem bez toho, aby
+byly přeříkány, protože jsou potlačeny důležitějšími informacemi.  To je
+nedělitelná vlastnost každého řečového rozhraní, protože není možné podat v
+řečovém výstupu tolik informací, kolik se jich vejde na obrazovku.  To je jeden
+z hlavních důvodů, proč je výhodné udržovat historii přijatých zpráv, aby se
+mohl uživatel podívat, zda mu neušlo něco důležitého.
 
 @menu
-* P��stupov� pr�va::            P��stupov� pr�va k historii zpr�v
+* Přístupová práva::            Přístupová práva k historii zpráv
 @end menu
 
-@node P��stupov� pr�va,  , Historie zpr�v, Historie zpr�v
+@node Přístupová práva,  , Historie zpráv, Historie zpráv
 @subsubsection Access Rights
 @cindex access rights
 
-Aby bylo ochr�n�no soukrom� u�ivatel�, Speech Dispatcher omezuje p��stup k
-historii na ur�itou podmno�inu p�ijat�ch zpr�v.  Plat� n�sleduj�c� pravidla:
+Aby bylo ochráněno soukromí uživatelů, Speech Dispatcher omezuje přístup k
+historii na určitou podmnožinu přijatých zpráv.  Platí následující pravidla:
 
 @itemize @bullet
 @item
-V�echny zpr�vy p�ijat� od ur�it�ho klientsk�ho spojen� jsou tomuto spojen�
-p��stupny i v historii.
+Všechny zprávy přijaté od určitého klientského spojení jsou tomuto spojení
+přístupny i v historii.
 
 @item
-V�echny zpr�vy odeslan� ur�it�m u�ivatelem jsou tomuto u�ivateli p��stupny i v
+Všechny zprávy odeslané určitým uživatelem jsou tomuto uživateli přístupny i v
 historii.
 
 @item
-@cindex @code{speechd} u�ivatel
+@cindex @code{speechd} uživatel
 @cindex @code{speechd} skupina
-V�echny zpr�vy zaslan� u�ivatelem @code{speechd} jsou p��stupny v�em u�ivatel�m
-na dan�m syst�mu, pod kter�m b�� Speech Dispatcher ve skupin� @code{speechd}.
+Všechny zprávy zaslané uživatelem @code{speechd} jsou přístupny všem uživatelům
+na daném systému, pod kterým běží Speech Dispatcher ve skupině @code{speechd}.
 
 @item
-��dn� dal�� zpr�vy nejsou p��stupn�.
+Žádné další zprávy nejsou přístupné.
 @end itemize
 
-Dv� zpr�vy jsou pova�ov�ny za identick� jestli�e jejich spojen� poch�zej� z
-toho sam�ho po��ta�e, u�ivatelsk� jm�na jsou stejn� a jejich identita m��e b�t
-ov��ena, jak je pops�no v @ref{Autentifikace u�ivatel�}.  Pokud nem��e b�t
-u�ivatelova identita ov��ena, tento u�ivatel je pova�ov�n za jin�ho ne� v�ichni
-p�ipojen� nebo d��ve p�ipojen� u�ivatel�.
+Dvě zprávy jsou považovány za identické jestliže jejich spojení pocházejí z
+toho samého počítače, uživatelská jména jsou stejná a jejich identita může být
+ověřena, jak je popsáno v @ref{Autentizace uživatelů}.  Pokud nemůže být
+uživatelova identita ověřena, tento uživatel je považován za jiného než všichni
+připojení nebo dříve připojení uživatelé.
 
-@node V�ce v�stupn�ch modul�, Autentifikace u�ivatel�, Historie zpr�v, Z�kladn� funkce
-@subsection V�ce v�stupn�ch modul�
-@cindex v�stupn� modul
-@cindex syntetiz�tory
+@node Více výstupních modulů, Autentizace uživatelů, Historie zpráv, Základní funkce
+@subsection Více výstupních modulů
+@cindex výstupní modul
+@cindex syntezátory
 
-Speech Dispatcher podporuje soub�n� pou��v�n� v�ce v�stupn�ch modul�.  Pokud
-tyto moduly poskytuj� dobrou synchronizaci, lze je p�i �ten� zpr�v kombinovat.
-Pokud nap�. modul1 mluv� anglicky a �esky, zat�mco modul2 mluv� pouze n�mecky,
-tak pokud p�ijde n�jak� zpr�va v n�m�in�, pou�ije se modul2, zat�mco pro
-ostatn� jazyky se pou�ije modul1.  Na druh� stran� jazyk nen� jedin�m krit�riem
-pro takov� rozhodnut�.  P�esn� pravidla pro v�b�r v�stup�ho modulu mohou b�t
-ovlivn�na v konfigura�n�m souboru @file{speechd.conf}.
+Speech Dispatcher podporuje souběžné používání více výstupních modulů.  Pokud
+tyto moduly poskytují dobrou synchronizaci, lze je při čtení zpráv kombinovat.
+Pokud např. modul1 mluví anglicky a česky, zatímco modul2 mluví pouze německy,
+tak pokud přijde nějaká zpráva v němčině, použije se modul2, zatímco pro
+ostatní jazyky se použije modul1.  Na druhé straně jazyk není jediným kritériem
+pro takové rozhodnutí.  Přesná pravidla pro výběr výstupního modulu mohou být
+ovlivněna v konfiguračním souboru @file{speechd.conf}.
 
-@node Autentifikace u�ivatel�,  , V�ce v�stupn�ch modul�, Z�kladn� funkce
-@subsection Autentifikace u�ivatel�
+@node Autentizace uživatelů,  , Více výstupních modulů, Základní funkce
+@subsection Autentizace uživatelů
 @cindex Identification Protocol
 @cindex identd
 @cindex RFC 1413
 
-NOTE: Na implementaci t�to vlastnosti se pracuje, ale sou�asn� verze ji
+NOTE: Na implementaci této vlastnosti se pracuje, ale současná verze ji
 nepodporuje.
 
-Speech Dispatcher neposkytuje ��dn� explicitn� autentifika�n� mechanismus.  K
-ov��en� identity u�ivatl� pou��v�me Identification Protocol definovan� v RFC
+Speech Dispatcher neposkytuje žádný explicitní autentizační mechanismus.  K
+ověření identity uživatelů používáme Identification Protocol definovaný v RFC
 1413.
 
-@cindex mapov�n� u�ivatl�
-V konfiguraci je mo�n� specifikovat mapov�n� u�ivatel�. To umo��uje jednat s
-ur�it�mi u�ivateli jako s jedn�m a p�id�lit jim stejn� pr�va (nap�. proch�zet
-jejich @ref{Historie zpr�v}).
+@cindex mapování uživatelů
+V konfiguraci je možné specifikovat mapování uživatelů. To umožňuje jednat s
+určitými uživateli jako s jedním a přidělit jim stejná práva (např. procházet
+jejich @ref{Historie zpráv}).
 
-@node Spou�t�n�, Konfigurace, Z�kladn� funkce, U�ivatelsk� dokumentace
+@node Spouštění, Konfigurace, Základní funkce, Uživatelská dokumentace
 @section Invoking
 
-@subsection Pot�ebn� privilegia
+@subsection Potřebná privilegia
 
-Speech Dispatcher m��e b�t obecn� spou�t�n pod oby�ejn�m u�ivatelem.  Sna�ili
-jsme se jej zabezpe�it, jak jen to bylo mo�n�, ale nejsme odborn�ky na
-po��ta�ovou bezpe�nost a k�d m��e obsahovat nebezpe�n� chyby.  Nedoporu�ujeme
-jej spou�t�t jako root nebo pod jin�m vysoce privilegovan�m u�ivatelem.
+Speech Dispatcher může být obecně spouštěn pod obyčejným uživatelem.  Snažili
+jsme se jej zabezpečit, jak jen to bylo možné, ale nejsme odborníky na
+počítačovou bezpečnost a kód může obsahovat nebezpečné chyby.  Nedoporučujeme
+jej spouštět jako root nebo pod jiným vysoce privilegovaným uživatelem.
 
-Jedin� omezen� jsou tyto:
+Jediná omezení jsou tyto:
 
 @itemize
 @item
-Speech Dispatcher vytv��� PID file standardn� ve
-@file{/var/run/speech-dispatcher.pid}, tak�e @file{/var/run/} mus� b�t dan�mu
-u�ivateli p��stupn� k z�pisu.  To m��e b�t zm�n�no nastaven�m volby
-@code{pidpath} p�i vol�n� skriptu @code{./configure} p�i kompilaci.
+Speech Dispatcher vytváří PID file standardně ve
+@file{/var/run/speech-dispatcher.pid}, takže @file{/var/run/} musí být danému
+uživateli přístupné k zápisu.  To může být změněno nastavením volby
+@code{pidpath} při volání skriptu @code{./configure} při kompilaci.
 @item
-Kdy� je zapnuto logov�n�, v�choz� cesta, kam Speech Dispatcher zapisuje sv�j
-log, je @file{/var/log/speech-dispatcher.log}.  To ale m��e b�t kdykoliv
-p�enastaveno v hlavn�m konfigura�n�m souboru.
+Když je zapnuto logování, výchozí cesta, kam Speech Dispatcher zapisuje svůj
+log, je @file{/var/log/speech-dispatcher.log}.  To ale může být kdykoliv
+přenastaveno v hlavním konfiguračním souboru.
 @end itemize
 
-@subsection Volby p��kazov� ��dky
+@subsection Volby příkazové řádky
 
-Speech Dispatcher m��e b�t spu�t�n s t�mito volbami:
+Speech Dispatcher může být spuštěn s těmito volbami:
 
 @code{speech-dispatcher [-@{d|s@}] [-l @{1|2|3|4|5@}] [-p=port] | [-v] | [-h]}
 
 @table @code
 @item -d or --run-daemon
-Spust� program jako d�mona (b�� v pozad�, odpoj� se od termin�lu, atd.)  Toto
-je v�choz� chov�n�.
+Spustí program jako démona (běží v pozadí, odpojí se od terminálu, atd.)  Toto
+je výchozí chování.
 
 @item -s or --run-single
-Spust� program jako b�nou aplikaci b��c� na pop�ed�.
+Spustí program jako běžnou aplikaci běžící na popředí.
 
 @item -l level or --log-level=level
-Vybere po�adovan� logovac� �rove�. Logovac� �rove� je ��slo mezi 0 a 5 (0
-znamen� neloguj nic, 5 znamen� zapisuj t�m�� v�e v�etn� zpracov�van�ho textu.)
-Standardn� je 3. @xref{�rovn� logov�n�}.
+Vybere požadovaný logovací úroveň. Logovací úroveň je číslo mezi 0 a 5 (0
+znamená neloguj nic, 5 znamená zapisuj téměř vše včetně zpracovávaného textu.)
+Standardní je 3. @xref{Úrovně logování}.
 
-Logovac� �rove� 5 by nem�la b�t pou��v�na k jin�m ��el�m, ne� pro hled�n� chyb
-a to pouze kr�tkodob�.  Logy, kter� produkuje mohou nar�st do obrovsk�
-velikosti a obsahuj� text �ten� u�ivateli nez�visle na r�zn�ch p��stupov�ch
-pr�vech, jak plat� pro historii.  Spou�t�t server s touto �rovn� logov�n� tedy
-m��e snadno v�st k naru�en� soukrom�.
+Logovací úroveň 5 by neměla být používána k jiným účelům, než pro hledání chyb
+a to pouze krátkodobě.  Logy, které produkuje mohou narůst do obrovské
+velikosti a obsahují text čtený uživateli nezávisle na různých přístupových
+právech, jak platí pro historii.  Spouštět server s touto úrovní logování tedy
+může snadno vést k narušení soukromí.
 
 @item -p or --port
-Zad� port, na kter�m by m�l server �ekat na klienty.  V�choz� je 6560.
+Zadá port, na kterém by měl server čekat na klienty.  Výchozí je 6560.
 
 @item -v or --version
-Vyp��e informace o verzi Speech Dispatchera.  Tak� ozn�m� z�kladn� informace o
+Vypíše informace o verzi Speech Dispatchera.  Také oznámí základní informace o
 copyrightu.
 
 @item -h or --help
-Vyp��e n�pov�du o volb�ch p��kazov� ��dky, upozorn�n� o copyrightu
-a emailovou adresu pro zas�l�n� ozn�men� o chyb�ch.
+Vypíše nápovědu o volbách příkazové řádky, upozornění o copyrightu
+a emailovou adresu pro zasílání oznámení o chybách.
 @end table
 
 
-@node Konfigurace,  , Spou�t�n�, U�ivatelsk� dokumentace
+@node Konfigurace,  , Spouštění, Uživatelská dokumentace
 @section konfigurace
 @cindex konfigurace
 
-Speech Dispatcher m��e b�t konfigurov�n na n�kolika r�zn�ch �rovn�ch.  Jedna z
-nich je nastavov�n� glob�ln�ch parametr� p�es serverov� konfigura�n� soubor.
-Je zde i podpora pro konfiguraci specifickou pro ur�it� klienty.
+Speech Dispatcher může být konfigurován na několika různých úrovních.  Jedna z
+nich je nastavování globálních parametrů přes serverový konfigurační soubor.
+Je zde i podpora pro konfiguraci specifickou pro určité klienty.
 
-N�kter� aplikace maj� vlastn� mechanismus nastavov�n� voleb souvisej�c�ch s
-�e�ovou synt�zou.  Pro detaily o t�chto nastaven�ch se pros�m pod�vejte do
-dokumentace dan�ho programu.
+Některé aplikace mají vlastní mechanismus nastavování voleb souvisejících s
+řečovou syntézou.  Pro detaily o těchto nastaveních se prosím podívejte do
+dokumentace daného programu.
 
-N�sleduj�c� kapitoly se zab�vaj� pouze konfigurac� na stran� serveru p�es
-konfigura�n� soubor.
+Následující kapitoly se zabývají pouze konfigurací na straně serveru přes
+konfigurační soubor.
 
 @menu
-* Syntaxe konfigura�n�ho souboru::  
+* Syntaxe konfiguračního souboru::  
 * Volby v konfiguraci::         
-* Nastaven� v�stupn�ch modul�::  
-* �rovn� logov�n�::             
+* Nastavení výstupních modulů::  
+* Úrovně logování::             
 @end menu
 
-@node Syntaxe konfigura�n�ho souboru, Volby v konfiguraci, Konfigurace, Konfigurace
-@subsection Syntaxe konfigura�n�ho souboru
+@node Syntaxe konfiguračního souboru, Volby v konfiguraci, Konfigurace, Konfigurace
+@subsection Syntaxe konfiguračního souboru
 
-Pro na��t�n� configurace zalo�en� na textov�ch souborech pou��v�me knihovnu
-DotConf, tak�e bude syntaxe nejsp�� mnoha u�ivatel�m pov�dom�.
+Pro načítání konfigurace založené na textových souborech používáme knihovnu
+DotConf, takže bude syntaxe nejspíš mnoha uživatelům povědomá.
 
-Ka�d� z �et�zcov�ch konstant, pokud nen� uvedeno jinak, by m�la b�t zak�dov�na
-v UTF-8.  Jm�na voleb nepou��vaj� jin� znaky ne� standardn� ASCII sadu omezenou
-na znaky (@code{a}, @code{b}, ...), poml�ky (@code{-}) a podtr��tka @code{_}.
+Každá z řetězcových konstant, pokud není uvedeno jinak, by měla být zakódována
+v UTF-8.  Jména voleb nepoužívají jiné znaky než standardní ASCII sadu omezenou
+na znaky (@code{a}, @code{b}, ...), pomlčky (@code{-}) a podtržítka @code{_}.
 
-Koment��e a do�asn� neaktivn� volby za��naj� znakem @code{#}.  Pokud chcete
-takovu volbu zapnout, sta�� smazat znak koment��e a nastavit volbu na
-po�adovanou hodnotu.
+Komentáře a dočasně neaktivní volby začínají znakem @code{#}.  Pokud chcete
+takovu volbu zapnout, stačí smazat znak komentáře a nastavit volbu na
+požadovanou hodnotu.
 @example
 # toto je komentar
-# InactiveOption "tato volba je zatim vypla komentarem"
+# InactiveOption "tato volba je zatim vypnuta komentarem"
 @end example
 
-�et�zce jsou uzav�eny v uvozovk�ch.
+Řetězce jsou uzavřeny v uvozovkách.
 @example
 LogFile  "/var/log/speech-dispatcher.log"
 @end example
 
-��sla jsou zaps�na bez uvozovek.
+Čísla jsou zapsána bez uvozovek.
 @example
 Port 6560
 @end example
 
-P�ep�na�e pou��vaj� On (zapnuto) a Off (vypnuto).
+Přepínače používají On (zapnuto) a Off (vypnuto).
 @example
 Debug Off
 @end example
 
-@node Volby v konfiguraci, Nastaven� v�stupn�ch modul�, Syntaxe konfigura�n�ho souboru, Konfigurace
+@node Volby v konfiguraci, Nastavení výstupních modulů, Syntaxe konfiguračního souboru, Konfigurace
 @subsection Configuration options
 
-V�echny dostupn� volby jsou zdokumentov�ny p��mo v konfigura�n�m souboru a jsou
-k nim uvedeny i p��klady. V�t�ina voleb je nastavena na v�choz� hodnotu a
-zakomentov�na.  Pokud je chcete zm�nit, posta�� modifikovat jejich hodnotu a
-smazat symbol koment��e @code{#}.
+Všechny dostupné volby jsou zdokumentovány přímo v konfiguračním souboru a jsou
+k nim uvedeny i příklady. Většina voleb je nastavena na výchozí hodnotu a
+zakomentována.  Pokud je chcete změnit, postačí modifikovat jejich hodnotu a
+smazat symbol komentáře @code{#}.
 
-@node Nastaven� v�stupn�ch modul�, �rovn� logov�n�, Volby v konfiguraci, Konfigurace
+@node Nastavení výstupních modulů, Úrovně logování, Volby v konfiguraci, Konfigurace
 @subsection Output Modules Configuration
 
-Ka�d� u�ivatel by si m�l zapnout ve sv� konfiguraci alespo� jeden v�stupn�
-modul, pokud chce, aby Speech Dispatcher produkoval n�jak� zvukov� v�stup.
-Kdy� nen� na�ten ��dn� v�stupn� modul, Speech Dispatcher sice nastartuje, bude
-komunikovat s klienty a logovat zpr�vy do historie, ale nebude produkovat ��dn�
+Každý uživatel by si měl zapnout ve své konfiguraci alespoň jeden výstupní
+modul, pokud chce, aby Speech Dispatcher produkoval nějaký zvukový výstup.
+Když není načten žádný výstupní modul, Speech Dispatcher sice nastartuje, bude
+komunikovat s klienty a logovat zprávy do historie, ale nebude produkovat žádný
 zvuk.
 
-Ka�d� v�stupn� modul je t�eba do Speech Dispatchera nat�hnout jednou ��dkou
-``AddModule'' v @file{etc/speechd.conf}.  Nav�c, ka�d� v�stupn� modul m�
-p�i�azen vlastn� konfigura�n� soubor.
+Každý výstupní modul je třeba do Speech Dispatchera natáhnout jednou řádkou
+``AddModule'' v @file{etc/speechd.conf}.  Navíc, každý výstupní modul má
+přiřazen vlastní konfigurační soubor.
 
 @menu
-* Natahov�n� modul� ve speechd.conf::  
-* Konfigura�n� soubory v�stupn�ch modul�::  
-* Konfigurace generick�ho v�stupn�ho modulu::  
+* Natahování modulů ve speechd.conf::  
+* Konfigurační soubory výstupních modulů::  
+* Konfigurace generického výstupního modulu::  
 @end menu
 
-@node Natahov�n� modul� ve speechd.conf, Konfigura�n� soubory v�stupn�ch modul�, Nastaven� v�stupn�ch modul�, Nastaven� v�stupn�ch modul�
-@subsubsection Natahov�n� modul� ve speechd.conf
+@node Natahování modulů ve speechd.conf, Konfigurační soubory výstupních modulů, Nastavení výstupních modulů, Nastavení výstupních modulů
+@subsubsection Natahování modulů ve speechd.conf
 
-@anchor{AddModule} Ka�d� modul, kter� by se m�l spustit p�i startu Speech
-Dispatchera, mus� b�t nata�en p��kazem @code{AddModule} v konfiguraci.
-V�imn�te si, �e lze nat�hnout jeden bin�rn� modul v�cekr�t s r�zn�mi
-konfigura�n�mi soubory a pod jin�mi jm�ny.  To je u�ite�n� hlavn� pro
-natahov�n� generick�ch v�stupn�ch modul�.  @xref{Konfigurace generick�ho
-v�stupn�ho modulu}.
+@anchor{AddModule} Každý modul, který by se měl spustit při startu Speech
+Dispatchera, musí být natažen příkazem @code{AddModule} v konfiguraci.
+Všimněte si, že lze natáhnout jeden binární modul vícekrát s různými
+konfiguračními soubory a pod jinými jmény.  To je užitečné hlavně pro
+natahování generických výstupních modulů.  @xref{Konfigurace generického
+výstupního modulu}.
 
 @example
 AddModule "@var{module_name}" "@var{module_binary}" "@var{module_config}"
 @end example
 
-@var{module_name} je jm�no dan�ho v�stupn�ho modulu.
+@var{module_name} je jméno daného výstupního modulu.
 
-@var{module_binary} je jm�no bin�rn�ho spustiteln�ho souboru tohoto v�stupn�ho
-modulu.  To m��e b�t bu� cesta absolutn� nebo relativn� k
+@var{module_binary} je jméno binárního spustitelného souboru tohoto výstupního
+modulu.  To může být buď cesta absolutní nebo relativní k
 @file{bin/speechd-modules/}.
 
-@var{module_config} je soubor s konfigurac� pro tento konkr�tn� v�stupn� modul.
-Cesta m��e b�t absolutn� i relativn� k @file{etc/speech-dispatcher/modules/}.
-Tento parametr je voliteln� (nen� t�eba jej uv�d�t).
+@var{module_config} je soubor s konfigurací pro tento konkrétní výstupní modul.
+Cesta může být absolutní i relativní k @file{etc/speech-dispatcher/modules/}.
+Tento parametr je volitelný (není třeba jej uvádět).
 
-@node Konfigura�n� soubory v�stupn�ch modul�, Konfigurace generick�ho v�stupn�ho modulu, Natahov�n� modul� ve speechd.conf, Nastaven� v�stupn�ch modul�
-@subsubsection Konfigura�n� soubory v�stupn�ch modul�
+@node Konfigurační soubory výstupních modulů, Konfigurace generického výstupního modulu, Natahování modulů ve speechd.conf, Nastavení výstupních modulů
+@subsubsection Konfigurační soubory výstupních modulů
 
-Ka�d� v�stupn� modul je odli�n� a proto m� odli�n� volby v konfiguraci.  Pros�m
-prostudujte si koment��e v dan�m konfigura�n�m souboru.  Zde je pops�no pouze
-n�kolik voleb, kter� jsou pro n�kter� v�stupn� moduly spole�n�.
+Každý výstupní modul je odlišný a proto má odlišné volby v konfiguraci.  Prosím
+prostudujte si komentáře v daném konfiguračním souboru.  Zde je popsáno pouze
+několik voleb, které jsou pro některé výstupní moduly společné.
 
 @table @code
 @item AddVoice "@var{language}" "@var{symbolicname}" "@var{name}"
 @anchor{AddVoice}
 
-Ka�d� v�stupn� modul poskytuje n�jak� hlasy a n�kdy dokonce podporuje r�zn�
-jazyky.  Z toho d�vodu byl zaveden spole�n� mechanismus, kter�m m��ou b�t tyto
-hlasy definov�ny v konfiguraci.  ��dn� modul ov�em nen� povinen tuto volbu
-pou��vat.  N�kter� syntetiz�tory, nap�. Festival, podporuj� symbolick� jm�na
-SSIP p��mo, tak�e konfigurace konkr�tn�ch hlas� se prov�d� v syntetiz�toru
-samotn�m.
+Každý výstupní modul poskytuje nějaké hlasy a někdy dokonce podporuje různé
+jazyky.  Z toho důvodu byl zaveden společný mechanismus, kterým můžou být tyto
+hlasy definovány v konfiguraci.  Žádný modul ovšem není povinen tuto volbu
+používat.  Některé syntezátory, např. Festival, podporují symbolická jména
+SSIP přímo, takže konfigurace konkrétních hlasů se provádí v syntezátoru
+samotném.
 
-Ka�d�mu definovan�mu hlasu odpov�d� p�esn� jedna ��dka @code{AddVoice}.
+Každému definovanému hlasu odpovídá přesně jedna řádka @code{AddVoice}.
 
-@var{language} je ISO k�d jazyka tohoto hlasu (en, cs, de, en-US, ...)
+@var{language} je ISO kód jazyka tohoto hlasu (en, cs, de, en-US, ...)
 
-@var{symbolicname} je symbolick� jm�no, pod kter�m chcete, aby byl tento hlas
-dostupn�.  @xref{Standardn� hlasy}, pro seznam symbolick�ch jmen, kter� m��ete
-pou��t.
+@var{symbolicname} je symbolické jméno, pod kterým chcete, aby byl tento hlas
+dostupný.  @xref{Standardní hlasy}, pro seznam symbolických jmen, která můžete
+použít.
 
-@var{name} je jm�no specifick� pro dan� v�stupn� modul.  Pros�m pod�vejte se na
-koment��e v p��slu�n�m konfigura�n�m souboru v sekci AddModule pro detailn�j��
+@var{name} je jméno specifické pro daný výstupní modul.  Prosím podívejte se na
+komentáře v příslušném konfiguračním souboru v sekci AddModule pro detailnější
 informace.
 
-Nap�. definice, kterou v sou�astnosti pou��v�me pro Epos (generic) vypad�
+Např. definice, kterou v současnosti používáme pro Epos (generic) vypadá
 takto:
 
 @example
@@ -668,100 +672,100 @@ takto:
 
 @item GenericDelimiters "@var{delimiters}", GenericMaxChunkLength @var{length}
 
-�asto se v�stupn� modul nesna�� vysyntetizovat cel� p��choz� text najednou, ale
-m�sto toho jej nejprve roz�e�e na men�� kousky (v�ty, ��sti v�t) a ty potom
-postupn� odes�l� na synt�zu.  Tento p��stup, vyu��van� n�kter�mi v�stupn�mi
-moduly, je mnohem rychlej��, ale na druh� stran� zase limituje schopnost
-syntetiz�ru poskytnout dobrou intonaci.
+Často se výstupní modul nesnaží vysyntetizovat celý příchozí text najednou, ale
+místo toho jej nejprve rozřeže na menší kousky (věty, části vět) a ty potom
+postupně odesílá na syntézu.  Tento přístup, využívaný některými výstupními
+moduly, je mnohem rychlejší, ale na druhé straně zase limituje schopnost
+syntetizéru poskytnout dobrou intonaci.
 
-Z toho d�vodu m�te oby�ejn� mo�nost zkonfigurovat si na jak�ch znac�ch
-(@var{delimiters}) by se m�l text rozd�lit na men�� ��sti (pokud jsou
-n�sledov�ny n�jak�m whitespace znakem).  Druh� volba (@var{length}) ud�v�, po
-kolika znac�ch by se m�l text n�siln� rozd�lit, pokud nebyl nalezen ��dn�
+Z toho důvodu máte obyčejně možnost zkonfigurovat si na jakých znacích
+(@var{delimiters}) by se měl text rozdělit na menší části (pokud jsou
+následovány nějakým whitespace znakem).  Druhá volba (@var{length}) udává, po
+kolika znacích by se měl text násilně rozdělit, pokud nebyl nalezen žádný
 delimiter.
 
-Pokud tato dv� pravidla zp��sn�te, dostanete lep�� rychlost, ale vzd�te se
-ur�it� ��sti kvality intonace.  Tak�e nap��klad pro pomalej�� po��ta�e
-doporu�ujeme do @var{delimiters} vlo�it i ��rku (,), aby byl text rozd�len i na
-��stech v�ty, zat�mco na rychlej��ch po��ta��ch je lep�� tam ��rku ned�vat,
-tak�e do syntetiz�ru v�dy doraz� cel� souv�t�.
+Pokud tato dvě pravidla zpřísníte, dostanete lepší rychlost, ale vzdáte se
+určité části kvality intonace.  Takže například pro pomalejší počítače
+doporučujeme do @var{delimiters} vložit i čárku (,), aby byl text rozdělen i na
+částech věty, zatímco na rychlejších počítačích je lepší tam čárku nedávat,
+takže do syntetizéru vždy dorazí celá souvětí.
 
-To sam� plat� o @code{MaxChunkLength}. Pro rychlej�� po��ta�e
-je lep�� nastavit v�t�� hodnotu.
+To samé platí o @code{MaxChunkLength}. Pro rychlejší počítače
+je lepší nastavit větší hodnotu.
 
-Nap��klad v�choz� hodnoty ve v�stupn�m modulu pro Festival jsou:
+Například výchozí hodnoty ve výstupním modulu pro Festival jsou:
 
 @example
     FestivalMaxChunkLength  300
     FestivalDelimiters  ".?!;,:"
 @end example
 
-V�stupn� modul se m��e tak� rozhodnout d�lit v�ty na delimiters pouze pokud ty
-jsou n�sledov�ny mezerou.  Tak�e nap��klad ``file123.tmp'' by rozd�leno nebylo,
-ale v�ta ``The horse raced around the fence, that was lately painted green,
-fell.''  by rozd�lena byla (to je mimochodem velmi zaj�mav� v�ta).
+Výstupní modul se může také rozhodnout dělit věty na delimiters pouze pokud ty
+jsou následovány mezerou.  Takže například ``file123.tmp'' by rozděleno nebylo,
+ale věta ``The horse raced around the fence, that was lately painted green,
+fell.''  by rozdělena byla (to je mimochodem velmi zajímavá věta).
 @end table
 
-@node Konfigurace generick�ho v�stupn�ho modulu,  , Konfigura�n� soubory v�stupn�ch modul�, Nastaven� v�stupn�ch modul�
-@subsubsection Konfigurace generick�ho v�stupn�ho modulu
+@node Konfigurace generického výstupního modulu,  , Konfigurační soubory výstupních modulů, Nastavení výstupních modulů
+@subsubsection Konfigurace generického výstupního modulu
 
-Generick� v�stupn� modul u�ivatel�m dovoluje jednodu�e si napsat vlastn�
-jednoduch� v�stupn� modul pro syntetiz�ry, kter� maj� rozhran� ve form�
-jednoduch�ho ��dkov�ho klienta, pouze modifikac� konfigura�n�ho souboru.  T�mto
-zp�sobem nemus� ps�t ��dn� specifick� k�d v C a u�ivatel� si mohou p�id�vat
-podporu pro v�stupn� za��zen� i kdy� neum� programovat.  @xref{AddModule}.
+Generický výstupní modul uživatelům dovoluje jednoduše si napsat vlastní
+jednoduchý výstupní modul pro syntetizéry, které mají rozhraní ve formě
+jednoduchého řádkového klienta, pouze modifikací konfiguračního souboru.  Tímto
+způsobem nemusí psát žádný specifický kód v C a uživatelé si mohou přidávat
+podporu pro výstupní zařízení i když neumí programovat.  @xref{AddModule}.
 
-Kl��ov� ��st ka�d�ho generick�ho v�stupn�ho modulu je definice �et�zce, kter�
-se m� spou�t�t.
+Klíčová část každého generického výstupního modulu je definice řetězce, který
+se má spouštět.
 
-@defvr {Konfigurace generick�ho modulu} GenericExecuteSynth "@var{execution_string}"
+@defvr {Konfigurace generického modulu} GenericExecuteSynth "@var{execution_string}"
 
-@code{execution_string} je p��kaz, kter� by m�l b�t zavol�n v shellu, kdy� je
-pot�eba n�co ��ct.  Ve skute�nosti to m��e b�t v�ce jak jeden p��kaz, dohromady
-z�et�zen� oper�torem @code{&&}.  Kdy� bude v�stupn� modul cht�t p�e��k�v�n�
-zpr�vy zastavit, za�le t�mto proces�m sign�l KILL, tak�e je d�le�it�, aby
-pou�it� p��kazy po obdr�en� KILL okam�it� p�estaly mluvit. (Na v�t�in�
-GNU/Linuxov�ch syst�m� m� tuto vlastnost utilita @code{play})
+@code{execution_string} je příkaz, který by měl být zavolán v shellu, když je
+potřeba něco říct.  Ve skutečnosti to může být více jak jeden příkaz, dohromady
+zřetězené operátorem @code{&&}.  Když bude výstupní modul chtít přeříkávání
+zprávy zastavit, zašle těmto procesům signál KILL, takže je důležité, aby
+použité příkazy po obdržení KILL okamžitě přestaly mluvit. (Na většině
+GNU/Linuxových systémů má tuto vlastnost utilita @code{play})
 
-V @code{execution_string} m��ete vyu��t t�chto prom�nn�ch, kter� budou
-nahrazeny po�adovan�mi hodnotami, ne� bude p��kaz vykon�n.
+V @code{execution_string} můžete využít těchto proměnných, které budou
+nahrazeny požadovanými hodnotami, než bude příkaz vykonán.
 
 @itemize
 @item @code{$DATA}
-Text, kter� by m�l b�t p�e��k�n.  Znaky �et�zce, kter� by n�jak interferovali
-se zpracov�n�m v bashi budou automaticky nahrazeny odpov�daj�c�mi escape
-sekvencemi.  Asi bude ale nutn� uv�st kolem t�to prom�nn� uvozovky
-(nap�. takto: @code{\"$DATA\"}).
-@item @code{$LANG}
-Identifika�n� �et�zec jazyka (ten je definov�n pomoc� GenericLanguage).
+Text, který by měl být přeříkán.  Znaky řetězce, které by nějak interferovali
+se zpracováním v bashi budou automaticky nahrazeny odpovídajícími escape
+sekvencemi.  Asi bude ale nutné uvést kolem této proměnné uvozovky
+(např. takto: @code{\"$DATA\"}).
+@item @code{$LANGUAGE}
+Identifikační řetězec jazyka (ten je definován pomocí GenericLanguage).
 @item @code{$VOICE}
-Identifika�n� �et�zec hlasu (ten je definov�n pomoc� AddVoice).
+Identifikační řetězec hlasu (ten je definován pomocí AddVoice).
 @item @code{$PITCH}
-Po�adovan� v��ka hlasu (desetinn� ��slo definovan� v GenericPitchAdd a v
+Požadovaná výška hlasu (desetinné číslo definované v GenericPitchAdd a v
 GenericPitchMultiply)
 @item @code{$RATE}
-Po�adovan� rychlost hlasu (desetinn� ��slo definovan� v GenericRateAdd a v
+Požadovaná rychlost hlasu (desetinné číslo definované v GenericRateAdd a v
 GenericRateMultiply)
 @end itemize
 
-Tady je p��klad z @file{etc/speech-dispatcher/modules/epos-generic.conf}
+Tady je příklad z @file{etc/speech-dispatcher/modules/epos-generic.conf}
 @example
 GenericExecuteSynth \
-"epos-say -o --language $LANG --voice $VOICE --init_f $PITCH --init_t $RATE \
+"epos-say -o --language $LANGUAGE --voice $VOICE --init_f $PITCH --init_t $RATE \
 \"$DATA\" | sed -e s+unknown.*$++ >/tmp/epos-said.wav && play /tmp/epos-said.wav >/dev/null"
 @end example
 @end defvr
 
-@defvr {Konfigurace generick�ho modulu} AddVoice "@var{language}" "@var{symbolicname}" "@var{name}"
+@defvr {Konfigurace generického modulu} AddVoice "@var{language}" "@var{symbolicname}" "@var{name}"
 @xref{AddVoice}.
 @end defvr
 
-@defvr {Konfigurace generick�ho modulu} GenericLanguage "iso-code" "string-subst"
+@defvr {Konfigurace generického modulu} GenericLanguage "iso-code" "string-subst"
 
-Definuje, jak� �et�zec @code{string-subst} by m�l b�t nahrazen za @code{$LANG}
-pro dan� @code{iso-code} ISO k�d jazyka.
+Definuje, jaký řetězec @code{string-subst} by měl být nahrazen za @code{$LANGUAGE}
+pro daný @code{iso-code} ISO kód jazyka.
 
-Op�t p��klad z Epos generic:
+Opět příklad z Epos generic:
 @example
 GenericLanguage "en-US" "english-US"
 GenericLanguage "cs" "czech"
@@ -769,78 +773,78 @@ GenericLanguage "sk" "slovak"
 @end example
 @end defvr
 
-@defvr {Konfigurace generick�ho modulu} GenericRateAdd @var{num}
+@defvr {Konfigurace generického modulu} GenericRateAdd @var{num}
 @end defvr
-@defvr {Konfigurace generick�ho modulu} GenericRateMultiply @var{num}
+@defvr {Konfigurace generického modulu} GenericRateMultiply @var{num}
 @end defvr
-@defvr {Konfigurace generick�ho modulu} GenericPitchAdd @var{num}
+@defvr {Konfigurace generického modulu} GenericPitchAdd @var{num}
 @end defvr
-@defvr {Konfigurace generick�ho modulu} GenericPitchMultiply @var{num}
-Tyto parametry nastavuj� konverzi pro v�po�et rychlosti a v��ky.
+@defvr {Konfigurace generického modulu} GenericPitchMultiply @var{num}
+Tyto parametry nastavují konverzi pro výpočet rychlosti a výšky.
 (@code{$RATE} a @code{$PITCH}). 
 
-V�sledn� rychlost (nebo v��ka) je d�na n�sleduj�c�m vzorcem:
+Výsledná rychlost (nebo výška) je dána následujícím vzorcem:
 @example
    (speechd_rate * GenericRateMultiply) + GenericRateAdd
 @end example
-kde speechd_rate je hodnota mezi -100 (nejni���) a +100 (nejvy���).  Je t�eba
-definovat n�jakou rozumnou konverzi pro dan� syntetiz�r.
+kde speechd_rate je hodnota mezi -100 (nejnižší) a +100 (nejvyšší).  Je třeba
+definovat nějakou rozumnou konverzi pro daný syntetizér.
 
-(Hodnoty v GenericN�coMultiply jsou vyn�sobeny stem, proto�e st�vaj�c� verze
-DotConfu nepodporuje desetinn� ��sla.  M��ete tedy ps�t 0.85 jako 85 atd.)
+(Hodnoty v GenericNěcoMultiply jsou vynásobeny stem, protože stávající verze
+DotConfu nepodporuje desetinná čísla.  Můžete tedy psát 0.85 jako 85 atd.)
 @end defvr
 
-@node �rovn� logov�n�,  , Nastaven� v�stupn�ch modul�, Konfigurace
-@subsection �rovn� logov�n�
+@node Úrovně logování,  , Nastavení výstupních modulů, Konfigurace
+@subsection Úrovně logování
 
-Ve Speech Dispatcheru je 6 r�zn�ch �rovn� logov�n�.  0 znamen� ��dn� logov�n�,
-zat�mco 5 znamen� vypisovat t�m�� v�echny dostupn� informace.
+Ve Speech Dispatcheru je 6 různých úrovní logování.  0 znamená žádné logování,
+zatímco 5 znamená vypisovat téměř všechny dostupné informace.
 
 @itemize @bullet
 
-@item �rove� 0
+@item Úroveň 0
 @itemize @bullet
-@item ��dn� informace
+@item Žádné informace
 @end itemize
 
-@item �rove� 1
+@item Úroveň 1
 @itemize @bullet
-@item Informace o startu a vyp�n�n�.
+@item Informace o startu a vypínání.
 @end itemize
 
-@item �rove� 2
+@item Úroveň 2
 @itemize @bullet
-@item Informace o chyb�ch, kter� nastaly.
-@item Alokace a uvol�ov�n� zdroj� p�i startu a p�i exitu.
+@item Informace o chybách, které nastaly.
+@item Alokace a uvolňování zdrojů při startu a při exitu.
 @end itemize
 
-@item �rove� 3
+@item Úroveň 3
 @itemize @bullet
-@item Informace o p�ij�m�n�/odep�r�n�/zav�r�n� klientsk�ch spojen�.
-@item Informace o neplatn�ch SSIP p��kazech od klient�.
+@item Informace o přijímání/odepírání/zavírání klientských spojení.
+@item Informace o neplatných SSIP příkazech od klientů.
 @end itemize
 
-@item �rove� 4
+@item Úroveň 4
 @itemize @bullet
-@item Je vypisov�n ka�d� p�ijat� p��kaz
-@item Informace o zpracov�v�n� vstupu
-@item Informace o ukl�d�n� zpr�v do front
-@item Informace o fungov�n� historie, zvukov�ch ikon, atd.
+@item Je vypisován každý přijatý příkaz
+@item Informace o zpracovávání vstupu
+@item Informace o ukládání zpráv do front
+@item Informace o fungování historie, zvukových ikon, atd.
 facilities.
-@item Informace o pr�ci vl�kna speak()
+@item Informace o práci vlákna speak()
 @end itemize
 
-@item �rove� 5
-(Ta slou�� pouze pro lad�c� ��ely a m��e vypisovat opravdu *mnoho*
-dat. Pou��vejte opatrn�.)
+@item Úroveň 5
+(Ta slouží pouze pro ladící účely a může vypisovat opravdu *mnoho*
+dat. Používejte opatrně.)
 @itemize @bullet
-@item V�echna obdr�en� data jsou vypisov�na (zpr�vy od klient�)
-@item Lad�c� informace.
+@item Všechna obdržená data jsou vypisována (zprávy od klientů)
+@item Ladící informace.
 @end itemize
 @end itemize
 
-@appendix Standardn� hlasy
-@anchor{Standardn� hlasy}
+@node Standardní hlasy, GNU General Public License, Úrovně logování, Top
+@appendix Standardní hlasy
 
 @table @code
 @item MALE1
@@ -853,11 +857,11 @@ dat. Pou��vejte opatrn�.)
 @item CHILD_FEMALE
 @end table
 
-Skute�n� dostupnost t�chto hlas� nen� zaru�ena, ale p��kaz @code{SET SELF
-VOICE} mus� akceptovat jak�koliv z nich.  Pokud nen� dan� hlas dostupn�, je
-mapov�n na jin� hlas v�stupn�m modulem.
+Skutečná dostupnost těchto hlasů není zaručena, ale příkaz @code{SET SELF
+VOICE} musí akceptovat jakýkoliv z nich.  Pokud není daný hlas dostupný, je
+mapován na jiný hlas výstupním modulem.
 
-@node GNU General Public License, GNU Free Documentation License, U�ivatelsk� dokumentace, Top
+@node GNU General Public License, GNU Free Documentation License, Uživatelská dokumentace, Top
 @appendix GNU General Public License
 @center Version 2, June 1991
 @cindex GPL, GNU General Public License

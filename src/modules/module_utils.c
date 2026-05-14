@@ -49,6 +49,11 @@ const char *module_name;
 int current_index_mark;
 char *module_index_mark;
 
+typedef struct {
+	gchar *pattern;
+	gchar *replace;
+} MulticasesString;
+
 void MSG(int level, const char *format, ...) {
 	if (level < 4 || Debug) {
 		va_list ap;
@@ -411,6 +416,51 @@ void module_strip_punctuation_default(char *buf)
 {
 	assert(buf != NULL);
 	module_strip_punctuation_some(buf, "~#$%^&*+=|<>[]_");
+}
+
+static gchar *module_multicases_string_replace(
+	gchar *text,
+	const MulticasesString *mcstr)
+{
+	GRegex *regex;
+	GError *error = NULL;
+	gchar *result;
+
+	regex = g_regex_new(mcstr->pattern, G_REGEX_OPTIMIZE, 0, &error);
+	if (!regex) {
+		DBG("ERROR compiling regular expression: %s.", error->message);
+		g_error_free(error);
+		return text;
+	}
+
+	result = g_regex_replace(regex, text, -1, 0, mcstr->replace, G_REGEX_MATCH_DEFAULT, NULL);
+
+	g_error_free(error);
+	g_regex_unref(regex);
+	g_free(text);
+							 
+	return result;
+}
+
+char *module_multicases_string(char *message)
+{
+	static MulticasesString mcstr[] = {
+		{"([a-z]+)([A-Z][a-z]+)", "\\1 \\2"},
+		{"([a-z]+)([A-Z]+)", "\\1 \\2"},
+		{"([A-Z]+)([A-Z][a-z]+)", "\\1 \\2"},
+		{"([A-Z])([A-Z][a-z]+)", "\\1 \\2"}
+	};
+	guint i;
+
+	assert(message != NULL);
+	
+	for (i = 0; i < 4; i++) {
+		message = (char*)module_multicases_string_replace((gchar*)message, &mcstr[i]);
+	}
+
+	DBG("Multicases string '%s'\n", message);
+
+	return message;
 }
 
 size_t

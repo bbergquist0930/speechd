@@ -281,7 +281,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	sem_post(cicero_semaphore);
 
 	DBG("Cicero: leaving module_speak() normally\n\r");
-	return bytes;
+	return 1;
 }
 
 int module_stop(void)
@@ -337,6 +337,8 @@ void *_cicero_speak(void *nothing)
 	int ret;
 	char buf[CiceroMaxChunkLength], l[5], b[2];
 	struct pollfd ufds = { fd1[0], POLLIN | POLLPRI, 0 };
+
+	spd_pthread_setname("_cicero_speak");
 
 	DBG("cicero: speaking thread starting.......\n");
 	/* Make interruptible */

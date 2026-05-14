@@ -87,6 +87,7 @@ MOD_OPTION_1_STR(GenericExecuteSynth)
     MOD_OPTION_1_STR(GenericPunctAll)
     MOD_OPTION_1_STR(GenericStripPunctChars)
     MOD_OPTION_1_STR(GenericRecodeFallback)
+    MOD_OPTION_1_STR(GenericDefaultCharset)
 
     MOD_OPTION_1_INT(GenericRateAdd)
     MOD_OPTION_1_FLOAT(GenericRateMultiply)
@@ -127,6 +128,7 @@ int module_load(void)
 	MOD_OPTION_1_STR_REG(GenericDelimiters, ".");
 	MOD_OPTION_1_STR_REG(GenericStripPunctChars, "");
 	MOD_OPTION_1_STR_REG(GenericRecodeFallback, "?");
+	MOD_OPTION_1_STR_REG(GenericDefaultCharset, "iso-8859-1");
 
 	MOD_OPTION_1_INT_REG(GenericRateAdd, 0);
 	MOD_OPTION_1_FLOAT_REG(GenericRateMultiply, 1);
@@ -179,7 +181,7 @@ int module_init(char **status_info)
 	generic_msg_language =
 	    (TGenericLanguage *) g_malloc(sizeof(TGenericLanguage));
 	generic_msg_language->code = g_strdup("en-US");
-	generic_msg_language->charset = g_strdup("iso-8859-1");
+	generic_msg_language->charset = g_strdup(GenericDefaultCharset);
 	generic_msg_language->name = g_strdup("english");
 
 	/* For mbtowc to work in locale charset */
@@ -216,7 +218,7 @@ SPDVoice **module_list_voices(void)
 
 int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 {
-	char *tmp = data, *newtmp;
+	char *tmp, *newtmp;
 	GError *gerror = NULL;
 
 	DBG("speak()\n");
@@ -234,11 +236,17 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	UPDATE_PARAMETER(rate, generic_set_rate);
 	UPDATE_PARAMETER(volume, generic_set_volume);
 
+	DBG("Requested data (%d): |%s|\n", msgtype, data);
+
 	/* TODO: use a generic engine for SPELL, CHAR, KEY */
 	if (msgtype == SPD_MSGTYPE_TEXT)
 	{
-		tmp = module_strip_ssml(tmp);
+		tmp = module_strip_ssml(data);
 		bytes = strlen(tmp);
+	}
+	else
+	{
+		tmp = g_strndup(data, bytes);
 	}
 
 	module_strip_punctuation_some(tmp, GenericStripPunctChars);
@@ -260,9 +268,9 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 			tmp = newtmp;
 		}
 	} else {
-		DBG("Warning: Preferred charset not specified, recoding to iso-8859-1");
+		DBG("Warning: Preferred charset not specified, recoding to %s", GenericDefaultCharset);
 		newtmp =
-		    (char *)g_convert_with_fallback(tmp, bytes, "iso-8859-1",
+		    (char *)g_convert_with_fallback(tmp, bytes, GenericDefaultCharset,
 						    "UTF-8",
 						    GenericRecodeFallback, NULL,
 						    NULL, &gerror);
@@ -280,14 +288,14 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	generic_message = tmp;
 	generic_message_type = msgtype;
 
-	DBG("Requested data (%d): |%s|\n", msgtype, data);
+	DBG("Converted data to (%d): |%s|\n", msgtype, tmp);
 
 	/* Send semaphore signal to the speaking thread */
 	generic_speaking = 1;
 	sem_post(generic_semaphore);
 
 	DBG("Generic: leaving write() normally\n\r");
-	return bytes;
+	return 1;
 }
 
 int module_stop(void)
@@ -390,6 +398,8 @@ void *_generic_speak(void *nothing)
 	TModuleDoublePipe module_pipe;
 	int ret;
 	int status;
+
+	spd_pthread_setname("_generic_speak");
 
 	DBG("generic: speaking thread starting.......\n");
 
@@ -640,9 +650,9 @@ void _generic_child(TModuleDoublePipe dpipe, const size_t maxlen)
 					exit(EXIT_FAILURE);
 				} else if (pid == 0) {
 					// child, execute command
-					ret = execl("/bin/bash", "bash", "-c", command, (char *) NULL);
-					// catch missing bash
-					DBG("Missing /bin/bash? (ret=%d error=%d) %s", ret, errno, strerror(errno));
+					ret = execl("/bin/sh", "sh", "-c", command, (char *) NULL);
+					// catch missing sh
+					DBG("Missing /bin/sh? (ret=%d error=%d) %s", ret, errno, strerror(errno));
 					exit(EXIT_FAILURE);
 				} else {
 					int status;
@@ -763,7 +773,7 @@ void generic_set_language(char *lang)
 		generic_msg_language =
 		    (TGenericLanguage *) g_malloc(sizeof(TGenericLanguage));
 		generic_msg_language->code = g_strdup("en-US");
-		generic_msg_language->charset = g_strdup("iso-8859-1");
+		generic_msg_language->charset = g_strdup(GenericDefaultCharset);
 		generic_msg_language->name = g_strdup("english");
 	}
 

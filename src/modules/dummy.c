@@ -124,7 +124,7 @@ int module_speak(gchar * data, size_t bytes, SPDMessageType msgtype)
 	sem_post(dummy_semaphore);
 
 	DBG("Dummy: leaving write() normally\n\r");
-	return bytes;
+	return 1;
 }
 
 int module_stop(void)
@@ -181,6 +181,8 @@ int module_close(void)
 void *_dummy_speak(void *nothing)
 {
 	int status;
+
+	spd_pthread_setname("_dummy_speak");
 
 	DBG("dummy: speaking thread starting.......\n");
 

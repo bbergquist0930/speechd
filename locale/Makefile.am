@@ -19,23 +19,27 @@
 
 nobase_localedata_DATA = \
 	base/font-variants.dic \
-	base/symbols-fallback.dic \
+	base/symbols.dic \
 	\
 	af/emojis.dic \
+	ak/emojis.dic \
 	am/emojis.dic \
 	ar/emojis.dic \
 	ar_SA/emojis.dic \
 	as/emojis.dic \
 	ast/emojis.dic \
 	az/emojis.dic \
+	ba/emojis.dic \
 	be/emojis.dic \
 	bew/emojis.dic \
 	bg/emojis.dic \
 	bgn/emojis.dic \
+	blo/emojis.dic \
 	bn/emojis.dic \
 	br/emojis.dic \
 	bs/emojis.dic \
 	ca/emojis.dic \
+	ca_ES_VALENCIA/emojis.dic \
 	ccp/emojis.dic \
 	ceb/emojis.dic \
 	chr/emojis.dic \
@@ -68,6 +72,7 @@ nobase_localedata_DATA = \
 	fo/emojis.dic \
 	fr/emojis.dic \
 	fr_CA/emojis.dic \
+	frr/emojis.dic \
 	ga/emojis.dic \
 	gd/emojis.dic \
 	gl/emojis.dic \
@@ -91,6 +96,7 @@ nobase_localedata_DATA = \
 	ka/emojis.dic \
 	kab/emojis.dic \
 	kk/emojis.dic \
+	kk_Arab/emojis.dic \
 	kl/emojis.dic \
 	km/emojis.dic \
 	kn/emojis.dic \
@@ -119,9 +125,11 @@ nobase_localedata_DATA = \
 	no/emojis.dic \
 	nso/emojis.dic \
 	oc/emojis.dic \
+	om/emojis.dic \
 	or/emojis.dic \
 	pa/emojis.dic \
 	pa_Arab/emojis.dic \
+	pap/emojis.dic \
 	pcm/emojis.dic \
 	pl/emojis.dic \
 	ps/emojis.dic \
@@ -138,6 +146,7 @@ nobase_localedata_DATA = \
 	sat/emojis.dic \
 	sc/emojis.dic \
 	sd/emojis.dic \
+	shn/emojis.dic \
 	si/emojis.dic \
 	sk/emojis.dic \
 	sl/emojis.dic \
@@ -148,6 +157,7 @@ nobase_localedata_DATA = \
 	sv/emojis.dic \
 	sw/emojis.dic \
 	sw_KE/emojis.dic \
+	syr/emojis.dic \
 	ta/emojis.dic \
 	te/emojis.dic \
 	tg/emojis.dic \
@@ -157,10 +167,12 @@ nobase_localedata_DATA = \
 	tn/emojis.dic \
 	to/emojis.dic \
 	tr/emojis.dic \
+	tt/emojis.dic \
 	ug/emojis.dic \
 	uk/emojis.dic \
 	ur/emojis.dic \
 	uz/emojis.dic \
+	vec/emojis.dic \
 	vi/emojis.dic \
 	wo/emojis.dic \
 	xh/emojis.dic \
@@ -289,10 +301,63 @@ nobase_localedata_DATA = \
 	zh_HK/orca-chars.dic \
 	zh_TW/orca-chars.dic \
 	\
+	base/orca-math.dic \
+	be/orca-math.dic \
+	bg/orca-math.dic \
+	bs/orca-math.dic \
+	ca/orca-math.dic \
+	ca@valencia/orca-math.dic \
+	ckb/orca-math.dic \
+	cs/orca-math.dic \
+	da/orca-math.dic \
+	de/orca-math.dic \
+	el/orca-math.dic \
+	en_GB/orca-math.dic \
+	eo/orca-math.dic \
+	es/orca-math.dic \
+	eu/orca-math.dic \
+	fa/orca-math.dic \
+	fr/orca-math.dic \
+	gl/orca-math.dic \
+	he/orca-math.dic \
+	hr/orca-math.dic \
+	hu/orca-math.dic \
+	id/orca-math.dic \
+	it/orca-math.dic \
+	kab/orca-math.dic \
+	ka/orca-math.dic \
+	kk/orca-math.dic \
+	lt/orca-math.dic \
+	lv/orca-math.dic \
+	ml/orca-math.dic \
+	ms/orca-math.dic \
+	nb/orca-math.dic \
+	ne/orca-math.dic \
+	nl/orca-math.dic \
+	oc/orca-math.dic \
+	pl/orca-math.dic \
+	pt_BR/orca-math.dic \
+	pt/orca-math.dic \
+	ro/orca-math.dic \
+	ru/orca-math.dic \
+	sk/orca-math.dic \
+	sl/orca-math.dic \
+	sr@latin/orca-math.dic \
+	sr/orca-math.dic \
+	sv/orca-math.dic \
+	tr/orca-math.dic \
+	ug/orca-math.dic \
+	uk/orca-math.dic \
+	uz/orca-math.dic \
+	zh_CN/orca-math.dic \
+	\
+	am/symbols.dic \
 	an/symbols.dic \
 	ar/symbols.dic \
+	be/symbols.dic \
 	bg/symbols.dic \
 	bn/symbols.dic \
+	bs/symbols.dic \
 	ca/symbols.dic \
 	ckb/symbols.dic \
 	cs/symbols.dic \

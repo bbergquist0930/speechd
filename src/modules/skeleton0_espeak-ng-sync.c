@@ -1,7 +1,7 @@
 /*
  * skeleton0.c - Trivial module example
  *
- * Copyright (C) 2020-2022 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2020-2022, 2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -279,7 +279,7 @@ void module_speak_sync(const char *data, size_t bytes, SPDMessageType msgtype)
 	module_report_event_begin();
 
 	/* TODO: ideally, espeak would call a callback from times to times, so
-	 * we'd be able to call module_process_STDIN_FILENO, 0) in it so as to
+	 * we'd be able to call module_process(STDIN_FILENO, 0) in it so as to
 	 * process any stop request from the server before the end of the synth.
 	 */
 	espeak_Synth(data, strlen(data) + 1, 0, POS_CHARACTER, 0,
@@ -295,6 +295,8 @@ size_t module_pause(void)
 	fprintf(stderr, "pausing\n");
 	stop_requested = 1;
 
+	module_report_event_stop();
+
 	return 0;
 }
 
@@ -303,6 +305,8 @@ int module_stop(void)
 	/* Unsupported: Stop any current synth */
 	fprintf(stderr, "stopping\n");
 	stop_requested = 1;
+
+	module_report_event_stop();
 
 	return 0;
 }

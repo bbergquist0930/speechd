@@ -15,6 +15,30 @@ Speech Dispatcher project provides a high-level *device independent* layer
 for access to speech synthesis through a simple, stable and well documented
 interface.
 
+Support
+-------
+
+These speech syntheses are supported:
+
+- Baratinoo / VoxyGen
+- Cicero
+- DECTalk
+- Epos
+- ESpeak/ESpeak-NG
+- Festival
+- Flite
+- IBMTTS / voxin
+- Ivona
+- Kali
+- Llia
+- Mary
+- MBrola
+- Mimic3
+- OpenJTalk
+- Pico
+- Piper
+- Swift
+
 Documentation
 -------------
 
@@ -29,6 +53,10 @@ This documentation is also available online:
 the [speech dispatcher documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/speech-dispatcher.html),
 the [spd-say documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/spd-say.html),
 and the [SSIP protocol documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/ssip.html).
+
+The python binding documentation is available on the shell with
+`pydoc3 speechd` (or `pydoc speechd`)
+and online: the [speechd.client module documentation](http://htmlpreview.github.io/?https://github.com/brailcom/speechd/blob/master/doc/speechd.client.html)
 
 The key features and the supported TTS engines, output subsystems, client
 interfaces and client applications known to work with Speech Dispatcher are
@@ -88,8 +116,8 @@ To build and install speech-dispatcher and all of it's components, read the
 file [INSTALL](INSTALL).
 
 
-To try speech-dispatcher without installing it (e.g. to avoid disturbing an
-existing speech-dispatcher instance), you can run
+To try the just-built speech-dispatcher without installing it (e.g. to avoid
+disturbing an existing speech-dispatcher instance), you can run
 
 ```
 ./run-speechd -t 0 -s
@@ -99,6 +127,20 @@ and in another terminal run
 
 ```
 ./run-spd-say foo
+```
+
+You can also make other speech-dispatcher clients connect to your dedicated
+instance by first running
+
+```
+export SPEECHD_ADDRESS=inet_socket:127.0.0.1:6561
+```
+
+If you want those clients to also use the just-built libspeechd, you can
+additionally use
+
+```
+export LD_LIBRARY_PATH=$PWD/src/api/c/.libs
 ```
 
 
@@ -183,7 +225,7 @@ LGPLv2.1-or-later source code.
 
 
 Copyright (C) 2001-2009 Brailcom, o.p.s
-Copyright (C) 2018-2020, 2022, 2024 Samuel Thibault <samuel.thibault@ens-lyon.org>
+Copyright (C) 2018-2020, 2022, 2024-2026 Samuel Thibault <samuel.thibault@ens-lyon.org>
 Copyright (C) 2018 Didier Spaier <didier@slint.fr>
 
 This README file is free software; you can redistribute it and/or modify it under

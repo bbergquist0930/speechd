@@ -42,7 +42,7 @@
 #include "../common/common.h"
 
 /* Put a message into the logfile (stderr) */
-#define MSG(level, arg, ...) if (level <= nas_log_level) { MSG(0, "nas: " arg, ##__VA_ARGS__); }
+#define MSG(level, arg, ...) if (level <= nas_log_level) { MSG(level, "nas: " arg, ##__VA_ARGS__); }
 #define ERR(arg, ...) MSG(0, "nas ERROR: " arg, ##__VA_ARGS__)
 
 typedef struct {
@@ -62,6 +62,8 @@ static void *_nas_handle_events(void *par)
 {
 	spd_nas_id_t *nas_id = (spd_nas_id_t *) par;
 	pthread_setcancelstate(PTHREAD_CANCEL_ENABLE, NULL);
+
+	spd_pthread_setname("_nas_handle_events");
 
 	while (1)
 		AuHandleEvents(nas_id->aud);

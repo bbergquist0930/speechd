@@ -107,10 +107,11 @@ static gboolean speechd_client_terminate(gpointer key, gpointer value, gpointer 
 static gboolean speechd_reload_dead_modules(gpointer user_data);
 static gboolean speechd_reload_configuration(gpointer user_data);
 enum quit_reason {
+	QUIT_TIMEOUT,
 	QUIT_SIGINT,
 	QUIT_SIGTERM,
-	QUIT_TIMEOUT,
 };
+static enum quit_reason quit_reason = QUIT_TIMEOUT;
 static gboolean speechd_quit(gpointer user_data);
 
 static gboolean server_process_incoming (gint          fd,
@@ -689,8 +690,8 @@ static gint modules_compare (gconstpointer a, gconstpointer b)
 	const char *name_a = params_a[0];
 	const char **params_b = (const char **) b;
 	const char *name_b = params_b[0];
-	unsigned index_a;
-	unsigned index_b;
+	int index_a;
+	int index_b;
 
 	/* This gives the prioritization order of modules, to automatically select the best quality */
 	static const char *modules_order[] = {
@@ -705,6 +706,7 @@ static gint modules_compare (gconstpointer a, gconstpointer b)
 		"ibmtts",
 		"festival",
 		"flite",
+		"multispeech",
 		"espeak-ng-mbrola",
 		"espeak-ng-mbrola-generic",
 		"espeak-ng",
@@ -862,7 +864,11 @@ static void speechd_check_modules(void)
 
 static gboolean speechd_quit(gpointer user_data)
 {
-	switch ((enum quit_reason)(uintptr_t) user_data) {
+	/* Don't drop an existing non-timeout reason.  */
+	if (quit_reason == QUIT_TIMEOUT)
+		quit_reason = (enum quit_reason)(uintptr_t) user_data;
+
+	switch (quit_reason) {
 		case QUIT_SIGINT:
 			MSG(4, "Got SIGINT");
 			break;
@@ -964,7 +970,7 @@ void logging_init(void)
 				file_name);
 			logfile = stdout;
 		} else {
-			MSG(3, "Speech Dispatcher Logging to file %s at level %d",
+			MSG(3, "Speech Dispatcher "PACKAGE_VERSION" Logging to file %s at level %d",
 			    file_name, SpeechdOptions.log_level);
 		}
 	}
@@ -1318,9 +1324,11 @@ int main(int argc, char *argv[])
 					    "unix_socket")) {
 					/* Check socket name */
 					if (spawn_socket_path)
-						if (strcmp
-						    (spawn_socket_path,
-						     SpeechdOptions.socket_path))
+					{
+						char *spawn_socket_path_norm = realpath(spawn_socket_path, NULL);
+						char *opts_socket_path_norm = realpath(SpeechdOptions.socket_path, NULL);
+						if (spawn_socket_path_norm && opts_socket_path_norm
+						    && strcmp(spawn_socket_path_norm, opts_socket_path_norm))
 						{
 							MSG(-1,
 							    "Autospawn failed: Mismatch in socket names. The server "
@@ -1332,6 +1340,9 @@ int main(int argc, char *argv[])
 							    spawn_socket_path);
 							exit(1);
 						}
+						free(spawn_socket_path_norm);
+						free(opts_socket_path_norm);
+					}
 				} else
 					assert(0);
 			}
@@ -1434,7 +1445,11 @@ int main(int argc, char *argv[])
 
 	check_client_count();
 
-	g_main_loop_run(main_loop);
+	do {
+		g_main_loop_run(main_loop);
+		/* Make a last client check before existing on timeout.
+		 * Systemd will restart us if a client connected in between. */
+	} while (quit_reason == QUIT_TIMEOUT && client_count > 0);
 
 	MSG(1, "Terminating...");
 

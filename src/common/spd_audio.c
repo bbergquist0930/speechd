@@ -3,7 +3,7 @@
  * spd_audio.c -- Spd Audio Output Library
  *
  * Copyright (C) 2004, 2006 Brailcom, o.p.s.
- * Copyright (C) 2019, 2021 Samuel Thibault <samuel.thibault@ens-lyon.org>
+ * Copyright (C) 2019, 2021, 2025 Samuel Thibault <samuel.thibault@ens-lyon.org>
  *
  * This is free software; you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free
@@ -123,13 +123,14 @@ AudioID *spd_audio_open(const char *name, void **pars, char **error)
 	libname = g_strdup_printf("%s/" SPD_AUDIO_LIB_PREFIX "%s.so", plugin_dir, name);
 	dlhandle = dlopen(libname, RTLD_NOW | RTLD_GLOBAL);
 
-	g_free(libname);
 	if (NULL == dlhandle) {
 		*error =
-			(char *)g_strdup_printf("Cannot open plugin %s. error: %s",
-						name, dlerror());
+			(char *)g_strdup_printf("Cannot open plugin %s at %s. error: %s",
+						name, libname, dlerror());
+		g_free(libname);
 		return (AudioID *) NULL;
 	}
+	g_free(libname);
 
 	fn = dlsym(dlhandle, SPD_AUDIO_PLUGIN_ENTRY_STR);
 #else
@@ -141,13 +142,14 @@ AudioID *spd_audio_open(const char *name, void **pars, char **error)
 
 	libname = g_strdup_printf(SPD_AUDIO_LIB_PREFIX "%s", name);
 	lt_h = my_dlopenextglobal(libname);
-	g_free(libname);
 	if (NULL == lt_h) {
 		*error =
-		    (char *)g_strdup_printf("Cannot open plugin %s. error: %s",
-					    name, lt_dlerror());
+		    (char *)g_strdup_printf("Cannot open plugin %s in %s/%s. error: %s",
+					    name, plugin_dir, libname, lt_dlerror());
+		g_free(libname);
 		return (AudioID *) NULL;
 	}
+	g_free(libname);
 
 	fn = lt_dlsym(lt_h, SPD_AUDIO_PLUGIN_ENTRY_STR);
 #endif
